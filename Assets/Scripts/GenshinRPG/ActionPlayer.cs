@@ -8,6 +8,7 @@ public class ActionPlayer : CharacterMovement, IBattle
     [SerializeField] float Sensitivity = 10.0f;
     [SerializeField] Transform myAttackPoint;
     [SerializeField] LayerMask myEnemyMask;
+    [SerializeField] GameObject myWeapon;
 
     Transform _target = null;
     Transform myTarget
@@ -30,6 +31,7 @@ public class ActionPlayer : CharacterMovement, IBattle
     {
         PlayerMoving(Sensitivity);
         WarriorAttack();
+        WeaponDisapear();
     }
 
 
@@ -74,6 +76,11 @@ public class ActionPlayer : CharacterMovement, IBattle
         }
     }
 
+    public void WeaponDisapear()
+    {
+        if (myAnim.GetBool("IsFastRun")) myWeapon.SetActive(false);
+        else myWeapon.SetActive(true);
+    }
 
 
 
