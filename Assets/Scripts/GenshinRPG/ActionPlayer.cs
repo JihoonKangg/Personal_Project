@@ -30,8 +30,6 @@ public class ActionPlayer : CharacterMovement, IBattle
     {
         PlayerMoving(Sensitivity);
         WarriorAttack();
-
-
     }
 
 

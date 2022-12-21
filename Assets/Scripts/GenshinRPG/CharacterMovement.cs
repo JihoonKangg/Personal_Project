@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 //public delegate void MyAction();
 //함수 저장
@@ -18,6 +19,7 @@ public class CharacterMovement : CharacterProperty
     bool IsCharacterRot = false;
     [SerializeField] float CharacterRotSpeed = 1.0f;
     [SerializeField] Transform myFollowCam;
+    [SerializeField] Slider myStaminaBar;
 
     protected void MonsterAttackTarget(Transform target)
     {
@@ -49,8 +51,6 @@ public class CharacterMovement : CharacterProperty
     }
     protected void PlayerMoving(float Sensitivity)
     {
-        float Offset = 0.5f;
-
         targetDir.x = Input.GetAxis("Horizontal"); //x축값(왼/오 무빙 담당)
         targetDir.y = Input.GetAxis("Vertical"); //y축값(앞/뒤 무빙 담당)
 
@@ -69,7 +69,7 @@ public class CharacterMovement : CharacterProperty
         {
             IsCharacterRot = false;
         }
-        if(Input.GetKey(KeyCode.LeftShift)) myAnim.SetBool("IsFastRun", true);
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && !myStaminaBar.value.Equals(0)) myAnim.SetBool("IsFastRun", true);
         else myAnim.SetBool("IsFastRun", false);
     }
     protected void WarriorAttack()
