@@ -8,6 +8,7 @@ public class AnimEvent : MonoBehaviour
     public UnityEvent Attack = default;
     public UnityEvent Skill= default;
     public UnityEvent<bool> ComboCheck = default; //제네릭 타입 딜리게이트
+    public UnityEvent Weaponset = default;
 
     public void LeftFootEvent()
     {
@@ -32,5 +33,9 @@ public class AnimEvent : MonoBehaviour
     public void ComboCheckEnd()
     {
         ComboCheck?.Invoke(false);
+    }
+    public void WeaponSet()
+    {
+        Weaponset?.Invoke();
     }
 }

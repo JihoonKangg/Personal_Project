@@ -31,7 +31,6 @@ public class ActionPlayer : CharacterMovement, IBattle
     {
         PlayerMoving(Sensitivity);
         WarriorAttack();
-        WeaponDisapear();
     }
 
 
@@ -76,23 +75,30 @@ public class ActionPlayer : CharacterMovement, IBattle
         }
     }
 
-    public void WeaponDisapear()
-    {
-        if (myAnim.GetBool("IsFastRun")) myWeapon.SetActive(false);
-        else myWeapon.SetActive(true);
-    }
-
-
 
     //인터페이스
 
     public void OnBigDamage(float Bigdmg) //데미지 받을 때
     {
-        if(!myAnim.GetBool("IsStun"))
+        myStat.HP -= Bigdmg;
+
+        if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
         {
-            myAnim.SetTrigger("Big Damage");
-            //Big Damage트리거가 발생하지 않게 해야함.(데미지만 입도록)
-            //플레이어의 공격을 막아야함.
+            //Death 트리거 발동
+        }
+        else
+        {
+            if (!myAnim.GetBool("IsStun"))
+            {
+                myAnim.SetTrigger("Big Damage");
+                myAnim.SetBool("IsStun", true);
+                //Big Damage트리거가 발생하지 않게 해야함.(데미지만 입도록)
+                //플레이어의 공격을 막아야함.
+            }
+            else
+            {
+                myAnim.SetBool("IsStun", false);
+            }
         }
     }
     public void OnDamage(float dmg) //데미지 받을 때
