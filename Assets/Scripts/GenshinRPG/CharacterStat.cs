@@ -24,6 +24,10 @@ public class CharacterStat //±¸Á¶Ã¼
             hp = Mathf.Clamp(value, 0.0f, maxHp);
         }
     }
+    public float MaxHP
+    {
+        get => maxHp;
+    }
     public float AP
     {
         get => ap;

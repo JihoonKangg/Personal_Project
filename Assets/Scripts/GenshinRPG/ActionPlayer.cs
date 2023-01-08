@@ -7,6 +7,7 @@ public class ActionPlayer : CharacterMovement, IBattle
     List<IBattle> myAttackers = new List<IBattle>(); //Player를 공격하는 오브젝트
     [SerializeField] float Sensitivity = 10.0f;
     [SerializeField] Transform myAttackPoint;
+    [SerializeField] Transform myESkillAttackPoint;
     [SerializeField] LayerMask myEnemyMask;
     [SerializeField] GameObject myWeapon;
 
@@ -29,8 +30,6 @@ public class ActionPlayer : CharacterMovement, IBattle
     // Update is called once per frame
     void Update()
     {
-        PlayerMoving(Sensitivity);
-        WarriorAttack();
     }
 
 
@@ -45,10 +44,10 @@ public class ActionPlayer : CharacterMovement, IBattle
         }
     }
 
-    public void SkillAttack()
+    public void ESkillAttack() //E 스킬 사용
     {
         //스킬 미정.
-        Collider[] list = Physics.OverlapSphere(myAttackPoint.position, 0.5f, myEnemyMask);
+        Collider[] list = Physics.OverlapSphere(myESkillAttackPoint.position, 2.8f, myEnemyMask);
 
         foreach (Collider col in list)
         {
@@ -75,10 +74,9 @@ public class ActionPlayer : CharacterMovement, IBattle
         }
     }
 
-
     //인터페이스
 
-    public void OnBigDamage(float Bigdmg) //데미지 받을 때
+    public void OnBigDamage(float Bigdmg) //강한데미지 받을 때
     {
         myStat.HP -= Bigdmg;
 
@@ -101,11 +99,30 @@ public class ActionPlayer : CharacterMovement, IBattle
             }
         }
     }
-    public void OnDamage(float dmg) //데미지 받을 때
+    public void OnDamage(float dmg) //일반 데미지 받을 때
     {
+        myStat.HP -= dmg;
 
+        if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
+        {
+            //Death 트리거 발동
+        }
+        else //★★수정항목★★
+        {
+            if (!myAnim.GetBool("IsStun"))
+            {
+                myAnim.SetTrigger("Big Damage");
+                myAnim.SetBool("IsStun", true);
+                //Big Damage트리거가 발생하지 않게 해야함.(데미지만 입도록)
+                //플레이어의 공격을 막아야함.
+            }
+            else
+            {
+                myAnim.SetBool("IsStun", false);
+            }
+        }
     }
-    public void OnSkillDamage(float SkillDamage) //데미지 받을 때
+    public void OnSkillDamage(float SkillDamage) //스킬데미지 받을 때
     {
 
     }

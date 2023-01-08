@@ -138,9 +138,18 @@ public class TreantGuard : CharacterMovement, IBattle
             myAnim.SetTrigger("Take Damage");
         }
     }
-    public void OnSkillDamage(float SkillDamage)
+    public void OnSkillDamage(float Skilldmg)
     {
-
+        myStat.HP -= Skilldmg;
+        myAnim.SetTrigger("Take Damage");
+        if (Mathf.Approximately(myStat.HP, 0)) //Á×¾úÀ» ¶§
+        {
+            ChangeState(STATE.Dead);
+        }
+        else
+        {
+            myAnim.SetTrigger("Take Damage");
+        }
     }
     public bool IsLive()
     {

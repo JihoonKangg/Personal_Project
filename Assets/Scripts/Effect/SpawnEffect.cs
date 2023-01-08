@@ -24,7 +24,7 @@ public class SpawnEffect : CharacterProperty
 
     void SetMySword()
     {
-        if(myAnim.GetBool("IsFastRun"))
+        if(myAnim.GetFloat("Speed") > 0.5f)
         {
             StartCoroutine(WeaponDisapear());
         }

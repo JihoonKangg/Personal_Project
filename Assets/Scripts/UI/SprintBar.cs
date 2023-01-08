@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SprintBar : CharacterMovement
+public class SprintBar : PlayerMovement
 {
     public GameObject mySprintBar;
     public GameObject mySprintBackGroundBar;
     public Slider mySlider;
     public Transform mySprintPos;
     float MaxSpr = 100.0f;
-    float recoverTime = 2.0f;
     [SerializeField] float myStatusSpr = 0.0f;
     // Start is called before the first frame update
     void Start()
@@ -30,10 +29,10 @@ public class SprintBar : CharacterMovement
     Coroutine coRecover = null;
     public void ConsumeBar()
     {
-        if (myAnim.GetBool("IsFastRun"))
+        if (myAnim.GetFloat("Speed") > 0.5f)
         {
             mySprintBar.SetActive(true);
-            myStatusSpr -= 30.0f * Time.deltaTime;
+            myStatusSpr -= 20.0f * Time.deltaTime;
             if (coRecover != null)
             {
                 StopCoroutine(coRecover);
@@ -53,13 +52,17 @@ public class SprintBar : CharacterMovement
             mySprintBar.SetActive(false);
         }
 
-        if(myStatusSpr < 50.0f)
+        if(myStatusSpr < 20.0f)
         {
             mySprintBackGroundBar.SetActive(true);
         }
         else
         {
             mySprintBackGroundBar.SetActive(false);
+        }
+        if (myStatusSpr <= 0.0f)
+        {
+            myStatusSpr = 0.0f;
         }
     }
 
@@ -68,7 +71,7 @@ public class SprintBar : CharacterMovement
         yield return new WaitForSeconds(2.0f);
         while(myStatusSpr < MaxSpr)
         {
-            myStatusSpr = Mathf.Clamp(myStatusSpr + 30.0f * Time.deltaTime, 0.0f, MaxSpr);
+            myStatusSpr = Mathf.Clamp(myStatusSpr + 20.0f * Time.deltaTime, 0.0f, MaxSpr);
             
             yield return null;
         }

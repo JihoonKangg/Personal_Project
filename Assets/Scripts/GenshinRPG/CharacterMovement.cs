@@ -49,44 +49,6 @@ public class CharacterMovement : CharacterProperty
             rotCo = StartCoroutine(RotatingToPosition(pos));
         }
     }
-    protected void PlayerMoving(float Sensitivity)
-    {
-        targetDir.x = Input.GetAxis("Horizontal"); //xÃà°ª(¿Þ/¿À ¹«ºù ´ã´ç)
-        targetDir.y = Input.GetAxis("Vertical"); //yÃà°ª(¾Õ/µÚ ¹«ºù ´ã´ç)
-
-        float x = Mathf.Lerp(myAnim.GetFloat("x"), targetDir.x, Time.deltaTime * Sensitivity);
-        float y = Mathf.Lerp(myAnim.GetFloat("y"), targetDir.y, Time.deltaTime * Sensitivity);
-
-        myAnim.SetFloat("x", x);
-        myAnim.SetFloat("y", y);
-
-        if(y > 0.1f)
-        {
-            IsCharacterRot = true;
-            transform.rotation = Quaternion.Lerp(transform.rotation, myFollowCam.rotation, CharacterRotSpeed * Time.deltaTime);
-        }
-        else
-        {
-            IsCharacterRot = false;
-        }
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && !myStaminaBar.value.Equals(0)) myAnim.SetBool("IsFastRun", true);
-        else myAnim.SetBool("IsFastRun", false);
-    }
-    protected void WarriorAttack()
-    {
-        if(Input.GetMouseButtonDown(0) && !myAnim.GetBool("IsComboAttacking"))
-        {
-            myAnim.SetTrigger("ComboAttack");
-        }
-        if (IsCombable)
-        {
-            if(Input.GetMouseButtonDown(0))
-            {
-                ++clickCount;
-            }
-        }
-    }
-
 
     IEnumerator RotatingToPosition(Vector3 pos)
     {

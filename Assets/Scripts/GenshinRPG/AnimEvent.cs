@@ -9,6 +9,8 @@ public class AnimEvent : MonoBehaviour
     public UnityEvent Skill= default;
     public UnityEvent<bool> ComboCheck = default; //제네릭 타입 딜리게이트
     public UnityEvent Weaponset = default;
+    public Transform PlayerSword;
+    public GameObject ESkillEffect;
 
     public void LeftFootEvent()
     {
@@ -37,5 +39,10 @@ public class AnimEvent : MonoBehaviour
     public void WeaponSet()
     {
         Weaponset?.Invoke();
+    }
+
+    public void ESkillAttackEffect()
+    {
+        Instantiate(ESkillEffect, PlayerSword.position, Quaternion.identity);
     }
 }
