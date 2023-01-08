@@ -28,6 +28,12 @@ public class SpawnEffect : CharacterProperty
         {
             StartCoroutine(WeaponDisapear());
         }
+
+        else if(myAnim.GetBool("IsComboAttacking") == true)
+        {
+            StopCoroutine(WeaponDisapear());
+            StartCoroutine(WeponSet());
+        }
     }
 
     IEnumerator WeaponDisapear()
@@ -44,7 +50,7 @@ public class SpawnEffect : CharacterProperty
     {
         while(mySplit <= 1.0f)
         {
-            mySplit += SplitSpeed * Time.deltaTime;
+            mySplit += SplitSpeed * 0.1f * Time.deltaTime;
             yield return null;
         }
         mySplit = 1.0f;

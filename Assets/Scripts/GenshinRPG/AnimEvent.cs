@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Events; //인스펙터에서 함수를 바인딩할 때 사용.
 
 public class AnimEvent : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class AnimEvent : MonoBehaviour
     }
     public void OnAttack()
     {
-        Attack?.Invoke();
+        Attack?.Invoke(); //바인딩 된 함수가 있을경우 실행.
     }
     public void ComboCheckStart()
     {

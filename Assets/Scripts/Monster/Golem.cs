@@ -3,20 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Golem : CharacterMovement, IBattle
+public class Golem : BattleSystem
 {
-    List<IBattle> myAttackers = new List<IBattle>(); //Golem을 공격하는 오브젝트
-    Transform _target = null;
-    Transform myTarget
-    {
-        get => _target;
-        set
-        {
-            _target = value;
-            if(_target != null) _target.GetComponent<IBattle>()?.AddAttacker(this);
-
-        }
-    }
     Vector3 startPos = Vector3.zero;
     public enum STATE
     {
@@ -122,14 +110,9 @@ public class Golem : CharacterMovement, IBattle
 
     //인터페이스
 
-    public void OnBigDamage(float Bigdmg)
-    {
-
-    }
-    public void OnDamage(float dmg) //데미지 입을 때
+    public override void OnDamage(float dmg) //데미지 입을 때
     {
         myStat.HP -= dmg;
-        myAnim.SetTrigger("Take Damage");
         if(Mathf.Approximately(myStat.HP, 0)) //죽었을 때
         {
             ChangeState(STATE.Dead);
@@ -139,10 +122,9 @@ public class Golem : CharacterMovement, IBattle
             myAnim.SetTrigger("Take Damage");
         }
     }
-    public void OnSkillDamage(float Skilldmg)
+    public override void OnSkillDamage(float Skilldmg)
     {
         myStat.HP -= Skilldmg;
-        myAnim.SetTrigger("Take Damage");
         if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
         {
             ChangeState(STATE.Dead);
@@ -152,23 +134,15 @@ public class Golem : CharacterMovement, IBattle
             myAnim.SetTrigger("Take Damage");
         }
     }
-    public bool IsLive()
+    public override bool IsLive()
     {
         return myState != STATE.Dead; //살아있음
     }
-    public void AddAttacker(IBattle ib)
-    {
-        myAttackers.Add(ib);
-    }
-    public void DeadMessage(Transform tr)
+    public override void DeadMessage(Transform tr)
     {
         if(tr == myTarget)
         {
             LostTarget();
         }
-    }
-    public void RemoveAttacker(IBattle ib)
-    {
-
     }
 }

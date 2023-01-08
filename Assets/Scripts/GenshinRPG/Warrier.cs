@@ -2,23 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Warrier : PlayerMovement, IBattle
+public class Warrier : BattleSystem
 {
-    List<IBattle> myAttackers = new List<IBattle>(); //Player를 공격하는 오브젝트
     [SerializeField] Transform myAttackPoint;
     [SerializeField] Transform myESkillAttackPoint;
     [SerializeField] LayerMask myEnemyMask;
-
-    Transform _target = null;
-    Transform myTarget
-    {
-        get => _target;
-        set
-        {
-            _target = value;
-            _target.GetComponent<IBattle>()?.AddAttacker(this);
-        }
-    }
 
     //콤보체크 담당
     bool IsCombable = false;
@@ -48,7 +36,7 @@ public class Warrier : PlayerMovement, IBattle
     //옵저버 패턴 사용(비동기 방식)
     public void BaseAttack() //기본공격
     {
-        Collider[] list = Physics.OverlapSphere(myAttackPoint.position, 0.5f, myEnemyMask);
+        Collider[] list = Physics.OverlapSphere(myAttackPoint.position, 1.0f, myEnemyMask);
 
         foreach (Collider col in list)
         {
@@ -89,73 +77,51 @@ public class Warrier : PlayerMovement, IBattle
 
 
     //인터페이스
-    public void OnBigDamage(float Bigdmg) //강한데미지 받을 때
+    public override void OnBigDamage(float Bigdmg) //강한데미지 받을 때
     {
         myStat.HP -= Bigdmg;
 
         if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
         {
             //Death 트리거 발동
+            myAnim.SetTrigger("Die");
+            //죽어도 몬스터가 계속 때림
         }
         else
         {
             if (!myAnim.GetBool("IsStun"))
             {
                 myAnim.SetTrigger("Big Damage");
-                myAnim.SetBool("IsStun", true);
-                //Big Damage트리거가 발생하지 않게 해야함.(데미지만 입도록)
-                //플레이어의 공격을 막아야함.
-            }
-            else
-            {
-                myAnim.SetBool("IsStun", false);
             }
         }
     }
-    public void OnDamage(float dmg) //일반 데미지 받을 때
+    public override void OnDamage(float dmg) //일반 데미지 받을 때
     {
         myStat.HP -= dmg;
 
         if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
         {
             //Death 트리거 발동
+            myAnim.SetTrigger("Die");
         }
-        else //★★수정항목★★
+        else
         {
-            if (!myAnim.GetBool("IsStun"))
-            {
-                myAnim.SetTrigger("Big Damage");
-                myAnim.SetBool("IsStun", true);
-                //Big Damage트리거가 발생하지 않게 해야함.(데미지만 입도록)
-                //플레이어의 공격을 막아야함.
-            }
-            else
-            {
-                myAnim.SetBool("IsStun", false);
-            }
+            myAnim.SetTrigger("Damage");
         }
     }
-    public void OnSkillDamage(float SkillDamage) //스킬데미지 받을 때
+    public override void OnSkillDamage(float SkillDamage) //스킬데미지 받을 때
     {
-
+        //보스가 스킬공격을 하는 경우.
     }
-    public bool IsLive()
+    public override bool IsLive()
     {
         return !Mathf.Approximately(myStat.HP, 0.0f); //살아있음
     }
-    public void AddAttacker(IBattle ib)
-    {
-        myAttackers.Add(ib);
-    }
-    public void DeadMessage(Transform tr)
+    public override void DeadMessage(Transform tr)
     {
         if (tr == myTarget)
         {
             StopAllCoroutines();
         }
-    }
-    public void RemoveAttacker(IBattle ib)
-    {
-
     }
 }

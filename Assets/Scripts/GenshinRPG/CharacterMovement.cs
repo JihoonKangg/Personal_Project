@@ -21,7 +21,7 @@ public class CharacterMovement : CharacterProperty
     [SerializeField] Transform myFollowCam;
     [SerializeField] Slider myStaminaBar;
 
-    protected void MonsterAttackTarget(Transform target)
+    /*protected void MonsterAttackTarget(Transform target)
     {
         StopAllCoroutines();
         StartCoroutine(AttackingTarget(target, myStat.AttackRange, myStat.AttackDelay));
@@ -29,9 +29,9 @@ public class CharacterMovement : CharacterProperty
     protected void PlayerAttackTarget(Transform target)
     {
         StopAllCoroutines();
-    }
+    }*/
 
-    protected void MoveToPosition(Vector3 pos, UnityAction done = null, bool Rot = true)
+    /*protected void MoveToPosition(Vector3 pos, UnityAction done = null, bool Rot = true)
     {
         if (moveCo != null)
         {
@@ -48,9 +48,9 @@ public class CharacterMovement : CharacterProperty
             }
             rotCo = StartCoroutine(RotatingToPosition(pos));
         }
-    }
+    }*/
 
-    IEnumerator RotatingToPosition(Vector3 pos)
+   /* IEnumerator RotatingToPosition(Vector3 pos)
     {
         Vector3 dir = (pos - transform.position).normalized;
         float Angle = Vector3.Angle(transform.forward, dir);
@@ -162,5 +162,5 @@ public class CharacterMovement : CharacterProperty
             yield return null;
         }
         myAnim.SetBool("Run Forward", false);
-    }
+    }*/
 }

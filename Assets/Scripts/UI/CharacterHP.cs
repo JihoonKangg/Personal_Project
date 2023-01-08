@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class CharacterHP : CharacterProperty
 {
     public Slider HpBar;
-    public ActionPlayer myCharacter;
+    public Warrier myCharacter;
     public TMPro.TMP_Text MyHp;
     public TMPro.TMP_Text MaxHp;
 
