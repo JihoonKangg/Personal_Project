@@ -14,7 +14,7 @@ public interface IBattle //다중상속 불가능으로 인터페이스 사용
     void DeadMessage(Transform tr); //죽었을 때 알려주는 함수
 }
 
-public class BattleSystem : PlayerMovement, IBattle //전투에 관련된 스크립트(몬스터/플레이어)
+public class BattleSystem : CharacterMovement, IBattle //전투에 관련된 스크립트(몬스터/플레이어)
 {
     protected List<IBattle> myAttackers = new List<IBattle>(); //플레이어/몬스터 공격하는 오브젝트
     Transform _target = null;

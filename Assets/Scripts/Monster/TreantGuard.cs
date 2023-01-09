@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class TreantGuard : BattleSystem
 {
     Vector3 startPos = Vector3.zero;
+
     public enum STATE
     {
         Create, Idle, Roaming, Battle, Dead
@@ -40,6 +41,7 @@ public class TreantGuard : BattleSystem
                 {
                     ib.DeadMessage(transform);
                 }
+                StartCoroutine(Disapearing(4.0f, 2.0f));
                 break;
         }
     }
@@ -94,18 +96,14 @@ public class TreantGuard : BattleSystem
         ChangeState(STATE.Idle);
     }
 
-    public void AttackTarget()
+    public override void AttackTarget(float radius, int a = 0, int b = 0)
     {
-        //옵저버 패턴 사용(비동기 방식)
-        if (myTarget.GetComponent<IBattle>().IsLive())
-        {
-            myTarget.GetComponent<IBattle>()?.OnDamage(myStat.AP); //일반 데미지 가할 때
-        }
+        base.AttackTarget(radius, 0, 0);
     }
-
-
-
-
+    public void Attacktarget()
+    {
+        AttackTarget(myStat.AttackRadius);
+    }
 
     //인터페이스
     public override void OnDamage(float dmg) //데미지 입을 때

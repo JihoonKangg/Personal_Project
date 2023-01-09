@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Warrier : BattleSystem
 {
-    [SerializeField] Transform myAttackPoint;
-    [SerializeField] Transform myESkillAttackPoint;
-    [SerializeField] LayerMask myEnemyMask;
-
     //콤보체크 담당
     bool IsCombable = false;
     int ClickCount = 0;
@@ -21,8 +18,8 @@ public class Warrier : BattleSystem
     {
         PlayerMoving();
         WarriorAttack();
-
-        if(IsCombable)
+        AutoAim();
+        if (IsCombable)
         {
             if(Input.GetMouseButtonDown(0))
             {
@@ -30,29 +27,45 @@ public class Warrier : BattleSystem
             }
         }
     }
-
     
-
-    //옵저버 패턴 사용(비동기 방식)
-    public void BaseAttack() //기본공격
+    public void AutoAim()
     {
-        Collider[] list = Physics.OverlapSphere(myAttackPoint.position, 1.0f, myEnemyMask);
-
-        foreach (Collider col in list)
+        if (myTarget == null) return;
+        if (myTarget.GetComponent<IBattle>().IsLive())
         {
-            col.GetComponent<IBattle>()?.OnDamage(myStat.AP); //데미지 30
+            if (myAnim.GetBool("IsComboAttacking"))
+            {
+                Vector3 pos = myTarget.position - transform.position;
+                pos.Normalize();
+                float delta = 360.0f * Time.deltaTime;
+                float rotDir = 1.0f;
+                if (Vector3.Dot(transform.right, pos) < 0)
+                {
+                    rotDir = -rotDir;
+                }
+                float angle = Vector3.Angle(transform.forward, pos);
+                if (angle > 0)
+                {
+                    if (delta > angle)
+                    {
+                        delta = angle;
+                    }
+                    angle -= delta;
+                    transform.Rotate(Vector3.up * rotDir * delta, Space.World);
+                }
+            }
         }
+        else myTarget = null;
     }
 
-    public void ESkillAttack() //E 스킬 공격
+    public void FindTarget(Transform target)
     {
-        //스킬 미정.
-        Collider[] list = Physics.OverlapSphere(myESkillAttackPoint.position, 2.8f, myEnemyMask);
+        myTarget = target;
+    }
 
-        foreach (Collider col in list)
-        {
-            col.GetComponent<IBattle>()?.OnSkillDamage(myStat.SkillAP); //데미지 50
-        }
+    public void LostTarget()
+    {
+        myTarget = null;
     }
 
     //일반공격 연속기 담당
@@ -73,6 +86,19 @@ public class Warrier : BattleSystem
                 myAnim.SetTrigger("ComboFail");
             }
         }
+    }
+    public override void AttackTarget(float radius, int a = 0, int b = 0)
+    {
+        if(myAnim.GetBool(""))//E스킬 사용할 때
+        {
+            a = 1;
+            b = 2;
+        }
+        base.AttackTarget(radius, a, b);
+    }
+    public void Attacktarget()
+    {
+        AttackTarget(myStat.AttackRadius);
     }
 
 

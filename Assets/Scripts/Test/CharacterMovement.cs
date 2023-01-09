@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PlayerMovement : CharacterProperty //행동에 관련된 스크립트(몬스터/플레이어)
+public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스터/플레이어)
 {
     [SerializeField] float CharacterRotSpeed = 10.0f;
     Quaternion targetRot = Quaternion.identity;
+    Quaternion targetRot1 = Quaternion.identity;
     public Slider mySprint;
 
     Coroutine moveCo = null;
     Coroutine rotCo = null;
-    Coroutine attackCo = null;
+    protected Coroutine attackCo = null;
 
     //플레이어 Movement
     protected void PlayerMoving()
@@ -34,7 +36,10 @@ public class PlayerMovement : CharacterProperty //행동에 관련된 스크립트(몬스터/
             dir.y = 0;
             targetRot = Quaternion.LookRotation(dir);
         }
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * CharacterRotSpeed);
+        if (!myAnim.GetBool("IsComboAttacking") && dir != Vector3.zero) //방향, speed값 조절
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * CharacterRotSpeed);
+        }
     }
 
     protected void WarriorAttack()
@@ -43,19 +48,13 @@ public class PlayerMovement : CharacterProperty //행동에 관련된 스크립트(몬스터/
         {
             myAnim.SetTrigger("ComboAttack");
         }
-        /*if (IsCombable)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                ++clickCount;
-            }
-        }*/
         if (Input.GetKeyDown(KeyCode.E))
         {
             myAnim.SetTrigger("ESkillAttack");
         }
     }
 
+    
 
     //몬스터 Movement
     protected void MonsterAttackTarget(Transform target)
@@ -202,5 +201,59 @@ public class PlayerMovement : CharacterProperty //행동에 관련된 스크립트(몬스터/
             yield return null;
         }
         myAnim.SetBool("Run Forward", false);
+    }
+
+    public IEnumerator Disapearing(float d, float t) //죽어서 사라지는 함수
+    {
+        Destroy(gameObject.GetComponent<Rigidbody>());
+        Destroy(gameObject.GetComponent<CapsuleCollider>());
+        yield return new WaitForSeconds(t);
+
+        float dist = d;
+        while (dist > 0.0f)
+        {
+            float delta = 2.0f * Time.deltaTime;
+            if (delta > dist)
+            {
+                delta = dist;
+            }
+            dist -= delta;
+            transform.Translate(Vector3.down * delta, Space.World);
+            yield return null;
+        }
+        Destroy(gameObject);
+    }
+
+
+
+
+
+    //공용 사용 함수(몬스터/플레이어)
+
+    public Transform[] myAttackPoint;
+    [SerializeField] LayerMask myEnemyMask;
+
+    public virtual void AttackTarget(float radius, int a = 0, int b = 0) //데미지 가하는 함수
+    {
+        Collider[] list = Physics.OverlapSphere(myAttackPoint[a].position, radius, myEnemyMask);
+
+        foreach (Collider col in list)
+        {
+            if (col.GetComponent<IBattle>().IsLive())
+            {
+                switch(b)
+                {
+                    case 0: //일반데미지
+                        col.GetComponent<IBattle>()?.OnDamage(myStat.AP);
+                        break;
+                    case 1: //강한데미지
+                        col.GetComponent<IBattle>()?.OnBigDamage(myStat.AP);
+                        break;
+                    case 2: //E스킬데미지
+                        col.GetComponent<IBattle>()?.OnSkillDamage(myStat.AP);
+                        break;
+                }
+            }
+        }
     }
 }

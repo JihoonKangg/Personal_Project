@@ -40,6 +40,7 @@ public class Golem : BattleSystem
                 {
                     ib.DeadMessage(transform);
                 }
+                StartCoroutine(Disapearing(4.0f, 3.0f));
                 break;
         }
     }
@@ -93,20 +94,15 @@ public class Golem : BattleSystem
         myAnim.SetBool("Run Forward", false);
         ChangeState(STATE.Idle);
     }
-
-    public void AttackTarget()
+    public override void AttackTarget(float radius, int a = 0, int b = 0)
     {
-        //옵저버 패턴 사용(비동기 방식)
-        if(myTarget.GetComponent<IBattle>().IsLive())
-        {
-            myTarget.GetComponent<IBattle>()?.OnBigDamage(myStat.AP); //데미지 30
-            //myTarget.GetComponent<IBattle>()?.OnSkillDamage(myStat.SkillAP); //데미지 50
-        }
+        base.AttackTarget(radius, a, b);
     }
 
-
-
-
+    public void Attacktarget()
+    {
+        AttackTarget(myStat.AttackRadius, 0, 1);
+    }
 
     //인터페이스
 
