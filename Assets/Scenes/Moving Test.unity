@@ -879,7 +879,7 @@ MonoBehaviour:
     Skillap: 50
     walkSpeed: 0
     runSpeed: 0
-    rotSpeed: 0
+    rotSpeed: 400
     attackRange: 0
     attackDelay: 0
     attackRadius: 1
@@ -3367,7 +3367,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1381246847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55bcc8a271659a84280909920828ee7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 25b79259659868147896410a392fd756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FindTarget:
@@ -4599,7 +4599,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2583750781857107070
 Transform:
   m_ObjectHideFlags: 0

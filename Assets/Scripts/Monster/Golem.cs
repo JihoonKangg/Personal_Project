@@ -82,6 +82,7 @@ public class Golem : BattleSystem
 
     public void FindTarget(Transform target)
     {
+        if(myState == STATE.Dead) return;
         myTarget = target;
         StopAllCoroutines();
         ChangeState(STATE.Battle);
@@ -89,6 +90,7 @@ public class Golem : BattleSystem
 
     public void LostTarget()
     {
+        if (myState == STATE.Dead) return;
         myTarget = null;
         StopAllCoroutines();
         myAnim.SetBool("Run Forward", false);
@@ -138,6 +140,7 @@ public class Golem : BattleSystem
     {
         if(tr == myTarget)
         {
+            myTarget = null;
             LostTarget();
         }
     }

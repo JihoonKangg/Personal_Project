@@ -26,6 +26,14 @@ public class Warrier : BattleSystem
                 ClickCount++;
             }
         }
+
+        if(myStat.HP <= 0) //플레이어가 죽었을 때
+        {
+            foreach (IBattle ib in myAttackers)
+            {
+                ib.DeadMessage(transform);
+            }
+        }
     }
     
     public void AutoAim()
@@ -33,11 +41,11 @@ public class Warrier : BattleSystem
         if (myTarget == null) return;
         if (myTarget.GetComponent<IBattle>().IsLive())
         {
-            if (myAnim.GetBool("IsComboAttacking"))
+            if (myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsDamage"))
             {
                 Vector3 pos = myTarget.position - transform.position;
                 pos.Normalize();
-                float delta = 360.0f * Time.deltaTime;
+                float delta = myStat.RotSpeed * Time.deltaTime;
                 float rotDir = 1.0f;
                 if (Vector3.Dot(transform.right, pos) < 0)
                 {
@@ -55,14 +63,18 @@ public class Warrier : BattleSystem
                 }
             }
         }
-        else myTarget = null;
+        else
+        {
+            LostTarget();
+            myTarget = null;
+        }
     }
 
+    //AI Perception
     public void FindTarget(Transform target)
     {
         myTarget = target;
     }
-
     public void LostTarget()
     {
         myTarget = null;
@@ -111,7 +123,7 @@ public class Warrier : BattleSystem
         {
             //Death 트리거 발동
             myAnim.SetTrigger("Die");
-            //죽어도 몬스터가 계속 때림
+            
         }
         else
         {
@@ -132,7 +144,10 @@ public class Warrier : BattleSystem
         }
         else
         {
-            myAnim.SetTrigger("Damage");
+            if (!myAnim.GetBool("IsStun"))
+            {
+                myAnim.SetTrigger("Damage");
+            }
         }
     }
     public override void OnSkillDamage(float SkillDamage) //스킬데미지 받을 때
@@ -141,12 +156,14 @@ public class Warrier : BattleSystem
     }
     public override bool IsLive()
     {
-        return !Mathf.Approximately(myStat.HP, 0.0f); //살아있음
+        return !Mathf.Approximately(myStat.HP, 0.0f); //살아있음 , false면 죽었음.
     }
     public override void DeadMessage(Transform tr)
+        //몬스터가 죽었을 때 호출되도록.
     {
         if (tr == myTarget)
         {
+            myTarget = null;
             StopAllCoroutines();
         }
     }
