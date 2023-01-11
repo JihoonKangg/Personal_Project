@@ -44,7 +44,7 @@ public class Warrier : BattleSystem
     public void AutoAim()
     {
         if (myTarget == null) return;
-        if (myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsDamage"))
+        if (myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1") && !myAnim.GetBool("IsDamage"))
         {
             Vector3 pos = myTarget.position - transform.position;
             pos.Normalize();

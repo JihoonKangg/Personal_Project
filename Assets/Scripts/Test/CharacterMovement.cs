@@ -36,7 +36,8 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
             dir.y = 0;
             targetRot = Quaternion.LookRotation(dir);
         }
-        if (!myAnim.GetBool("IsComboAttacking") && dir != Vector3.zero && !myAnim.GetBool("IsStun")) //방향, speed값 조절
+        if (!myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsComboAttacking1")
+            && dir != Vector3.zero && !myAnim.GetBool("IsStun")) //방향, speed값 조절
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * CharacterRotSpeed);
         }
@@ -44,7 +45,7 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
 
     protected void WarriorAttack()
     {
-        if (Input.GetMouseButtonDown(0) && !myAnim.GetBool("IsComboAttacking")
+        if (Input.GetMouseButtonDown(0) && !myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsComboAttacking1")
             && !myAnim.GetBool("IsStun") && !myAnim.GetBool("IsDamage"))
         {
             myAnim.SetTrigger("ComboAttack");

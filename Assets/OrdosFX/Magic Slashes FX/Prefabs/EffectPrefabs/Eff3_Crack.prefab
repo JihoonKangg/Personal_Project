@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: -0.50000006, y: -0.50000006, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.403, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4029752378109462}
   m_Father: {fileID: 4651509879229686}
@@ -4842,7 +4842,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3b966dfef6521bf4cb8a3b1b3330a200, type: 2}
-  - {fileID: 2100000, guid: 3b966dfef6521bf4cb8a3b1b3330a200, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4920,8 +4919,8 @@ Transform:
   m_GameObject: {fileID: 1277380515599432}
   m_LocalRotation: {x: 0.50000006, y: 0.50000006, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0.03, z: 1.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4794918317574600}
   m_Father: {fileID: 4408750097936284}
@@ -9726,7 +9725,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 625842303e7107044b42d49a64728c6b, type: 2}
-  - {fileID: 2100000, guid: 625842303e7107044b42d49a64728c6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9788,6 +9786,7 @@ GameObject:
   - component: {fileID: 4074178776004966}
   - component: {fileID: 108125668310296352}
   - component: {fileID: 114778856810125160}
+  - component: {fileID: 6231647125414172221}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -9959,6 +9958,26 @@ MonoBehaviour:
   GraphIntensityMultiplier: 3
   IsLoop: 0
   canUpdate: 0
+--- !u!114 &6231647125414172221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281503547669896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1399728257479852
 GameObject:
   m_ObjectHideFlags: 0
@@ -9984,8 +10003,8 @@ Transform:
   m_GameObject: {fileID: 1399728257479852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4651509879229686}
   - {fileID: 4074178776004966}
@@ -10020,8 +10039,8 @@ Transform:
   m_GameObject: {fileID: 1599230438860688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.122, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4408750097936284}
   m_RootOrder: 2
@@ -14776,7 +14795,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2584f1c037440d14eb3638d3df9a8a31, type: 2}
-  - {fileID: 2100000, guid: 2584f1c037440d14eb3638d3df9a8a31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14855,7 +14873,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.225}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4794918317574600}
   m_RootOrder: 0
@@ -19667,7 +19685,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e7d0c82aaa0a2547afaed107884a1d6, type: 2}
   - {fileID: 2100000, guid: 8e7d0c82aaa0a2547afaed107884a1d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

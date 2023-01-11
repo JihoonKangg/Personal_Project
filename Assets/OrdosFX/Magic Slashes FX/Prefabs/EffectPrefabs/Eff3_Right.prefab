@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 1133984564877282}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000008, y: 1.000001, z: 1.0000008}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4503592675595486}
   m_RootOrder: 3
@@ -4774,7 +4774,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2584f1c037440d14eb3638d3df9a8a31, type: 2}
-  - {fileID: 2100000, guid: 2584f1c037440d14eb3638d3df9a8a31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4836,6 +4835,7 @@ GameObject:
   - component: {fileID: 4908930931119724}
   - component: {fileID: 108732404212600776}
   - component: {fileID: 114863963121853732}
+  - component: {fileID: 2912980173761785254}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -4998,6 +4998,26 @@ MonoBehaviour:
   GraphIntensityMultiplier: 4
   IsLoop: 0
   canUpdate: 0
+--- !u!114 &2912980173761785254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293350520926296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1514118954617016
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,7 +5044,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4625756702742258}
   - {fileID: 4337158210594872}
@@ -5319,7 +5339,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.59
+      scalar: 5.18
       minScalar: 2
       maxCurve:
         serializedVersion: 2
@@ -9902,7 +9922,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5d0e4b3c26f3ca4469bff2c175d91372, type: 2}
-  - {fileID: 2100000, guid: 5d0e4b3c26f3ca4469bff2c175d91372, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10238,8 +10257,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 3
+      scalar: 6
+      minScalar: 6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14821,7 +14840,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5d0e4b3c26f3ca4469bff2c175d91372, type: 2}
-  - {fileID: 2100000, guid: 5d0e4b3c26f3ca4469bff2c175d91372, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15157,7 +15175,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 6
       minScalar: 2
       maxCurve:
         serializedVersion: 2
@@ -19739,7 +19757,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5d0e4b3c26f3ca4469bff2c175d91372, type: 2}
   - {fileID: 2100000, guid: 5d0e4b3c26f3ca4469bff2c175d91372, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
