@@ -68,7 +68,7 @@ public class SprintBar : CharacterMovement
 
     IEnumerator Recover()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.6f);
         while(myStatusSpr < MaxSpr)
         {
             myStatusSpr = Mathf.Clamp(myStatusSpr + 20.0f * Time.deltaTime, 0.0f, MaxSpr);

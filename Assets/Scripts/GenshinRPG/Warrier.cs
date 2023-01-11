@@ -34,39 +34,36 @@ public class Warrier : BattleSystem
                 ib.DeadMessage(transform);
             }
         }
+
+        if(GetComponentInChildren<AIPerception>().myTarget != null)
+        {
+            myTarget = GetComponentInChildren<AIPerception>().myTarget;
+        }
     }
     
     public void AutoAim()
     {
         if (myTarget == null) return;
-        if (myTarget.GetComponent<IBattle>().IsLive())
+        if (myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsDamage"))
         {
-            if (myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsDamage"))
+            Vector3 pos = myTarget.position - transform.position;
+            pos.Normalize();
+            float delta = myStat.RotSpeed * Time.deltaTime;
+            float rotDir = 1.0f;
+            if (Vector3.Dot(transform.right, pos) < 0)
             {
-                Vector3 pos = myTarget.position - transform.position;
-                pos.Normalize();
-                float delta = myStat.RotSpeed * Time.deltaTime;
-                float rotDir = 1.0f;
-                if (Vector3.Dot(transform.right, pos) < 0)
-                {
-                    rotDir = -rotDir;
-                }
-                float angle = Vector3.Angle(transform.forward, pos);
-                if (angle > 0)
-                {
-                    if (delta > angle)
-                    {
-                        delta = angle;
-                    }
-                    angle -= delta;
-                    transform.Rotate(Vector3.up * rotDir * delta, Space.World);
-                }
+                rotDir = -rotDir;
             }
-        }
-        else
-        {
-            LostTarget();
-            myTarget = null;
+            float angle = Vector3.Angle(transform.forward, pos);
+            if (angle > 0)
+            {
+                if (delta > angle)
+                {
+                    delta = angle;
+                }
+                angle -= delta;
+                transform.Rotate(Vector3.up * rotDir * delta, Space.World);
+            }
         }
     }
 
@@ -163,7 +160,6 @@ public class Warrier : BattleSystem
     {
         if (tr == myTarget)
         {
-            myTarget = null;
             StopAllCoroutines();
         }
     }

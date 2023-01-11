@@ -20,6 +20,18 @@ public class AIPerception : MonoBehaviour
             FindTarget?.Invoke(myTarget);
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if(myTarget != null && !myTarget.GetComponent<IBattle>().IsLive()) //죽은거임
+        {
+            myTarget = null;
+        }
+        if ((enemyMask & 1 << other.gameObject.layer) != 0 && other.GetComponent<IBattle>().IsLive()) //타겟이 있음
+        {
+            //타겟을 처음 발견했을때
+            myTarget = other.transform;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if(myTarget == other.transform) //타겟이 빠져나감

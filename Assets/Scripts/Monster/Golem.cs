@@ -5,6 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Golem : BattleSystem
 {
+    public Transform myHpBarPos;
+    MonsterHP myUI = null;
+    GameObject myHpBar = null;
     Vector3 startPos = Vector3.zero;
     public enum STATE
     {
@@ -32,6 +35,7 @@ public class Golem : BattleSystem
                 break;
             case STATE.Battle:
                 MonsterAttackTarget(myTarget); //AttackRange : 2.0f, AttackDelay : 3.0f
+                myHpBar.SetActive(true);
                 break;
             case STATE.Dead:
                 StopAllCoroutines();
@@ -41,6 +45,7 @@ public class Golem : BattleSystem
                     ib.DeadMessage(transform);
                 }
                 StartCoroutine(Disapearing(4.0f, 3.0f));
+                Destroy(myHpBar);
                 break;
         }
     }
@@ -70,6 +75,12 @@ public class Golem : BattleSystem
     // Start is called before the first frame update
     void Start()
     {
+        GameObject hpBars = GameObject.Find("MonsterHpBar");
+        myHpBar = Instantiate(Resources.Load("Prefabs/UI/MonsterHPBar"), hpBars.transform) as GameObject;
+        myUI = myHpBar.GetComponent<MonsterHP>();
+        myUI.myTarget = myHpBarPos;
+        myHpBar.SetActive(false);
+
         startPos = transform.position;
         ChangeState(STATE.Idle);
     }
@@ -78,6 +89,18 @@ public class Golem : BattleSystem
     void Update()
     {
         StateProcess();
+        HpUpdate();
+    }
+
+    void HpUpdate()
+    {
+        if (myState == STATE.Dead) return;
+        myUI.myBar.value = myStat.HP / myStat.MaxHP;
+        myUI.myBGBar.value = Mathf.Lerp(myUI.myBGBar.value, myStat.HP / myStat.MaxHP, 5.0f * Time.deltaTime);
+        if (myState != STATE.Battle && myHpBar.activeSelf)
+        {
+            myHpBar.SetActive(false);
+        }
     }
 
     public void FindTarget(Transform target)
@@ -140,7 +163,6 @@ public class Golem : BattleSystem
     {
         if(tr == myTarget)
         {
-            myTarget = null;
             LostTarget();
         }
     }

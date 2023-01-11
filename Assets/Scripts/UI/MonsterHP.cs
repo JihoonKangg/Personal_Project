@@ -5,33 +5,14 @@ using UnityEngine.UI;
 
 public class MonsterHP : CharacterProperty
 {
-    [SerializeField] Slider mySlider;
-    [SerializeField] Slider mySlider_BG;
-    [SerializeField] Transform myHpPos;
-    [SerializeField] GameObject myHPBar;
-    [SerializeField] CharacterProperty myMonster;
-    //public CharacterProperty myMonster;
-
-    //HP bar 다시 구현.
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        mySlider.value = 1.0f;
-        mySlider_BG.value = mySlider.value;
-    }
+    public Transform myTarget;
+    public Slider myBar;
+    public Slider myBGBar;
 
     // Update is called once per frame
     void Update()
     {
-        mySlider.transform.position = Camera.main.WorldToScreenPoint(myHpPos.position);
-        mySlider_BG.transform.position = mySlider.transform.position;
-        mySlider.value = myMonster.myStat.HP / myMonster.myStat.MaxHP;
-        mySlider_BG.value = Mathf.Lerp(mySlider_BG.value, myMonster.myStat.HP / myMonster.myStat.MaxHP, 5.0f * Time.deltaTime);
-
-        if(mySlider.value == 0.0f)
-        {
-            myHPBar.SetActive(false);
-        }
+        Vector3 pos = Camera.main.WorldToScreenPoint(myTarget.position); //3차원 공간의 월드좌표를 모니터상의 좌표로 바꿔줌
+        transform.position = pos;
     }
 }

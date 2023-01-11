@@ -229,8 +229,6 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
 
 
 
-
-
     //공용 사용 함수(몬스터/플레이어)
 
     public Transform[] myAttackPoint;
