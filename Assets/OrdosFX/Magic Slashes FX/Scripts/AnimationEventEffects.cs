@@ -38,10 +38,28 @@ public class AnimationEventEffects : MonoBehaviour {
     //   }
     void Start() {
     }
-            
+
     void InstantiateEffect(int EffectNumber)
     {
-        if(Effects == null || Effects.Length <= EffectNumber)
+        if (Effects == null || Effects.Length <= EffectNumber)
+        {
+            Debug.LogError("Incorrect effect number or effect is null");
+        }
+
+        var instance = Instantiate(Effects[EffectNumber].Effect, Effects[EffectNumber].StartPositionRotation.position, Effects[EffectNumber].StartPositionRotation.rotation);
+
+        if (Effects[EffectNumber].UseLocalPosition)
+        {
+            instance.transform.parent = Effects[EffectNumber].StartPositionRotation.transform;
+            instance.transform.localPosition = Vector3.zero;
+            instance.transform.localRotation = new Quaternion();
+        }
+        Destroy(instance, Effects[EffectNumber].DestroyAfter);
+    }
+
+    void ESkillEffect(int EffectNumber)
+    {
+        if (Effects == null || Effects.Length <= EffectNumber)
         {
             Debug.LogError("Incorrect effect number or effect is null");
         }
