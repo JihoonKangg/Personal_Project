@@ -44,7 +44,8 @@ public class Warrier : BattleSystem
     public void AutoAim()
     {
         if (myTarget == null) return;
-        if (myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1") && !myAnim.GetBool("IsDamage"))
+        if (myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1")
+            || myAnim.GetBool("IsSkillAttacking") && !myAnim.GetBool("IsDamage"))
         {
             Vector3 pos = myTarget.position - transform.position;
             pos.Normalize();
@@ -96,18 +97,17 @@ public class Warrier : BattleSystem
             }
         }
     }
-    public override void AttackTarget(float radius, int a = 0, int b = 0)
+    public override void AttackTarget(float radius, int a = 0, int b = 0) //a = AttackPoint , b = kind of damage
     {
-        if(myAnim.GetBool(""))//E스킬 사용할 때
-        {
-            a = 1;
-            b = 2;
-        }
         base.AttackTarget(radius, a, b);
     }
     public void Attacktarget()
     {
-        AttackTarget(myStat.AttackRadius);
+        AttackTarget(myStat.AttackRadius, 0, 0);
+    }
+    public void ESkillAttack()
+    {
+        AttackTarget(5.0f, 1, 2);
     }
 
 

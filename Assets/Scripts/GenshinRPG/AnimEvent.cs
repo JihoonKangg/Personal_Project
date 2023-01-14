@@ -6,11 +6,9 @@ using UnityEngine.Events; //인스펙터에서 함수를 바인딩할 때 사용.
 public class AnimEvent : MonoBehaviour
 {
     public UnityEvent Attack = default;
-    public UnityEvent Skill= default;
+    public UnityEvent ESkill= default;
     public UnityEvent<bool> ComboCheck = default; //제네릭 타입 딜리게이트
     public UnityEvent Weaponset = default;
-    public Transform ESkillAttackPoint;
-    public GameObject ESkillEffect;
 
     public void LeftFootEvent()
     {
@@ -20,9 +18,9 @@ public class AnimEvent : MonoBehaviour
     {
 
     }
-    public void OnSkill()
+    public void OnESkill()
     {
-        Skill?.Invoke();
+        ESkill?.Invoke();
     }
     public void OnAttack()
     {
@@ -39,10 +37,5 @@ public class AnimEvent : MonoBehaviour
     public void WeaponSet()
     {
         Weaponset?.Invoke();
-    }
-
-    public void ESkillAttackEffect()
-    {
-        Instantiate(ESkillEffect, ESkillAttackPoint.position, Quaternion.identity);
     }
 }

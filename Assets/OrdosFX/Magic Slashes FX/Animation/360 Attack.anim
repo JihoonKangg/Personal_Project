@@ -109222,7 +109222,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.033333335
-    functionName: ESkillEffect
+    functionName: InstantiateEffect
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 6
+    messageOptions: 0
+  - time: 1.0333333
+    functionName: OnESkill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

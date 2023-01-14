@@ -1,6 +1,6 @@
 // Made with Amplify Shader Editor
 // Available at the Unity Asset Store - http://u3d.as/y3X 
-Shader "Hovl/Opaque/Staff"
+Shader "Universal Render Pipeline/Hovl/Opaque/Staff"
 {
 	Properties
 	{
