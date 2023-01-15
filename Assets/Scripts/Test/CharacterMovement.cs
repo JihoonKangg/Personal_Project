@@ -129,7 +129,6 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
         myAnim.SetBool("Walk Forward", true);
         while (dist > 0.0f)
         {
-
             if (myAnim.GetBool("IsAttacking"))
             {
                 myAnim.SetBool(("Walk Forward"), false);
@@ -171,6 +170,7 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
                 myAnim.SetBool("Walk Forward", true);
                 dir.Normalize();
                 delta = myStat.RunSpeed * Time.deltaTime;
+                //if(myAnim.GetBool("Run Forward")) delta = myStat.RunSpeed * Time.deltaTime;
                 if (delta > dist)
                 {
                     delta = dist;

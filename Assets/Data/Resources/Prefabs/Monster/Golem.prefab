@@ -2085,7 +2085,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Skill:
+  ESkill:
     m_PersistentCalls:
       m_Calls: []
   ComboCheck:
@@ -2094,8 +2094,6 @@ MonoBehaviour:
   Weaponset:
     m_PersistentCalls:
       m_Calls: []
-  ESkillAttackPoint: {fileID: 0}
-  ESkillEffect: {fileID: 0}
 --- !u!1 &4205426093748901229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,7 +2650,7 @@ MonoBehaviour:
     ap: 30
     Skillap: 50
     walkSpeed: 2
-    runSpeed: 7
+    runSpeed: 10
     rotSpeed: 360
     attackRange: 6
     attackDelay: 5
