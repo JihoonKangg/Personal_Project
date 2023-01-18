@@ -29,7 +29,7 @@ public class SprintBar : CharacterMovement
     Coroutine coRecover = null;
     public void ConsumeBar()
     {
-        if (myAnim.GetFloat("Speed") > 0.5f && !myAnim.GetBool("IsStun"))
+        if (myAnim.GetFloat("Speed") > 0.8f && !myAnim.GetBool("IsStun"))
         {
             mySprintBar.SetActive(true);
             myStatusSpr -= 20.0f * Time.deltaTime;

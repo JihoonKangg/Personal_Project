@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(list.Count < 1)
+        if(list.Count < 2)
         {
             Vector3 pos = Vector3.zero;
             pos.x = Random.Range(-10.0f, 10.0f);
@@ -25,11 +25,11 @@ public class Spawner : MonoBehaviour
             pos.z = Random.Range(-10.0f, 10.0f);
             Vector3 rot = Vector3.zero;
             rot.y = Random.Range(0.0f, 360.0f);
-            //GameObject objGol = Instantiate(orgGolem, pos, Quaternion.Euler(rot));
-            //GameObject objTre = Instantiate(orgTreant, pos, Quaternion.Euler(rot));
+            GameObject objGol = Instantiate(orgGolem, pos, Quaternion.Euler(rot));
+            GameObject objTre = Instantiate(orgTreant, pos, Quaternion.Euler(rot));
             GameObject orgBa = Instantiate(orgBat, pos, Quaternion.Euler(rot));
-            //list.Add(objTre);
-            //list.Add(objGol);
+            list.Add(objTre);
+            list.Add(objGol);
             list.Add(orgBa);
         }
 

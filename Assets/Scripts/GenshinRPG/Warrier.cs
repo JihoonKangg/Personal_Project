@@ -40,6 +40,7 @@ public class Warrier : BattleSystem
             myTarget = GetComponentInChildren<AIPerception>().myTarget;
         }
     }
+
     
     public void AutoAim()
     {

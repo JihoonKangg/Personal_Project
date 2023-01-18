@@ -15,6 +15,7 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
     Coroutine rotCo = null;
     protected Coroutine attackCo = null;
 
+    float targetSpeed = 0.0f;
     //플레이어 Movement
     protected void PlayerMoving()
     {
@@ -23,17 +24,29 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
         dir.z = Input.GetAxis("Vertical");
         if (!Mathf.Approximately(dir.magnitude, 0))
         {
-            float spd = Mathf.Clamp(dir.magnitude, 0.0f, 1.0f);
-            myAnim.SetFloat("Speed", spd / 2.0f);
-            if (Input.GetKey(KeyCode.LeftShift) && mySprint.value != 0.0f)
+            targetSpeed = Mathf.Clamp(dir.magnitude, 0.0f, 0.5f);
+            
+            if (Input.GetKey(KeyCode.LeftShift) /*&& mySprint.value != 0.0f*/)
             {
-                myAnim.SetFloat("Speed", spd);
+                targetSpeed = 1.0f;
+                Debug.Log("작동됨");
                 //쉬프트키 눌렀다 떼었다 했을때 수치가 확 바뀌는 과정을 수정해야함.
             }
+
+            float spd = myAnim.GetFloat("Speed");
+            spd = Mathf.Lerp(spd, targetSpeed, Time.deltaTime * 10.0f);
+            myAnim.SetFloat("Speed", spd);
+
             dir.Normalize();
             dir = Camera.main.transform.rotation * dir;
             dir.y = 0;
             targetRot = Quaternion.LookRotation(dir);
+        }
+        else
+        {
+            float spd = myAnim.GetFloat("Speed");
+            spd = Mathf.Lerp(spd, 0.0f, Time.deltaTime * 10.0f);
+            myAnim.SetFloat("Speed", spd);
         }
         if (!myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsComboAttacking1") && !myAnim.GetBool("IsSkillAttacking")
             && dir != Vector3.zero && !myAnim.GetBool("IsStun")) //방향, speed값 조절
