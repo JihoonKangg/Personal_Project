@@ -44,6 +44,10 @@ public class Wizard : BattleSystem
     public void WizardMove()
     {
         PlayerMoving();
+        if(myAnim.GetBool("IsSkillAttacking"))
+        {
+            myAnim.SetFloat("Speed", 0.0f);
+        }
         transform.parent.Translate(transform.forward * myAnim.GetFloat("Speed") * 20.0f * Time.deltaTime);
     }
 
@@ -106,6 +110,7 @@ public class Wizard : BattleSystem
     public override void AttackTarget(float radius, int a = 0, int b = 0) //a = AttackPoint , b = kind of damage
     {
         base.AttackTarget(radius, a, b);
+        
     }
     public void Attacktarget()
     {

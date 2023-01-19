@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class FollowingCamera : MonoBehaviour
 {
-    public Transform PlayerTarget;
+    public GameObject[] PlayerTarget;
+    public GameObject[] myPlayer;
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = PlayerTarget.position;
+        //this.transform.position = PlayerTarget.position;
+        if (myPlayer[0].activeSelf == true)
+        {
+            this.transform.position = PlayerTarget[0].transform.position;
+        }
+        else if(myPlayer[1].activeSelf == true)
+        {
+            this.transform.position = PlayerTarget[1].transform.position;
+        }
     }
 }

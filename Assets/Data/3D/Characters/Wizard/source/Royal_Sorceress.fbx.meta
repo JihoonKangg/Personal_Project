@@ -20,13 +20,13 @@ ModelImporter:
     second: Hello
   - first:
       74: -4987576326804484302
-    second: Handle
+    second: Doval (1)
   - first:
       74: 3060872287085348379
     second: Doval
   - first:
       74: -385144900220613622
-    second: FlyBegin
+    second: Fly Begin
   - first:
       74: 1290214690342087516
     second: Fly Idle
@@ -35,7 +35,7 @@ ModelImporter:
     second: Fly Backward
   - first:
       74: -2390127174521148350
-    second: Fly Leftward
+    second: Fly Landing (1)
   - first:
       74: -2390127174521148350
     second: Fly Forward
@@ -80,7 +80,10 @@ ModelImporter:
     second: Attack2
   - first:
       74: 6234510843852800090
-    second: Take 001
+    second: hit2
+  - first:
+      74: -8341460381721212417
+    second: Skill1
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -115,7 +118,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 33
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -144,7 +147,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 34
-      lastFrame: 55
+      lastFrame: 54
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -201,8 +204,8 @@ ModelImporter:
       name: idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 83
-      lastFrame: 174
+      firstFrame: 84
+      lastFrame: 322
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -213,7 +216,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -230,37 +233,8 @@ ModelImporter:
       name: Hello
       takeName: Take 001
       internalID: 0
-      firstFrame: 324
-      lastFrame: 384
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Handle
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 385
-      lastFrame: 455
+      firstFrame: 325
+      lastFrame: 450
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -288,7 +262,7 @@ ModelImporter:
       name: Doval
       takeName: Take 001
       internalID: 0
-      firstFrame: 456
+      firstFrame: 450
       lastFrame: 540
       wrapMode: 0
       orientationOffsetY: 0
@@ -300,7 +274,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -314,7 +288,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: FlyBegin
+      name: Fly Begin
       takeName: Take 001
       internalID: 0
       firstFrame: 541
@@ -328,8 +302,8 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -346,8 +320,8 @@ ModelImporter:
       name: Fly Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 627
-      lastFrame: 666
+      firstFrame: 620
+      lastFrame: 664
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -358,7 +332,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -376,7 +350,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 667
-      lastFrame: 698
+      lastFrame: 696
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -386,8 +360,8 @@ ModelImporter:
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -404,8 +378,8 @@ ModelImporter:
       name: Fly Forward
       takeName: Take 001
       internalID: 0
-      firstFrame: 669
-      lastFrame: 730
+      firstFrame: 700
+      lastFrame: 729
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -415,66 +389,8 @@ ModelImporter:
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Fly Leftward
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 731
-      lastFrame: 762
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Fly Rightward
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 763
-      lastFrame: 794
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -492,7 +408,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 795
-      lastFrame: 874
+      lastFrame: 843
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -502,37 +418,8 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Skill3
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 875
-      lastFrame: 955
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -561,7 +448,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -590,7 +477,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -619,7 +506,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -633,7 +520,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: SKill1
+      name: Skill1
       takeName: Take 001
       internalID: 0
       firstFrame: 954
@@ -648,7 +535,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -723,7 +610,7 @@ ModelImporter:
       name: Attack2
       takeName: Take 001
       internalID: 0
-      firstFrame: 828
+      firstFrame: 841
       lastFrame: 873
       wrapMode: 0
       orientationOffsetY: 0
@@ -732,35 +619,6 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 1510
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1

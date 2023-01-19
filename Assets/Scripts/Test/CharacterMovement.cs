@@ -9,8 +9,6 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
 {
     [SerializeField] float CharacterRotSpeed = 10.0f;
     Quaternion targetRot = Quaternion.identity;
-    public Slider mySprint;
-
     Coroutine moveCo = null;
     Coroutine rotCo = null;
     protected Coroutine attackCo = null;
@@ -26,11 +24,9 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
         {
             targetSpeed = Mathf.Clamp(dir.magnitude, 0.0f, 0.5f);
             
-            if (Input.GetKey(KeyCode.LeftShift) /*&& mySprint.value != 0.0f*/)
+            if (Input.GetKey(KeyCode.LeftShift) && GetComponentInParent<SprintBar>().myStatusSpr != 0.0f)
             {
                 targetSpeed = 1.0f;
-                Debug.Log("작동됨");
-                //쉬프트키 눌렀다 떼었다 했을때 수치가 확 바뀌는 과정을 수정해야함.
             }
 
             float spd = myAnim.GetFloat("Speed");

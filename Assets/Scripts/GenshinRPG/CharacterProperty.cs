@@ -6,7 +6,7 @@ public class CharacterProperty : MonoBehaviour
 {
     public CharacterStat myStat; //Á÷·ÄÈ­
     Animator _anim = null;
-    protected Animator myAnim
+    public Animator myAnim
     {
         get
         {

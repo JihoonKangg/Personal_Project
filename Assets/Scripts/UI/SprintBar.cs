@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SprintBar : CharacterMovement
+public class SprintBar : MonoBehaviour
 {
     public GameObject mySprintBar;
     public GameObject mySprintBackGroundBar;
     public Slider mySlider;
     public Transform mySprintPos;
     float MaxSpr = 100.0f;
-    [SerializeField] float myStatusSpr = 0.0f;
+    public float myStatusSpr = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +29,8 @@ public class SprintBar : CharacterMovement
     Coroutine coRecover = null;
     public void ConsumeBar()
     {
-        if (myAnim.GetFloat("Speed") > 0.8f && !myAnim.GetBool("IsStun"))
+        if (GetComponentInChildren<CharacterProperty>().myAnim.GetFloat("Speed") > 0.8f
+            && !GetComponentInChildren<CharacterProperty>().myAnim.GetBool("IsStun"))
         {
             mySprintBar.SetActive(true);
             myStatusSpr -= 20.0f * Time.deltaTime;
@@ -41,18 +42,18 @@ public class SprintBar : CharacterMovement
         }
         else
         {
-            if(coRecover == null && myStatusSpr < MaxSpr)
+            if (coRecover == null && myStatusSpr < MaxSpr)
             {
                 coRecover = StartCoroutine(Recover());
             }
         }
         mySlider.value = myStatusSpr / MaxSpr;
-        if(mySlider.value >= 0.999f)
+        if (mySlider.value >= 0.999f)
         {
             mySprintBar.SetActive(false);
         }
 
-        if(myStatusSpr < 20.0f)
+        if (myStatusSpr < 20.0f)
         {
             mySprintBackGroundBar.SetActive(true);
         }
