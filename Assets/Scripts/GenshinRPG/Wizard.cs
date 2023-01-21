@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Wizard : BattleSystem
 {
+    public Transform myAttackPos;
     //콤보체크 담당
     bool IsCombable = false;
     int ClickCount = 0;
@@ -44,7 +45,7 @@ public class Wizard : BattleSystem
     public void WizardMove()
     {
         PlayerMoving();
-        if(myAnim.GetBool("IsSkillAttacking"))
+        if(myAnim.GetBool("IsSkillAttacking") || myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1"))
         {
             myAnim.SetFloat("Speed", 0.0f);
         }
@@ -110,11 +111,10 @@ public class Wizard : BattleSystem
     public override void AttackTarget(float radius, int a = 0, int b = 0) //a = AttackPoint , b = kind of damage
     {
         base.AttackTarget(radius, a, b);
-        
     }
-    public void Attacktarget()
+    public void BaseAttack()
     {
-        AttackTarget(myStat.AttackRadius, 0, 0);
+        GameObject obj = Instantiate(Resources.Load("Prefabs/ForestBatAttackObject01"), myAttackPos) as GameObject;
     }
     public void ESkillAttack()
     {
@@ -135,7 +135,7 @@ public class Wizard : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking"))
             {
                 myAnim.SetTrigger("Big Damage");
             }
@@ -152,13 +152,13 @@ public class Wizard : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking"))
             {
                 myAnim.SetTrigger("Damage");
             }
         }
     }
-    public override void OnSkillDamage(float SkillDamage) //스킬데미지 받을 때
+    public override void OnESkillDamage(float ESkillDamage) //스킬데미지 받을 때
     {
         //보스가 스킬공격을 하는 경우.
     }

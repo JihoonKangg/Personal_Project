@@ -6,7 +6,8 @@ public interface IBattle //다중상속 불가능으로 인터페이스 사용
 {
     //추상클래스
     void OnBigDamage(float Bigdmg);
-    void OnSkillDamage(float SkillDamage);
+    void OnESkillDamage(float ESkillDamage);
+    void OnQSkillDamage(float QSkillDamage);
     void OnDamage(float dmg);
     bool IsLive();
     void AddAttacker(IBattle ib);
@@ -37,7 +38,11 @@ public class BattleSystem : CharacterMovement, IBattle //전투에 관련된 스크립트(
     {
 
     }
-    public virtual void OnSkillDamage(float Skilldmg)
+    public virtual void OnESkillDamage(float ESkilldmg)
+    {
+
+    }
+    public virtual void OnQSkillDamage(float QSkilldmg)
     {
 
     }

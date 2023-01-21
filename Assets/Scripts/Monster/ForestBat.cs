@@ -145,9 +145,21 @@ public class ForestBat : BattleSystem
             myAnim.SetTrigger("Take Damage");
         }
     }
-    public override void OnSkillDamage(float Skilldmg)
+    public override void OnESkillDamage(float ESkilldmg)
     {
-        myStat.HP -= Skilldmg;
+        myStat.HP -= ESkilldmg;
+        if (Mathf.Approximately(myStat.HP, 0)) //Á×¾úÀ» ¶§
+        {
+            ChangeState(STATE.Dead);
+        }
+        else
+        {
+            myAnim.SetTrigger("Take Damage");
+        }
+    }
+    public override void OnQSkillDamage(float QSkilldmg)
+    {
+        myStat.HP -= QSkilldmg;
         if (Mathf.Approximately(myStat.HP, 0)) //Á×¾úÀ» ¶§
         {
             ChangeState(STATE.Dead);

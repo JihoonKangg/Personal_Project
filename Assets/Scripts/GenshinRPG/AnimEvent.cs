@@ -7,6 +7,7 @@ public class AnimEvent : MonoBehaviour
 {
     public UnityEvent Attack = default;
     public UnityEvent ESkill= default;
+    public UnityEvent QSkill = default;
     public UnityEvent<bool> ComboCheck = default; //제네릭 타입 딜리게이트
     public UnityEvent Weaponset = default;
    
@@ -22,6 +23,11 @@ public class AnimEvent : MonoBehaviour
     public void OnESkill()
     {
         ESkill?.Invoke();
+    }
+
+    public void OnQSkill()
+    {
+        QSkill?.Invoke();
     }
     public void OnAttack()
     {

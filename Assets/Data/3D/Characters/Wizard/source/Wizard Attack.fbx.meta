@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: d7b3bfa604e5ffd4db7b100edf4b76e9
+guid: 58d6653a9e03d4b42b5784cb31fd8fe3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: QSkill Attack
+    second: mixamo.com
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -20,7 +20,14 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
+      : position error = 27.989220 mm\n\t'mixamorig:LeftLeg' : position error = 13.327625
+      mm\n\t'mixamorig:LeftFoot' : position error = 15.383627 mm\n\t'mixamorig:LeftToeBase'
+      : position error = 30.973951 mm\n\t'mixamorig:RightUpLeg' : position error
+      = 27.988804 mm\n\t'mixamorig:RightLeg' : position error = 13.327909 mm\n\t'mixamorig:RightFoot'
+      : position error = 15.383684 mm\n\t'mixamorig:RightToeBase' : position error
+      = 30.974007 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -36,11 +43,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: QSkill Attack
+      name: mixamo.com
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 95
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

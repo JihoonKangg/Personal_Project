@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    float speed = 10.0f;
+    [SerializeField] float speed = 10.0f;
     float AP = 50.0f;
     public LayerMask enemyMask;
     // Start is called before the first frame update

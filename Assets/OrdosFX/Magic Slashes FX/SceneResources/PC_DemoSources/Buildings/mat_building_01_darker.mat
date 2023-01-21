@@ -26,6 +26,7 @@ Material:
   - _DETAIL_MULX2
   - _EMISSION
   - _NORMALMAP
+  - _OCCLUSIONMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0

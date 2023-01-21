@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 1222627033453290}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4485560330677300}
   m_Father: {fileID: 4466123749543506}
@@ -4851,7 +4851,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 95f036ca23642f248961874b61b995e1, type: 2}
-  - {fileID: 2100000, guid: 95f036ca23642f248961874b61b995e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4962,8 +4961,8 @@ Transform:
   m_GameObject: {fileID: 1733113292564072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4921185245808850}
   m_RootOrder: 0
@@ -9785,7 +9784,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9b826f55b392b9442acac11b5fd08d17, type: 2}
-  - {fileID: 2100000, guid: 9b826f55b392b9442acac11b5fd08d17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9847,6 +9845,7 @@ GameObject:
   - component: {fileID: 4596759982183538}
   - component: {fileID: 108590807492653586}
   - component: {fileID: 114747534939261762}
+  - component: {fileID: 6489974859176895368}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -9864,7 +9863,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4466123749543506}
   m_RootOrder: 1
@@ -9881,8 +9880,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.1913794, g: 1, b: 0.125, a: 1}
-  m_Intensity: 3
-  m_Range: 50
+  m_Intensity: 6
+  m_Range: 80
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -10009,3 +10008,23 @@ MonoBehaviour:
   GraphIntensityMultiplier: 3
   IsLoop: 0
   canUpdate: 0
+--- !u!114 &6489974859176895368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890049136069374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}

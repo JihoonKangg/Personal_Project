@@ -263,10 +263,10 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
                         col.GetComponent<IBattle>()?.OnBigDamage(myStat.AP);
                         break;
                     case 2: //E스킬데미지
-                        col.GetComponent<IBattle>()?.OnSkillDamage(myStat.SkillAP);
+                        col.GetComponent<IBattle>()?.OnESkillDamage(myStat.ESkillAP);
                         break;
                     case 3: //Q스킬데미지
-                        //col.GetComponent<IBattle>()?.OnSkillDamage(myStat.AP);
+                        col.GetComponent<IBattle>()?.OnQSkillDamage(myStat.QSkillAP);
                         break;
                 }
             }

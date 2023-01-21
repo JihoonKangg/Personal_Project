@@ -125,7 +125,7 @@ public class Warrier : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking"))
             {
                 myAnim.SetTrigger("Big Damage");
             }
@@ -142,13 +142,13 @@ public class Warrier : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking")) 
             {
                 myAnim.SetTrigger("Damage");
             }
         }
     }
-    public override void OnSkillDamage(float SkillDamage) //스킬데미지 받을 때
+    public override void OnESkillDamage(float ESkillDamage) //스킬데미지 받을 때
     {
         //보스가 스킬공격을 하는 경우.
     }
