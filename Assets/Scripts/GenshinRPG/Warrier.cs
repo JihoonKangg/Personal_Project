@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Warrier : BattleSystem
 {
+    [SerializeField] GameObject[] QSkillPrefabs;
     //콤보체크 담당
     bool IsCombable = false;
     int ClickCount = 0;
@@ -38,6 +39,11 @@ public class Warrier : BattleSystem
         if(GetComponentInChildren<AIPerception>().myTarget != null)
         {
             myTarget = GetComponentInChildren<AIPerception>().myTarget;
+        }
+
+        if(myTarget == null)
+        {
+            myTarget = this.transform;
         }
     }
 
@@ -110,6 +116,10 @@ public class Warrier : BattleSystem
     {
         AttackTarget(5.0f, 1, 2);
     }
+    public void QSkillAttack()
+    {
+        Instantiate(QSkillPrefabs[2], myTarget.transform);
+    }
 
 
     //인터페이스
@@ -121,7 +131,6 @@ public class Warrier : BattleSystem
         {
             //Death 트리거 발동
             myAnim.SetTrigger("Die");
-            
         }
         else
         {

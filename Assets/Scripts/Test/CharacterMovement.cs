@@ -64,6 +64,10 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
             {
                 myAnim.SetTrigger("ESkillAttack");
             }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                myAnim.SetTrigger("QSkillAttack");
+            }
         }
     }
 
@@ -113,7 +117,7 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
 
         while (Angle > 0.0f)
         {
-            if (!myAnim.GetBool("IsAttacking"))
+            if (!myAnim.GetBool("IsAttacking") && !myAnim.GetBool("IsDamage"))
             {
                 float delta = myStat.RotSpeed * Time.deltaTime;
                 if (delta > Angle)
@@ -134,18 +138,19 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
         float dist = dir.magnitude;
         dir.Normalize();
 
+
         //걷기 시작
         myAnim.SetBool("Walk Forward", true);
         while (dist > 0.0f)
         {
-            if (myAnim.GetBool("IsAttacking"))
+            if (myAnim.GetBool("IsAttacking") || myAnim.GetBool("IsDamage"))
             {
                 myAnim.SetBool(("Walk Forward"), false);
                 yield break;
             }
 
 
-            if (!myAnim.GetBool("IsAttacking"))
+            if (!myAnim.GetBool("IsAttacking") || !myAnim.GetBool("IsDamage"))
             {
                 float delta = myStat.WalkSpeed * Time.deltaTime;
                 if (delta > dist)
@@ -167,9 +172,10 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
     {
         float playTime = 0.0f;
         float delta = 0.0f;
+        //while (myAnim.GetBool("IsAttacking")) yield break;
         while (target != null)
         {
-            if (!myAnim.GetBool("IsAttacking")) playTime += Time.deltaTime;
+            if (!myAnim.GetBool("IsAttacking") || !myAnim.GetBool("IsDamage")) playTime += Time.deltaTime;
             //이동
             Vector3 dir = target.position - transform.position;
             float dist = dir.magnitude;
@@ -209,7 +215,7 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
             {
                 delta = Angle;
             }
-            if(!myAnim.GetBool("IsAttacking"))
+            if(!myAnim.GetBool("IsAttacking") || !myAnim.GetBool("IsDamage"))
             {
                 transform.Rotate(Vector3.up * delta * rotDir, Space.World);
             }

@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class Wizard : BattleSystem
 {
     public Transform myAttackPos;
+    [SerializeField] GameObject QSkillPrefabs;
     //콤보체크 담당
     bool IsCombable = false;
     int ClickCount = 0;
@@ -45,7 +47,7 @@ public class Wizard : BattleSystem
     public void WizardMove()
     {
         PlayerMoving();
-        if(myAnim.GetBool("IsSkillAttacking") || myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1"))
+        if (myAnim.GetBool("IsSkillAttacking") || myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1"))
         {
             myAnim.SetFloat("Speed", 0.0f);
         }
@@ -55,8 +57,8 @@ public class Wizard : BattleSystem
     public void AutoAim()
     {
         if (myTarget == null) return;
-        if (myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1")
-            || myAnim.GetBool("IsSkillAttacking") && !myAnim.GetBool("IsDamage"))
+        if (myAnim.GetBool("IsComboAttacking") /*|| myAnim.GetBool("IsComboAttacking1")
+            || myAnim.GetBool("IsSkillAttacking") && !myAnim.GetBool("IsDamage")*/)
         {
             Vector3 pos = myTarget.position - transform.position;
             pos.Normalize();
@@ -114,11 +116,21 @@ public class Wizard : BattleSystem
     }
     public void BaseAttack()
     {
-        GameObject obj = Instantiate(Resources.Load("Prefabs/ForestBatAttackObject01"), myAttackPos) as GameObject;
+        AttackTarget(myStat.AttackRadius, 0, 0);
+        GameObject obj = Instantiate(Resources.Load("Prefabs/Wizard/BaseAttackObj"), myAttackPos) as GameObject;
     }
+    /*public void BaseBigAttack()
+    {
+        AttackTarget(myStat.AttackRadius, 0, 0);
+        GameObject obj = Instantiate(Resources.Load("Prefabs/Wizard/BaseAttackObj"), myAttackPos) as GameObject;
+    }*/
     public void ESkillAttack()
     {
-        AttackTarget(5.0f, 1, 2);
+        AttackTarget(15.0f, 1, 2);
+    }
+    public void QSkillAttack()
+    {
+        //Instantiate(QSkillPrefabs[2], myTarget.transform);
     }
 
 

@@ -34,7 +34,7 @@ public class Golem : BattleSystem
                 MoveToPosition(pos, () => ChangeState(STATE.Idle));
                 break;
             case STATE.Battle:
-                MonsterAttackTarget(myTarget); //AttackRange : 2.0f, AttackDelay : 3.0f
+                MonsterAttackTarget(myTarget);
                 myHpBar.SetActive(true);
                 break;
             case STATE.Dead:
