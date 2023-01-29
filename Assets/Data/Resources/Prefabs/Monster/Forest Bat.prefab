@@ -33,6 +33,7 @@ Transform:
   m_Children:
   - {fileID: 550761322071692387}
   - {fileID: 112034482253649499}
+  - {fileID: 8781385860811465365}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -68,7 +69,8 @@ MonoBehaviour:
     hp: 100
     maxHp: 100
     ap: 0
-    Skillap: 0
+    ESkillap: 0
+    QSkillap: 0
     walkSpeed: 7
     runSpeed: 10
     rotSpeed: 360
@@ -76,7 +78,6 @@ MonoBehaviour:
     attackDelay: 3
     attackRadius: 0
   CharacterRotSpeed: 0
-  mySprint: {fileID: 0}
   myAttackPoint:
   - {fileID: 112034482750610864}
   myEnemyMask:
@@ -381,6 +382,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   ESkill:
+    m_PersistentCalls:
+      m_Calls: []
+  QSkill:
     m_PersistentCalls:
       m_Calls: []
   ComboCheck:
@@ -6032,3 +6036,47 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &4355308002180669236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8781385860811465365}
+  - component: {fileID: 2823437432634868728}
+  m_Layer: 7
+  m_Name: DamagePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8781385860811465365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355308002180669236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 112034482169287081}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2823437432634868728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355308002180669236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39016caf38deda644aecd576070b768c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterChangeSystem : MonoBehaviour
 {
     public GameObject[] myPlayer;
+    public GameObject[] myPlayerSkillUI;
 
     //0 : Warrior
     //1 : Wizard
@@ -24,11 +25,15 @@ public class CharacterChangeSystem : MonoBehaviour
         {
             case ChooseCharacter.Warrior:
                 myPlayer[0].SetActive(true);
+                myPlayerSkillUI[0].SetActive(true);
                 myPlayer[1].SetActive(false);
+                myPlayerSkillUI[1].SetActive(false);
                 break;
             case ChooseCharacter.Wizard:
                 myPlayer[0].SetActive(false);
+                myPlayerSkillUI[0].SetActive(false);
                 myPlayer[1].SetActive(true);
+                myPlayerSkillUI[1].SetActive(true);
                 break;
         }
     }
