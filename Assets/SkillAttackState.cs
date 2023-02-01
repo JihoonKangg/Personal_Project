@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SkillAttackState : StateMachineBehaviour
 {
+    public string IsSkillAttacking = "IsESkillAttacking";
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("IsSkillAttacking", true);
+        animator.SetBool("IsESkillAttacking", true);
     }
 
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
@@ -19,7 +20,7 @@ public class SkillAttackState : StateMachineBehaviour
     // OnStateExit is called before OnStateExit is called on any state inside this Sstate machine
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("IsSkillAttacking", false);
+        animator.SetBool("IsESkillAttacking", false);
     }
 
     // OnStateMove is called before OnStateMove is called on any state inside this state machine

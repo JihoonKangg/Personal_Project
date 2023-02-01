@@ -6,6 +6,7 @@ public class CharacterChangeSystem : MonoBehaviour
 {
     public GameObject[] myPlayer;
     public GameObject[] myPlayerSkillUI;
+    public Animator[] UserUIControl;
 
     //0 : Warrior
     //1 : Wizard
@@ -28,12 +29,16 @@ public class CharacterChangeSystem : MonoBehaviour
                 myPlayerSkillUI[0].SetActive(true);
                 myPlayer[1].SetActive(false);
                 myPlayerSkillUI[1].SetActive(false);
+                UserUIControl[0].SetBool("WarrierChoose", true);
+                UserUIControl[1].SetBool("WizardChoose", false);
                 break;
             case ChooseCharacter.Wizard:
                 myPlayer[0].SetActive(false);
                 myPlayerSkillUI[0].SetActive(false);
                 myPlayer[1].SetActive(true);
                 myPlayerSkillUI[1].SetActive(true);
+                UserUIControl[0].SetBool("WarrierChoose", false);
+                UserUIControl[1].SetBool("WizardChoose", true);
                 break;
         }
     }
@@ -42,6 +47,7 @@ public class CharacterChangeSystem : MonoBehaviour
     void Start()
     {
         ChangeCharacter(myCharacter);
+        UserUIControl[0].SetBool("WarrierChoose", true);
     }
 
     // Update is called once per frame

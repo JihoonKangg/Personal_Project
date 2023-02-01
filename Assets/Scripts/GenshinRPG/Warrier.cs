@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Warrier : BattleSystem
 {
     [SerializeField] GameObject[] QSkillPrefabs;
+    [SerializeField] Slider MyHPRightUI;
+
     //콤보체크 담당
     bool IsCombable = false;
     int ClickCount = 0;
@@ -17,6 +19,7 @@ public class Warrier : BattleSystem
 
     void Update()
     {
+        MyHPRightUI.value = myStat.HP / myStat.MaxHP;
         PlayerMoving();
         WarriorAttack();
         AutoAim();
@@ -52,7 +55,7 @@ public class Warrier : BattleSystem
     {
         if (myTarget == null) return;
         if (myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1")
-            || myAnim.GetBool("IsSkillAttacking") && !myAnim.GetBool("IsDamage"))
+            || myAnim.GetBool("IsESkillAttacking") || myAnim.GetBool("IsQSkillAttacking") && !myAnim.GetBool("IsDamage"))
         {
             Vector3 pos = myTarget.position - transform.position;
             pos.Normalize();
@@ -134,7 +137,7 @@ public class Warrier : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") || !myAnim.GetBool("IsQSkillAttacking"))
             {
                 myAnim.SetTrigger("Big Damage");
             }
@@ -151,7 +154,7 @@ public class Warrier : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking")) 
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") || !myAnim.GetBool("IsQSkillAttacking")) 
             {
                 myAnim.SetTrigger("Damage");
             }

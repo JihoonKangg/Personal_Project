@@ -1,13 +1,14 @@
 using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wizard : BattleSystem
 {
     public Transform myAttackPos;
     [SerializeField] GameObject QSkillPrefabs;
+    [SerializeField] Slider MyHPRightUI;
     //콤보체크 담당
     bool IsCombable = false;
     int ClickCount = 0;
@@ -19,6 +20,7 @@ public class Wizard : BattleSystem
 
     void Update()
     {
+        MyHPRightUI.value = myStat.HP / myStat.MaxHP;
         WizardMove();
         WarriorAttack();
         AutoAim();
@@ -47,7 +49,8 @@ public class Wizard : BattleSystem
     public void WizardMove()
     {
         PlayerMoving();
-        if (myAnim.GetBool("IsSkillAttacking") || myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1"))
+        if (myAnim.GetBool("IsESkillAttacking") || myAnim.GetBool("IsQSkillAttacking") 
+            || myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1"))
         {
             myAnim.SetFloat("Speed", 0.0f);
         }
@@ -147,7 +150,7 @@ public class Wizard : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") || !myAnim.GetBool("IsQSkillAttacking"))
             {
                 myAnim.SetTrigger("Big Damage");
             }
@@ -164,7 +167,7 @@ public class Wizard : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsSkillAttacking"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") || !myAnim.GetBool("IsQSkillAttacking"))
             {
                 myAnim.SetTrigger("Damage");
             }

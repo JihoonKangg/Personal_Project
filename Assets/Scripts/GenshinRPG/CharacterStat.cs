@@ -17,6 +17,7 @@ public class CharacterStat //구조체
     [SerializeField] float attackRange;
     [SerializeField] float attackDelay;  //공속
     [SerializeField] float attackRadius;  //공격범위
+    [SerializeField] float ESkillcooltime; //E스킬 쿨타임
 
     public float HP
     {
@@ -66,5 +67,8 @@ public class CharacterStat //구조체
     {
         get => attackRadius;
     }
-
+    public float ESkillCoolTime
+    {
+        get => ESkillcooltime;
+    }
 }

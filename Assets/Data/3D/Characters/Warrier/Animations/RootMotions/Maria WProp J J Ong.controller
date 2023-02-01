@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4602507697ecb1140a541d77a38ad135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSkillAttacking: IsQSkillAttacking
 --- !u!1101 &-890160783588797146
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -591,7 +592,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: IsSkillAttacking
+  - m_Name: IsESkillAttacking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: IsQSkillAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1033,6 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4602507697ecb1140a541d77a38ad135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSkillAttacking: IsESkillAttacking
 --- !u!1101 &7367123990535893208
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
