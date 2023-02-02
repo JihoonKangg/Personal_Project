@@ -39175,6 +39175,8 @@ GameObject:
   - component: {fileID: 4131862403739178}
   - component: {fileID: 198713567367134152}
   - component: {fileID: 199766260547411564}
+  - component: {fileID: 5579845695325983037}
+  - component: {fileID: 5932643829659826962}
   m_Layer: 0
   m_Name: Temporary explosion
   m_TagString: Untagged
@@ -44066,6 +44068,31 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!135 &5579845695325983037
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375346480814298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: -0.007212003, y: 0.010000071, z: 0.0069273314}
+--- !u!114 &5932643829659826962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375346480814298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac031b434ce6f874baa36b3bc35719ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1396914270205172
 GameObject:
   m_ObjectHideFlags: 0

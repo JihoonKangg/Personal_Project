@@ -9,6 +9,8 @@ public class ForestBat : BattleSystem
     MonsterHP myUI = null;
     GameObject myHpBar = null;
     Vector3 startPos = Vector3.zero;
+    [SerializeField] Transform QSkillExpPos;
+    bool SkillExp = true;
     public enum STATE
     {
         Create, Idle, Roaming, Battle, Dead
@@ -46,6 +48,8 @@ public class ForestBat : BattleSystem
                 }
                 StartCoroutine(Disapearing(4.0f, 3.0f));
                 Destroy(myHpBar);
+                GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
+                obj.transform.position = QSkillExpPos.position;
                 break;
         }
     }
@@ -83,6 +87,7 @@ public class ForestBat : BattleSystem
 
         startPos = transform.position;
         ChangeState(STATE.Idle);
+        SkillExp = true;
     }
 
     // Update is called once per frame
@@ -90,6 +95,16 @@ public class ForestBat : BattleSystem
     {
         StateProcess();
         HpUpdate();
+        float value = myStat.HP / myStat.MaxHP;
+        if (value <= 0.5)
+        {
+            if (SkillExp)
+            {
+                GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
+                obj.transform.position = QSkillExpPos.position;
+                SkillExp = false;
+            }
+        }
     }
 
     void HpUpdate()

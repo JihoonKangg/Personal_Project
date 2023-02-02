@@ -146,14 +146,14 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
         myAnim.SetBool("Walk Forward", true);
         while (dist > 0.0f)
         {
-            if (myAnim.GetBool("IsAttacking") || myAnim.GetBool("IsDamage"))
+            if (myAnim.GetBool("IsAttacking") && myAnim.GetBool("IsDamage"))
             {
                 myAnim.SetBool(("Walk Forward"), false);
                 yield break;
             }
 
 
-            if (!myAnim.GetBool("IsAttacking") || !myAnim.GetBool("IsDamage"))
+            if (!myAnim.GetBool("IsAttacking") && !myAnim.GetBool("IsDamage"))
             {
                 float delta = myStat.WalkSpeed * Time.deltaTime;
                 if (delta > dist)
@@ -175,10 +175,11 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
     {
         float playTime = 0.0f;
         float delta = 0.0f;
+        float test = 1.0f;
         //while (myAnim.GetBool("IsAttacking")) yield break;
         while (target != null)
         {
-            if (!myAnim.GetBool("IsAttacking") || !myAnim.GetBool("IsDamage")) playTime += Time.deltaTime;
+            if (!myAnim.GetBool("IsAttacking")) playTime += Time.deltaTime;
             //이동
             Vector3 dir = target.position - transform.position;
             float dist = dir.magnitude;
@@ -193,7 +194,9 @@ public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스
                 {
                     delta = dist;
                 }
-                transform.Translate(dir * delta, Space.World);
+                if (myAnim.GetBool("IsDamage")) test = 0.0f;
+                else test = 1.0f;
+                transform.Translate(dir * delta * test, Space.World);
             }
             else
             {

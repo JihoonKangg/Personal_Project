@@ -38,15 +38,10 @@ public class SkillCoolTime : CharacterProperty
         //Cooltime.text = myCoolTime.ToString();
         Cooltime.text = string.Format("{0:0.0}", myCoolTime);
 
-        if(isCooling) 
-        {
-            cooldown.MoveNext();
-        }
+        if(isCooling) cooldown.MoveNext();
 
-        if(MySkill_IMG[1].fillAmount == 1.0f)
-        {
-            mySkillEffect.SetActive(true);
-        }
+        if(MySkill_IMG[1].fillAmount == 1.0f) mySkillEffect.SetActive(true);
+        else mySkillEffect.SetActive(false);
     }
 
     Coroutine coCool = null;
@@ -58,10 +53,7 @@ public class SkillCoolTime : CharacterProperty
             isCooling = true;
             cooldown = UseCoolTime();
         }
-        else //E스킬이 사용 가능한 상태일 때
-        {
-            MySkill_IMG[2].gameObject.SetActive(false);
-        }
+        else MySkill_IMG[2].gameObject.SetActive(false); //E스킬이 사용 가능한 상태일 때
     }
 
     IEnumerator UseCoolTime()

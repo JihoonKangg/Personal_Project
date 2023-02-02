@@ -9,7 +9,8 @@ public class TreantGuard : BattleSystem
     GameObject myHpBar = null;
     MonsterHP myUI = null;
     Vector3 startPos = Vector3.zero;
-
+    [SerializeField] Transform QSkillExpPos;
+    bool SkillExp = true;
     public enum STATE
     {
         Create, Idle, Roaming, Battle, Dead
@@ -47,6 +48,8 @@ public class TreantGuard : BattleSystem
                 }
                 StartCoroutine(Disapearing(4.0f, 2.0f));
                 Destroy(myHpBar);
+                GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
+                obj.transform.position = QSkillExpPos.position;
                 break;
         }
     }
@@ -91,6 +94,17 @@ public class TreantGuard : BattleSystem
     {
         StateProcess();
         HpUpdate();
+
+        float value = myStat.HP / myStat.MaxHP;
+        if (value <= 0.5)
+        {
+            if (SkillExp)
+            {
+                GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
+                obj.transform.position = QSkillExpPos.position;
+                SkillExp = false;
+            }
+        }
     }
 
     void HpUpdate()

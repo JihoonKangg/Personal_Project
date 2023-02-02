@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         transform.parent = null;
-        Destroy(gameObject, 5.0f);
+        Destroy(gameObject, 2.0f);
     }
 
     // Update is called once per frame

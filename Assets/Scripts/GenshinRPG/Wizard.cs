@@ -150,7 +150,7 @@ public class Wizard : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") || !myAnim.GetBool("IsQSkillAttacking"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") && !myAnim.GetBool("IsQSkillAttacking"))
             {
                 myAnim.SetTrigger("Big Damage");
             }
@@ -167,7 +167,7 @@ public class Wizard : BattleSystem
         }
         else
         {
-            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") || !myAnim.GetBool("IsQSkillAttacking"))
+            if (!myAnim.GetBool("IsStun") && !myAnim.GetBool("IsESkillAttacking") && !myAnim.GetBool("IsQSkillAttacking"))
             {
                 myAnim.SetTrigger("Damage");
             }
