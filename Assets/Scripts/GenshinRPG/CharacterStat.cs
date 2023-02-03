@@ -30,6 +30,7 @@ public class CharacterStat //±¸Á¶Ã¼
     public float MaxHP
     {
         get => maxHp;
+        set => maxHp = value;
     }
     public float AP
     {

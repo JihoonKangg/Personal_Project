@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WizardQSkill : MonoBehaviour
 {
+    public LayerMask enemyMask;
     float time = 0.0f;
 
     // Start is called before the first frame update
@@ -15,11 +16,17 @@ public class WizardQSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if(time > 1.8f)
+        time += Time.deltaTime; //Q½ºÅ³(¹Ù´Ú ·é) È°¼ºÈ­
+        if(time > 1.4f)
         {
             gameObject.GetComponent<SphereCollider>().enabled = true;
-            Debug.Log("È°¼ºÈ­µÊ");
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((enemyMask & 1 << other.gameObject.layer) != 0) //·é¿¡ ¸ó½ºÅÍ°¡ ´ê¾ÒÀ» ¶§
+        {
+            
         }
     }
 }

@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(list.Count < 1)
+        if(list.Count < 3)
         {
             Vector3 pos = Vector3.zero;
             pos.x = Random.Range(-10.0f, 10.0f);

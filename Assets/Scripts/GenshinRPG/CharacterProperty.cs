@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterProperty : MonoBehaviour
+public class CharacterProperty : MonoBehaviour //최상위 부모
 {
     public CharacterStat myStat; //직렬화
     Animator _anim = null;

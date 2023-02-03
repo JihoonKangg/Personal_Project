@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class TreantGuard : BattleSystem
+public class TreantGuard : Monster
 {
     public Transform myHpBarPos;
     GameObject myHpBar = null;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Golem : BattleSystem
+public class Golem : Monster
 {
     public Transform myHpBarPos;
     MonsterHP myUI = null;
@@ -13,7 +13,7 @@ public class Golem : BattleSystem
     bool SkillExp = true;
     public enum STATE
     {
-        Create, Idle, Roaming, Battle, Dead
+        Create, Idle, Roaming, Battle, Stiff, Dead
     }
     public STATE myState = STATE.Create;
 
@@ -38,6 +38,9 @@ public class Golem : BattleSystem
             case STATE.Battle:
                 MonsterAttackTarget(myTarget);
                 myHpBar.SetActive(true);
+                break;
+            case STATE.Stiff:
+                myAnim.SetFloat("AnimSpeed", 0.0f);
                 break;
             case STATE.Dead:
                 StopAllCoroutines();
@@ -65,6 +68,8 @@ public class Golem : BattleSystem
             case STATE.Roaming:
                 break;
             case STATE.Battle:
+                break;
+            case STATE.Stiff:
                 break;
             case STATE.Dead:
                 break;

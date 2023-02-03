@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForestBat : BattleSystem
+public class ForestBat : Monster
 {
     public Transform myHpBarPos;
     public Transform myAttackPos;
@@ -40,6 +40,7 @@ public class ForestBat : BattleSystem
                 myHpBar.SetActive(true);
                 break;
             case STATE.Dead:
+                
                 StopAllCoroutines();
                 myAnim.SetTrigger("Die");
                 foreach (IBattle ib in myAttackers)
@@ -84,7 +85,6 @@ public class ForestBat : BattleSystem
         myUI = myHpBar.GetComponent<MonsterHP>();
         myUI.myTarget = myHpBarPos;
         myHpBar.SetActive(false);
-
         startPos = transform.position;
         ChangeState(STATE.Idle);
         SkillExp = true;

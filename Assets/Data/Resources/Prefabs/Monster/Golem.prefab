@@ -2700,6 +2700,7 @@ MonoBehaviour:
   myEnemyMask:
     serializedVersion: 2
     m_Bits: 256
+  orgData: {fileID: 11400000, guid: 78a67965f4f9b0e43910407774ed3f8c, type: 2}
   myHpBarPos: {fileID: 833199357135290572}
   QSkillExpPos: {fileID: 6733938815807926827}
   myState: 0
