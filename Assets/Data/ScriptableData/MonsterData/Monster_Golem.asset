@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Monster_Golem
   m_EditorClassIdentifier: 
   monsterName: Golem
-  hp: 1000
-  maxHp: 1000
+  hp: 300
+  maxHp: 300
   ap: 30
   walkSpeed: 2
   runSpeed: 10

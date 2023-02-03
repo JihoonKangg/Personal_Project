@@ -2,35 +2,176 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 
 public class Monster : BattleSystem
 {
+    protected Coroutine attackCo = null;
     public MonsterData orgData;
     float IsDamage = 1.0f;
     Coroutine moveCo = null;
     Coroutine rotCo = null;
 
-    // Start is called before the first frame update
+    public Transform myHpBarPos;
+    protected MonsterHP myUI = null;
+    protected GameObject myHpBar = null;
+    protected Vector3 startPos = Vector3.zero;
+    [SerializeField] Transform QSkillExpPos;
+    bool SkillExp = true;
+    public float curHP;
+
     void Awake()
     {
-        myStat.MaxHP = orgData.MaxHP;
-        myStat.HP = orgData.HP;
-    }
-    
-
-    // Update is called once per frame
-    void Update()
-    {
         
+    }
+
+    
+    public enum STATE
+    {
+        Create, Idle, Roaming, Battle, Stiff, Dead
+    }
+    public STATE myState = STATE.Create;
+
+    protected virtual void ChangeState(STATE s)
+    {
+        if (myState == s) return;
+        myState = s;
+        switch (myState)
+        {
+            case STATE.Create:
+                break;
+            case STATE.Idle:
+                StartCoroutine(DelayRoaming(2.0f));
+                break;
+            case STATE.Roaming:
+                Vector3 pos = Vector3.zero;
+                pos.x = Random.Range(-10.0f, 10.0f);
+                pos.z = Random.Range(-10.0f, 10.0f);
+                pos = startPos + pos;
+                MoveToPosition(pos, () => ChangeState(STATE.Idle));
+                break;
+            case STATE.Battle:
+                MonsterAttackTarget(myTarget);
+                myHpBar.SetActive(true);
+                break;
+            case STATE.Stiff:
+                myAnim.SetFloat("AnimSpeed", 0.0f);
+                break;
+            case STATE.Dead:
+                StopAllCoroutines();
+                myAnim.SetTrigger("Die");
+                foreach (IBattle ib in myAttackers)
+                {
+                    ib.DeadMessage(transform);
+                }
+                StartCoroutine(Disapearing(4.0f, 3.0f));
+                Destroy(myHpBar);
+                GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
+                obj.transform.position = QSkillExpPos.position;
+                break;
+        }
+    }
+
+    protected virtual void StateProcess()
+    {
+        switch (myState)
+        {
+            case STATE.Create:
+                break;
+            case STATE.Idle:
+                break;
+            case STATE.Roaming:
+                break;
+            case STATE.Battle:
+                break;
+            case STATE.Stiff:
+                break;
+            case STATE.Dead:
+                break;
+        }
+    }
+
+    protected IEnumerator DelayRoaming(float t)
+    {
+        yield return new WaitForSeconds(t);
+        ChangeState(STATE.Roaming);
+    }
+
+    protected virtual void Start()
+    {
+        GameObject hpBars = GameObject.Find("MonsterHpBar");
+        myHpBar = Instantiate(Resources.Load("Prefabs/UI/MonsterHPBar"), hpBars.transform) as GameObject;
+        myUI = myHpBar.GetComponent<MonsterHP>();
+        myUI.myTarget = myHpBarPos;
+        myHpBar.SetActive(false);
+
+        startPos = transform.position;
+        ChangeState(STATE.Idle);
+        SkillExp = true;
+        curHP = orgData.HP;
+    }
+    // Update is called once per frame
+    protected virtual void Update()
+    {
+        StateProcess();
+        HpUpdate();
+        curHP = Mathf.Clamp(curHP, 0.0f, orgData.HP);
     }
 
     //몬스터 Movement
     protected void MonsterAttackTarget(Transform target)
     {
         StopAllCoroutines();
-        attackCo = StartCoroutine(AttackingTarget(target, myStat.AttackRange, myStat.AttackDelay));
+        attackCo = StartCoroutine(AttackingTarget(target, orgData.AttackRange, orgData.AttackDelay));
     }
+
+    
+    void HpUpdate()
+    {
+        if (myState == STATE.Dead) return;
+        myUI.myBar.value = curHP / orgData.HP;
+        myUI.myBGBar.value = Mathf.Lerp(myUI.myBGBar.value, curHP / orgData.HP, 5.0f * Time.deltaTime);
+
+        if (myState != STATE.Battle && myHpBar.activeSelf)
+        {
+            myHpBar.SetActive(false);
+        }
+
+        //궁극기 경험치
+        if(myUI.myBar.value <= 0.5)
+        {
+            if (SkillExp)
+            {
+                GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
+                obj.transform.position = QSkillExpPos.position;
+                SkillExp = false;
+            }
+        } 
+    }
+
+    public void FindTarget(Transform target)
+    {
+        if (myState == STATE.Dead) return;
+        myTarget = target;
+        StopAllCoroutines();
+        ChangeState(STATE.Battle);
+    }
+
+    public void LostTarget()
+    {
+        if (myState == STATE.Dead) return;
+        myTarget = null;
+        StopAllCoroutines();
+        myAnim.SetBool("Run Forward", false);
+        ChangeState(STATE.Idle);
+    }
+
+    
+
+
+
+
 
     //위치값 전달하는 함수
     protected void MoveToPosition(Vector3 pos, UnityAction done = null, bool Rot = true)
@@ -77,7 +218,7 @@ public class Monster : BattleSystem
 
             if (!myAnim.GetBool("IsAttacking") && !myAnim.GetBool("IsDamage"))
             {
-                float delta = myStat.RotSpeed * Time.deltaTime;
+                float delta = orgData.RotSpeed * Time.deltaTime;
                 if (delta > Angle)
                 {
                     delta = Angle;
@@ -113,7 +254,7 @@ public class Monster : BattleSystem
 
             if (!myAnim.GetBool("IsAttacking") && !myAnim.GetBool("IsDamage"))
             {
-                float delta = myStat.WalkSpeed * Time.deltaTime;
+                float delta = orgData.WalkSpeed * Time.deltaTime;
                 if (delta > dist)
                 {
                     delta = dist;
@@ -148,7 +289,7 @@ public class Monster : BattleSystem
                 myAnim.SetBool("Run Forward", true);
                 myAnim.SetBool("Walk Forward", true);
                 dir.Normalize();
-                delta = myStat.RunSpeed * Time.deltaTime;
+                delta = orgData.RunSpeed * Time.deltaTime;
                 //if(myAnim.GetBool("Run Forward")) delta = myStat.RunSpeed * Time.deltaTime;
                 if (delta > dist)
                 {
@@ -169,7 +310,7 @@ public class Monster : BattleSystem
                 }
             }
             //회전
-            delta = myStat.RotSpeed * Time.deltaTime;
+            delta = orgData.RotSpeed * Time.deltaTime;
             float Angle = Vector3.Angle(dir, transform.forward);
             float rotDir = 1.0f;
             if (Vector3.Dot(transform.right, dir) < 0.0f)
@@ -212,7 +353,7 @@ public class Monster : BattleSystem
 
     //공용 사용 함수(몬스터/플레이어)
 
-    /*public Transform[] myAttackPoint;
+    public Transform[] myAttackPoint;
     [SerializeField] LayerMask myEnemyMask;
 
     public virtual void AttackTarget(float radius, int a = 0, int b = 0) //데미지 가하는 함수
@@ -227,22 +368,13 @@ public class Monster : BattleSystem
                 switch (b)
                 {
                     case 0: //일반데미지
-                        col.GetComponent<IBattle>()?.OnDamage(myStat.AP);
-                        AttackCount += 0.05f;
+                        col.GetComponent<IBattle>()?.OnDamage(orgData.AP);
                         break;
                     case 1: //강한데미지
-                        col.GetComponent<IBattle>()?.OnBigDamage(myStat.AP);
-                        break;
-                    case 2: //E스킬데미지
-                        col.GetComponent<IBattle>()?.OnESkillDamage(myStat.ESkillAP);
-                        AttackCount += 0.1f;
-                        break;
-                    case 3: //Q스킬데미지
-                        col.GetComponent<IBattle>()?.OnQSkillDamage(myStat.QSkillAP);
-                        AttackCount += 0.02f;
+                        col.GetComponent<IBattle>()?.OnBigDamage(orgData.AP);
                         break;
                 }
             }
         }
-    }*/
+    }
 }

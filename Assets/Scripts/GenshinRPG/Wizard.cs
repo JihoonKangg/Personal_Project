@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Wizard : BattleSystem
+public class Wizard : CharacterMovement
 {
     public Transform myAttackPos;
     [SerializeField] GameObject QSkillPrefabs;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Warrier : BattleSystem
+public class Warrier : CharacterMovement
 {
     [SerializeField] GameObject[] QSkillPrefabs;
     [SerializeField] Slider MyHPRightUI;

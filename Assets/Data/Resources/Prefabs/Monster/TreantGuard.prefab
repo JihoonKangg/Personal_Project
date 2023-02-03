@@ -198,8 +198,7 @@ MonoBehaviour:
     attackDelay: 3
     attackRadius: 0.6
     ESkillcooltime: 0
-  CharacterRotSpeed: 1
-  AttackCount: 0
+  orgData: {fileID: 11400000, guid: cd936981ed82443449b67086ec0ab884, type: 2}
   myAttackPoint:
   - {fileID: 9200737747157050310}
   myEnemyMask:

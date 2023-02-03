@@ -5,11 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class CharacterMovement : CharacterProperty //행동에 관련된 스크립트(몬스터/플레이어)
+public class CharacterMovement : BattleSystem //행동에 관련된 스크립트(몬스터/플레이어)
 {
     [SerializeField] float CharacterRotSpeed = 10.0f;
     Quaternion targetRot = Quaternion.identity;
-    protected Coroutine attackCo = null;
     public float AttackCount = 0.0f;
     
 
