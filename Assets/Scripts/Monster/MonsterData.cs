@@ -9,9 +9,6 @@ public class MonsterData : ScriptableObject
     [SerializeField] float hp;
     public float HP { get { return hp; } }
 
-    [SerializeField] float maxHp;
-    public float MaxHP { get { return maxHp; } }
-
     [SerializeField] float ap;
     public float AP { get { return ap; } }
 
@@ -29,6 +26,10 @@ public class MonsterData : ScriptableObject
 
     [SerializeField] float attackDelay;
     public float AttackDelay { get { return attackDelay; } }
+
     [SerializeField] float attackRadius;
     public float AttackRadius { get { return attackRadius; } }
+
+    [SerializeField] float qSkillStiffTime;
+    public float QSkillStiffTime { get { return qSkillStiffTime; } }
 }

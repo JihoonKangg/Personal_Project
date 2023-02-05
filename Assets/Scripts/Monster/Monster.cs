@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 
 public class Monster : BattleSystem
@@ -14,19 +13,20 @@ public class Monster : BattleSystem
     Coroutine rotCo = null;
 
     public Transform myHpBarPos;
+    protected SkinnedMeshRenderer myMesh;
+    public Material[] myMaterial;
+    protected float MonsterHP;
+    public float curHP;
+    protected Material myMat;
+    protected Color orgColor;
     protected MonsterHP myUI = null;
     protected GameObject myHpBar = null;
     protected Vector3 startPos = Vector3.zero;
     [SerializeField] Transform QSkillExpPos;
     bool SkillExp = true;
-    public float curHP;
 
-    void Awake()
-    {
-        
-    }
 
-    
+
     public enum STATE
     {
         Create, Idle, Roaming, Battle, Stiff, Dead
@@ -110,8 +110,11 @@ public class Monster : BattleSystem
         ChangeState(STATE.Idle);
         SkillExp = true;
         curHP = orgData.HP;
+        MonsterHP = curHP / orgData.HP;
+
+        myMesh = GetComponentInChildren<SkinnedMeshRenderer>();
+        myMesh.material = myMaterial[0];
     }
-    // Update is called once per frame
     protected virtual void Update()
     {
         StateProcess();
@@ -130,8 +133,8 @@ public class Monster : BattleSystem
     void HpUpdate()
     {
         if (myState == STATE.Dead) return;
-        myUI.myBar.value = curHP / orgData.HP;
-        myUI.myBGBar.value = Mathf.Lerp(myUI.myBGBar.value, curHP / orgData.HP, 5.0f * Time.deltaTime);
+        myUI.myBar.value = MonsterHP;
+        myUI.myBGBar.value = Mathf.Lerp(myUI.myBGBar.value, MonsterHP, 5.0f * Time.deltaTime);
 
         if (myState != STATE.Battle && myHpBar.activeSelf)
         {
@@ -349,6 +352,29 @@ public class Monster : BattleSystem
             yield return null;
         }
         Destroy(gameObject);
+    }
+
+    float time = 0.0f;
+
+    public void UseQSkill()
+    {
+        StartCoroutine(MonsterStiff());
+        curHP -= (orgData.HP * 0.2f);
+    }
+
+    public IEnumerator MonsterStiff() //궁극시 사용 시 몬스터 Stiff
+    {
+        while (time <= orgData.QSkillStiffTime)
+        {
+            time += Time.deltaTime;
+            myAnim.SetFloat("AnimSpeed", 0.0f);
+            Debug.Log(time);
+            myMesh.material = myMaterial[1];
+            yield return null;
+        }
+        myMesh.material = myMaterial[0];
+        time = 0.0f; 
+        myAnim.SetFloat("AnimSpeed", 1.0f);
     }
 
     //공용 사용 함수(몬스터/플레이어)

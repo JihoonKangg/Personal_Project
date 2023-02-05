@@ -5,15 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class CharacterMovement : BattleSystem //행동에 관련된 스크립트(몬스터/플레이어)
+public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스터/플레이어)
 {
     [SerializeField] float CharacterRotSpeed = 10.0f;
     Quaternion targetRot = Quaternion.identity;
-    public float AttackCount = 0.0f;
-    
-
+    protected float AttackCount = 0.0f;
     float targetSpeed = 0.0f;
-    //플레이어 Movement
+    //콤보체크 담당
+    protected bool IsCombable = false;
+    protected int ClickCount = 0;
+
     protected void PlayerMoving()
     {
         Vector3 dir = Vector2.zero;
@@ -50,7 +51,7 @@ public class CharacterMovement : BattleSystem //행동에 관련된 스크립트(몬스터/플
         }
     }
 
-    protected void WarriorAttack()
+    protected void PlayerAttack()
     {
         if (!myAnim.GetBool("IsComboAttacking") && !myAnim.GetBool("IsComboAttacking1") && !myAnim.GetBool("IsESkillAttacking") 
             && !myAnim.GetBool("IsQSkillAttacking") && !myAnim.GetBool("IsStun") && !myAnim.GetBool("IsDamage"))
@@ -72,10 +73,52 @@ public class CharacterMovement : BattleSystem //행동에 관련된 스크립트(몬스터/플
         }
     }
 
-    
+    //일반공격 연속기 담당
+    public void ComboCheck(bool v)
+    {
+        if (v)
+        {
+            //Start Combo Check
+            IsCombable = true;
+            ClickCount = 0;
+        }
+        else
+        {
+            //End Combo Check
+            IsCombable = false;
+            if (ClickCount == 0)
+            {
+                myAnim.SetTrigger("ComboFail");
+            }
+        }
+    }
 
-    
-
+    public void AutoAim()
+    {
+        if (myTarget == null) return;
+        if (myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsComboAttacking1")
+            || myAnim.GetBool("IsESkillAttacking") || myAnim.GetBool("IsQSkillAttacking") && !myAnim.GetBool("IsDamage"))
+        {
+            Vector3 pos = myTarget.position - transform.position;
+            pos.Normalize();
+            float delta = RotSpeed * Time.deltaTime;
+            float rotDir = 1.0f;
+            if (Vector3.Dot(transform.right, pos) < 0)
+            {
+                rotDir = -rotDir;
+            }
+            float angle = Vector3.Angle(transform.forward, pos);
+            if (angle > 0)
+            {
+                if (delta > angle)
+                {
+                    delta = angle;
+                }
+                angle -= delta;
+                transform.Rotate(Vector3.up * rotDir * delta, Space.World);
+            }
+        }
+    }
 
 
     //공용 사용 함수(몬스터/플레이어)
@@ -95,18 +138,18 @@ public class CharacterMovement : BattleSystem //행동에 관련된 스크립트(몬스터/플
                 switch(b)
                 {
                     case 0: //일반데미지
-                        col.GetComponent<IBattle>()?.OnDamage(myStat.AP);
+                        col.GetComponent<IBattle>()?.OnDamage(AP);
                         AttackCount += 0.05f;
                         break;
                     case 1: //강한데미지
-                        col.GetComponent<IBattle>()?.OnBigDamage(myStat.AP);
+                        col.GetComponent<IBattle>()?.OnBigDamage(AP);
                         break;
                     case 2: //E스킬데미지
-                        col.GetComponent<IBattle>()?.OnESkillDamage(myStat.ESkillAP);
+                        col.GetComponent<IBattle>()?.OnESkillDamage(ESkillAP);
                         AttackCount += 0.1f;
                         break;
                     case 3: //Q스킬데미지
-                        col.GetComponent<IBattle>()?.OnQSkillDamage(myStat.QSkillAP);
+                        col.GetComponent<IBattle>()?.OnQSkillDamage(QSkillAP);
                         AttackCount += 0.02f;
                         break;
                 }

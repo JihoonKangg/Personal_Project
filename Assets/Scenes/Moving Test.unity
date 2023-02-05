@@ -390,130 +390,6 @@ Transform:
   m_Father: {fileID: 456647470}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 62.298668, y: 2.4396453, z: 2.6226733}
---- !u!1 &120005914
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 120005917}
-  - component: {fileID: 120005916}
-  - component: {fileID: 120005915}
-  - component: {fileID: 120005918}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &120005915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120005914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
---- !u!20 &120005916
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120005914}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &120005917
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120005914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7906456, y: 9.237586, z: -20.825481}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &120005918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120005914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 603b9f99572e8854c9cce9fbe2844d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCam: {fileID: 0}
-  myRender: {fileID: 0}
 --- !u!95 &124236729
 Animator:
   serializedVersion: 4
@@ -1434,21 +1310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e140d5fd5e1d14c8f2d51368508045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStat:
-    hp: 0
-    maxHp: 0
-    ap: 0
-    ESkillap: 0
-    QSkillap: 0
-    walkSpeed: 0
-    runSpeed: 0
-    rotSpeed: 0
-    attackRange: 0
-    attackDelay: 0
-    attackRadius: 0
-    ESkillcooltime: 0
   MySword: {fileID: 2100000, guid: 1382128afc6942f4386cb5607baca8ce, type: 2}
-  MaxSplitValue: 1
   SplitSpeed: 1
   mySplit: 1
 --- !u!114 &194315708
@@ -1550,21 +1412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86931fde511e34899886890fad5612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStat:
-    hp: 500
-    maxHp: 500
-    ap: 30
-    ESkillap: 50
-    QSkillap: 0
-    walkSpeed: 0
-    runSpeed: 0
-    rotSpeed: 400
-    attackRange: 0
-    attackDelay: 0
-    attackRadius: 2.5
-    ESkillcooltime: 13
   CharacterRotSpeed: 10
-  AttackCount: 0
+  orgData: {fileID: 11400000, guid: cb87a990a7a46fb40800c6214329ced9, type: 2}
+  curHP: 0
   myAttackPoint:
   - {fileID: 498896454}
   - {fileID: 249460659}
@@ -1633,19 +1483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92847f7883a4afe4b913d3060c7bc2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStat:
-    hp: 0
-    maxHp: 0
-    ap: 0
-    ESkillap: 0
-    QSkillap: 0
-    walkSpeed: 0
-    runSpeed: 0
-    rotSpeed: 0
-    attackRange: 0
-    attackDelay: 0
-    attackRadius: 0
-    ESkillcooltime: 5
+  myPlayer: {fileID: 11400000, guid: cb87a990a7a46fb40800c6214329ced9, type: 2}
   MySkill_IMG:
   - {fileID: 1869748490}
   - {fileID: 724833910}
@@ -1854,7 +1692,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b8846bf5cdefa3944b43e2cf31113d18,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b8846bf5cdefa3944b43e2cf31113d18,
         type: 3}
@@ -6092,7 +5930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &487571391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6119,7 +5957,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498896453
 GameObject:
@@ -12900,7 +12738,7 @@ Transform:
   - {fileID: 1955775600}
   - {fileID: 2054561513}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909489558
 GameObject:
@@ -13981,21 +13819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c84ec6f8c83a440bc6d39aaf28422f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStat:
-    hp: 400
-    maxHp: 400
-    ap: 50
-    ESkillap: 120
-    QSkillap: 0
-    walkSpeed: 0
-    runSpeed: 0
-    rotSpeed: 400
-    attackRange: 0
-    attackDelay: 0
-    attackRadius: 0
-    ESkillcooltime: 14
   CharacterRotSpeed: 10
-  AttackCount: 0
+  orgData: {fileID: 11400000, guid: 43d7f17d9f04938498e2f965de1ffea4, type: 2}
+  curHP: 0
   myAttackPoint:
   - {fileID: 162665736}
   - {fileID: 228073137}
@@ -14157,19 +13983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92847f7883a4afe4b913d3060c7bc2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStat:
-    hp: 0
-    maxHp: 0
-    ap: 0
-    ESkillap: 0
-    QSkillap: 0
-    walkSpeed: 0
-    runSpeed: 0
-    rotSpeed: 0
-    attackRange: 0
-    attackDelay: 0
-    attackRadius: 0
-    ESkillcooltime: 9
+  myPlayer: {fileID: 11400000, guid: 43d7f17d9f04938498e2f965de1ffea4, type: 2}
   MySkill_IMG:
   - {fileID: 694745369}
   - {fileID: 97757713}

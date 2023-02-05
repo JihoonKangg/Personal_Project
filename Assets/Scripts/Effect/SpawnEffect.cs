@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnEffect : CharacterProperty
 {
     [SerializeField] Material MySword;
-    [SerializeField] float MaxSplitValue = 1.0f;
     [SerializeField] float SplitSpeed = 0.4f;
     [SerializeField] float mySplit = 1.0f;
 

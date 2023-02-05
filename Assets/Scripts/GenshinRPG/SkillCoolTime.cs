@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
 
-public class SkillCoolTime : CharacterProperty
+public class SkillCoolTime : MonoBehaviour
 {
+    public CharacterData myPlayer;
     public Image[] MySkill_IMG;
     //0번 E스킬, 1번 Q스킬, 2번 스킬 쿨타임 표시
     [SerializeField] GameObject mySkillEffect;
@@ -28,7 +27,7 @@ public class SkillCoolTime : CharacterProperty
         MySkill_IMG[1].fillAmount = 1.0f; //Q스킬 비활성화
         MySkill_IMG[2].gameObject.SetActive(false); //E스킬 쿨타임 표시 비활성화
         mySkillEffect.SetActive(false); //Q스킬이펙트 비활성화
-        myCoolTime = myStat.ESkillCoolTime;
+        myCoolTime = myPlayer.ESkillCoolTime;
     }
 
     // Update is called once per frame
@@ -61,11 +60,11 @@ public class SkillCoolTime : CharacterProperty
         while (myCoolTime > 0.0f)
         {
             myCoolTime -= Time.deltaTime;
-            MySkill_IMG[2].fillAmount = myCoolTime / myStat.ESkillCoolTime;
+            MySkill_IMG[2].fillAmount = myCoolTime / myPlayer.ESkillCoolTime;
             yield return null;
         }
         MySkill_IMG[0].fillAmount = 1.0f;
-        myCoolTime = myStat.ESkillCoolTime;
+        myCoolTime = myPlayer.ESkillCoolTime;
         coCool = null;
         isCooling = false;
     }

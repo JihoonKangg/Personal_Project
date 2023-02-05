@@ -19506,7 +19506,7 @@ GameObject:
   - component: {fileID: 198177187766977314}
   - component: {fileID: 199776562650683994}
   - component: {fileID: -5236378547188247530}
-  - component: {fileID: 2842475958337367429}
+  - component: {fileID: 137268865551435064}
   - component: {fileID: 3715907789870412347}
   m_Layer: 0
   m_Name: BaseAttackObj
@@ -24524,7 +24524,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2842475958337367429
+--- !u!114 &137268865551435064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24533,10 +24533,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1992603179541412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4086407e95d6244bfa965b6c0e8d22, type: 3}
+  m_Script: {fileID: 11500000, guid: dadb3c0abc04359429daeee7d0f0cbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  wizard: {fileID: 2354049939303759438, guid: c260902d18b42794392c6483cd15c269, type: 3}
   enemyMask:
     serializedVersion: 2
     m_Bits: 128

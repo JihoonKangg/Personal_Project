@@ -2680,30 +2680,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0024d8e48dcd242a7d393633342035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStat:
-    hp: 300
-    maxHp: 300
-    ap: 30
-    ESkillap: 0
-    QSkillap: 0
-    walkSpeed: 2
-    runSpeed: 10
-    rotSpeed: 360
-    attackRange: 6
-    attackDelay: 5
-    attackRadius: 5
-    ESkillcooltime: 0
-  CharacterRotSpeed: 1
-  AttackCount: 0
+  orgData: {fileID: 11400000, guid: 78a67965f4f9b0e43910407774ed3f8c, type: 2}
+  myHpBarPos: {fileID: 833199357135290572}
+  myMaterial:
+  - {fileID: 2100000, guid: 7561ce848385b1f44a72045d98748174, type: 2}
+  - {fileID: 2100000, guid: dd83610db44b6a74dba60453cbce51f9, type: 2}
+  QSkillExpPos: {fileID: 6733938815807926827}
+  curHP: 0
+  myState: 0
   myAttackPoint:
   - {fileID: 1839719786239118450}
   myEnemyMask:
     serializedVersion: 2
     m_Bits: 256
-  orgData: {fileID: 11400000, guid: 78a67965f4f9b0e43910407774ed3f8c, type: 2}
-  myHpBarPos: {fileID: 833199357135290572}
-  QSkillExpPos: {fileID: 6733938815807926827}
-  myState: 0
 --- !u!136 &4084170749415787562
 CapsuleCollider:
   m_ObjectHideFlags: 0

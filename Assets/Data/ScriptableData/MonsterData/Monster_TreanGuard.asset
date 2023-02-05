@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: TreanGuard
   hp: 200
-  maxHp: 200
-  ap: 20
+  ap: 30
   walkSpeed: 3
   runSpeed: 7
   rotSpeed: 360
   attackRange: 4
   attackDelay: 3
   attackRadius: 0.6
+  qSkillStiffTime: 5

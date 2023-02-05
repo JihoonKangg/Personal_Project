@@ -16,15 +16,15 @@ public class CharacterHP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MaxHP = GetComponentInChildren<CharacterMovement>().myStat.MaxHP;
+        MaxHP = GetComponentInChildren<CharacterMovement>().orgData.HP;
         MyHP = MaxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MaxHP = GetComponentInChildren<CharacterMovement>().myStat.MaxHP;
-        MyHP = GetComponentInChildren<CharacterMovement>().myStat.HP;
+        MaxHP = GetComponentInChildren<CharacterMovement>().orgData.HP;
+        MyHP = GetComponentInChildren<CharacterMovement>().curHP;
 
         HpBar.value = MyHP / MaxHP;
         MyHp.text = MyHP.ToString();

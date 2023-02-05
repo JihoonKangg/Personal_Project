@@ -9,8 +9,7 @@ public class CallDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float ap = GetComponentInParent<CharacterProperty>().myStat.AP;
-
+        /*float ap = GetComponentInParent<CharacterProperty>().myStat.AP;*/
     }
 
     // Update is called once per frame

@@ -16,8 +16,8 @@ public class TreantGuard : Monster
     //인터페이스
     public override void OnDamage(float dmg) //데미지 입을 때
     {
-        myStat.HP -= dmg;
-        if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
+        curHP -= dmg;
+        if (Mathf.Approximately(curHP, 0)) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }
@@ -28,8 +28,8 @@ public class TreantGuard : Monster
     }
     public override void OnESkillDamage(float ESkilldmg)
     {
-        myStat.HP -= ESkilldmg;
-        if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
+        curHP -= ESkilldmg;
+        if (Mathf.Approximately(curHP, 0)) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }
@@ -40,8 +40,8 @@ public class TreantGuard : Monster
     }
     public override void OnQSkillDamage(float QSkilldmg)
     {
-        myStat.HP -= QSkilldmg;
-        if (Mathf.Approximately(myStat.HP, 0)) //죽었을 때
+        curHP -= QSkilldmg;
+        if (Mathf.Approximately(curHP, 0)) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }

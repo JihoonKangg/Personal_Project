@@ -7,17 +7,7 @@ public class QSkillElementMove : MonoBehaviour
 {
     public LayerMask myPlayer;
     float exp = 0.05f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void FollowTarget(Transform t)
     {
         StartCoroutine(FollowingTarget(t));

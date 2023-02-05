@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class WizardProjectile : MonoBehaviour
 {
-    [SerializeField] float speed = 10.0f;
-    [SerializeField] ForestBat Forestbat;
+    [SerializeField] float speed = 20.0f;
+    public Wizard wizard;
+    public float AP;
     public LayerMask enemyMask;
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if((enemyMask & 1 << other.gameObject.layer) != 0)
+        if ((enemyMask & 1 << other.gameObject.layer) != 0)
         {
-            other.GetComponent<IBattle>().OnDamage(Forestbat.orgData.AP);
+            other.GetComponent<IBattle>().OnDamage(AP);
             Destroy(gameObject);
         }
     }

@@ -4852,6 +4852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  Forestbat: {fileID: 112034482169287082, guid: 59f9bdea04424ae478235b3de73ff991,
+    type: 3}
   enemyMask:
     serializedVersion: 2
     m_Bits: 256

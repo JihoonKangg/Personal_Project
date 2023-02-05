@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Golem
   hp: 300
-  maxHp: 300
-  ap: 30
+  ap: 50
   walkSpeed: 2
   runSpeed: 10
   rotSpeed: 360
   attackRange: 6
   attackDelay: 5
   attackRadius: 5
+  qSkillStiffTime: 5

@@ -26,7 +26,7 @@ public class WizardQSkill : MonoBehaviour
     {
         if ((enemyMask & 1 << other.gameObject.layer) != 0) //·é¿¡ ¸ó½ºÅÍ°¡ ´ê¾ÒÀ» ¶§
         {
-            
+            other.GetComponent<Monster>().UseQSkill();
         }
     }
 }
