@@ -15,7 +15,7 @@ public class Monster : BattleSystem
     public Transform myHpBarPos;
     protected SkinnedMeshRenderer myMesh;
     public Material[] myMaterial;
-    protected float MonsterHP;
+    protected float HpValue = 1.0f;
     public float curHP;
     protected Material myMat;
     protected Color orgColor;
@@ -110,7 +110,6 @@ public class Monster : BattleSystem
         ChangeState(STATE.Idle);
         SkillExp = true;
         curHP = orgData.HP;
-        MonsterHP = curHP / orgData.HP;
 
         myMesh = GetComponentInChildren<SkinnedMeshRenderer>();
         myMesh.material = myMaterial[0];
@@ -120,11 +119,13 @@ public class Monster : BattleSystem
         StateProcess();
         HpUpdate();
         curHP = Mathf.Clamp(curHP, 0.0f, orgData.HP);
+        HpValue = curHP / orgData.HP;
     }
 
     //∏ÛΩ∫≈Õ Movement
     protected void MonsterAttackTarget(Transform target)
     {
+        if (myState == STATE.Dead) return;
         StopAllCoroutines();
         attackCo = StartCoroutine(AttackingTarget(target, orgData.AttackRange, orgData.AttackDelay));
     }
@@ -133,8 +134,9 @@ public class Monster : BattleSystem
     void HpUpdate()
     {
         if (myState == STATE.Dead) return;
-        myUI.myBar.value = MonsterHP;
-        myUI.myBGBar.value = Mathf.Lerp(myUI.myBGBar.value, MonsterHP, 5.0f * Time.deltaTime);
+
+        myUI.myBar.value = HpValue;
+        myUI.myBGBar.value = Mathf.Lerp(myUI.myBGBar.value, HpValue, 5.0f * Time.deltaTime);
 
         if (myState != STATE.Battle && myHpBar.activeSelf)
         {

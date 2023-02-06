@@ -5,7 +5,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Golem : Monster
 {
-
     public override void AttackTarget(float radius, int a = 0, int b = 0)
     {
         base.AttackTarget(radius, 0, 0);
@@ -22,7 +21,7 @@ public class Golem : Monster
     public override void OnDamage(float dmg) //데미지 입을 때
     {
         curHP -= dmg;
-        if(Mathf.Approximately(curHP, 0)) //죽었을 때
+        if(HpValue == 0) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }
@@ -34,7 +33,7 @@ public class Golem : Monster
     public override void OnESkillDamage(float ESkilldmg)
     {
         curHP -= ESkilldmg;
-        if (Mathf.Approximately(curHP, 0)) //죽었을 때
+        if (HpValue == 0) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }
@@ -46,7 +45,7 @@ public class Golem : Monster
     public override void OnQSkillDamage(float QSkilldmg)
     {
         curHP -= QSkilldmg;
-        if (Mathf.Approximately(curHP, 0)) //죽었을 때
+        if (HpValue == 0) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }

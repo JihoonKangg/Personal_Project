@@ -17,8 +17,9 @@ public class Wizard : CharacterMovement
     void Update()
     {
         HP = orgData.CharacterHP(LEVEL);
-        Mathf.Clamp(curHP, 0, HP);
+        curHP = Mathf.Clamp(curHP, 0.0f, HP);
 
+        HpValue = curHP / HP;
         MyHPRightUI.value = curHP / HP;
         WizardMove();
         PlayerAttack();
@@ -97,7 +98,7 @@ public class Wizard : CharacterMovement
     {
         curHP -= Bigdmg;
 
-        if (Mathf.Approximately(curHP, 0.0f)) //죽었을 때
+        if (HpValue == 0.0f) //죽었을 때
         {
             //Death 트리거 발동
             myAnim.SetTrigger("Die");
@@ -115,7 +116,7 @@ public class Wizard : CharacterMovement
     {
         curHP -= dmg;
 
-        if (Mathf.Approximately(curHP, 0.0f)) //죽었을 때
+        if (HpValue == 0.0f) //죽었을 때
         {
             //Death 트리거 발동
             myAnim.SetTrigger("Die");
@@ -134,7 +135,7 @@ public class Wizard : CharacterMovement
     }
     public override bool IsLive()
     {
-        return !Mathf.Approximately(curHP, 0.0f); //살아있음 , false면 죽었음.
+        return (HpValue != 0.0f); //살아있음 , false면 죽었음.
     }
     public override void DeadMessage(Transform tr)
     //몬스터가 죽었을 때 호출되도록.

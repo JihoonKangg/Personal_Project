@@ -6,7 +6,7 @@ public class CharacterDATAUSE : BattleSystem
 {
     public CharacterData orgData;
 
-    protected float HP;
+    public float HP;
     protected float AP;
     protected float ESkillAP;
     protected float QSkillAP;

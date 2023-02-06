@@ -53,11 +53,17 @@ public class CharacterChangeSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        Animator myAnim = GetComponentInChildren<Animator>();
+        ;
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !myAnim.GetBool("IsAttaking") && !myAnim.GetBool("IsComboAttacking")
+            && !myAnim.GetBool("IsDamage") && !myAnim.GetBool("IsComboAttacking1") &&
+            !myAnim.GetBool("IsESkillAttacking") && !myAnim.GetBool("IsQSkillAttacking"))
         {
             ChangeCharacter(ChooseCharacter.Warrior);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && !myAnim.GetBool("IsAttaking") && !myAnim.GetBool("IsComboAttacking")
+            && !myAnim.GetBool("IsDamage") && !myAnim.GetBool("IsComboAttacking1") &&
+            !myAnim.GetBool("IsESkillAttacking") && !myAnim.GetBool("IsQSkillAttacking"))
         {
             ChangeCharacter(ChooseCharacter.Wizard);
         }

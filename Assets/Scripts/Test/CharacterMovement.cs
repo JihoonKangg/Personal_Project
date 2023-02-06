@@ -14,6 +14,7 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
     //콤보체크 담당
     protected bool IsCombable = false;
     protected int ClickCount = 0;
+    public float HpValue = 1.0f;
 
     protected void PlayerMoving()
     {
