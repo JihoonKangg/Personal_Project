@@ -1,0 +1,920 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9166578570579152512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9166578570579152516}
+  - component: {fileID: 9166578570579152515}
+  - component: {fileID: 9166578570579152514}
+  - component: {fileID: 9166578570579152513}
+  m_Layer: 0
+  m_Name: Critias_Painter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9166578570579152516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166578570579152512}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -280.74445, y: -72.16053, z: -457.80692}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9166578570579152515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166578570579152512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616910f8ed50038449055c57928e8aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EditorFoldoutHelp: 1
+  m_EditorFoldoutBrush: 1
+  m_EditorFoldoutFoliageTypes: 1
+  m_EditorFoldoutFoliageTypeInfo: 1
+  m_EditorFoldoutAdvanced: 1
+  m_EditorPaintBegun: 0
+  m_FoliageRenderer: {fileID: 9166578570579152514}
+  m_FoliageColliders: {fileID: 9166578570579152513}
+  m_FoliageTypes:
+  - m_Hash: 1210232986
+    m_Name: Grass_MediumGroup_Yellow
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 3.6489387
+        m_Materials:
+        - {fileID: 2100000, guid: 597e627adaf0f344ab1f3444b29351a6, type: 2}
+        m_Mesh: {fileID: 156833075899770750, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      - m_EndDistance: 29.166666
+        m_Materials:
+        - {fileID: 2100000, guid: 597e627adaf0f344ab1f3444b29351a6, type: 2}
+        m_Mesh: {fileID: -6516674605531866187, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: 597e627adaf0f344ab1f3444b29351a6, type: 2}
+        m_Mesh: {fileID: -8613194848119680020, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: 597e627adaf0f344ab1f3444b29351a6, type: 2}
+        m_Mesh: {fileID: 156833075899770750, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: -0.6335513, y: 0.31901357, z: 0.01806891}
+      m_Extent: {x: 1.3807759, y: 0.40288863, z: 1.2078153}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 6370354438409403971, guid: 27d8ac75eef1d824bac3531461f68b39,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 107
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 1
+  - m_Hash: 319763805
+    m_Name: Wheat_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 25
+        m_Materials:
+        - {fileID: 2100000, guid: 4af1b234192cc814a89c8ac80c8f2c78, type: 2}
+        m_Mesh: {fileID: -6747989369096376915, guid: 03ce0e150941f384cb80f6bcedc091f0,
+          type: 3}
+      - m_EndDistance: 29.166666
+        m_Materials:
+        - {fileID: 2100000, guid: 4af1b234192cc814a89c8ac80c8f2c78, type: 2}
+        m_Mesh: {fileID: 5382726931003874770, guid: 03ce0e150941f384cb80f6bcedc091f0,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: 4af1b234192cc814a89c8ac80c8f2c78, type: 2}
+        m_Mesh: {fileID: 7234394433623675417, guid: 03ce0e150941f384cb80f6bcedc091f0,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: 4af1b234192cc814a89c8ac80c8f2c78, type: 2}
+        m_Mesh: {fileID: -6747989369096376915, guid: 03ce0e150941f384cb80f6bcedc091f0,
+          type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.036435395, y: 0.73061603, z: 0.0061139464}
+      m_Extent: {x: 0.3630049, y: 0.7888784, z: 0.47276804}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 7700350181462361059, guid: 026d5e814faea954693aa18b411cf309,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 60
+      m_LODTransition: 0
+      m_CastShadow: 1
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: -860574898
+    m_Name: SM_Grass_MediumGroup
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 25
+        m_Materials:
+        - {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: 156833075899770750, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      - m_EndDistance: 29.166666
+        m_Materials:
+        - {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: -6516674605531866187, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: -8613194848119680020, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: 156833075899770750, guid: 75b17980716a9524280a6e2813a61291,
+          type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: -0.6335513, y: 0.31901357, z: 0.01806891}
+      m_Extent: {x: 1.3807759, y: 0.40288863, z: 1.2078153}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 919132149155446097, guid: 75b17980716a9524280a6e2813a61291,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: -0.82032585, y: 0.5696707}
+      m_PaintEnabled: 0
+  - m_Hash: -782118482
+    m_Name: Grass_Medium
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 25
+        m_Materials:
+        - {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: -473070591835439974, guid: 64fe9acfd5447104f9a207196a994824,
+          type: 3}
+      - m_EndDistance: 29.166666
+        m_Materials:
+        - {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: -4594271116382885223, guid: 64fe9acfd5447104f9a207196a994824,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: 3877492197516856274, guid: 64fe9acfd5447104f9a207196a994824,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: afc3b743f8cbc884fbcc2b29c67a22cf, type: 2}
+        m_Mesh: {fileID: -473070591835439974, guid: 64fe9acfd5447104f9a207196a994824,
+          type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.05866614, y: 0.35117102, z: -0.012184143}
+      m_Extent: {x: 0.7787291, y: 0.37073123, z: 0.7215169}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 1756432244846942132, guid: 26a7f3a02ef929044b23943883e8aa25,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: -0.3418024, y: 0.022786885}
+      m_PaintEnabled: 1
+  - m_Hash: 660316688
+    m_Name: Grass_Small
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 25
+        m_Materials:
+        - {fileID: 2100000, guid: 906acfb199c751a42ac551504259e727, type: 2}
+        m_Mesh: {fileID: -5921483609587185165, guid: e1f03927c7068b8498078588e24bca20,
+          type: 3}
+      - m_EndDistance: 29.166666
+        m_Materials:
+        - {fileID: 2100000, guid: 906acfb199c751a42ac551504259e727, type: 2}
+        m_Mesh: {fileID: 5286646075036055927, guid: e1f03927c7068b8498078588e24bca20,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: 906acfb199c751a42ac551504259e727, type: 2}
+        m_Mesh: {fileID: -6019617275749515164, guid: e1f03927c7068b8498078588e24bca20,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: 906acfb199c751a42ac551504259e727, type: 2}
+        m_Mesh: {fileID: -5921483609587185165, guid: e1f03927c7068b8498078588e24bca20,
+          type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.039210737, y: 0.14548792, z: -0.04924518}
+      m_Extent: {x: 0.54103774, y: 0.17882438, z: 0.6074135}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 3418847280105080880, guid: c5bd129056c28364aadde91f54cd2465,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 1
+  - m_Hash: 1578580541
+    m_Name: Weed_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 25
+        m_Materials:
+        - {fileID: 2100000, guid: 742592992f49e264d85065188ac5b2e2, type: 2}
+        m_Mesh: {fileID: 9208313262910545218, guid: cd8b80d50c224b34ba65a2454bbc1088,
+          type: 3}
+      - m_EndDistance: 29.166666
+        m_Materials:
+        - {fileID: 2100000, guid: 742592992f49e264d85065188ac5b2e2, type: 2}
+        m_Mesh: {fileID: -5245023557257823519, guid: cd8b80d50c224b34ba65a2454bbc1088,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: 742592992f49e264d85065188ac5b2e2, type: 2}
+        m_Mesh: {fileID: -3420978408230389431, guid: cd8b80d50c224b34ba65a2454bbc1088,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: -0.10296419, y: 0.665769, z: 0.085631}
+      m_Extent: {x: 0.4084725, y: 0.68172, z: 0.4111858}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 7547742157284603450, guid: 800a43cdc61550849aa74234e961648c,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_LODTransition: 0
+      m_CastShadow: 1
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 0
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: 1395981267
+    m_Name: Flower_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 37.5
+        m_Materials:
+        - {fileID: 2100000, guid: 23a2a07cbb95ee449aa5a9a9bc64fa96, type: 2}
+        m_Mesh: {fileID: 6133736588785295398, guid: 280158fbb7eaeea49bdc0b6b2e043cbe,
+          type: 3}
+      - m_EndDistance: 43.75
+        m_Materials:
+        - {fileID: 2100000, guid: 23a2a07cbb95ee449aa5a9a9bc64fa96, type: 2}
+        m_Mesh: {fileID: -4312050541426221406, guid: 280158fbb7eaeea49bdc0b6b2e043cbe,
+          type: 3}
+      - m_EndDistance: 150
+        m_Materials:
+        - {fileID: 2100000, guid: 23a2a07cbb95ee449aa5a9a9bc64fa96, type: 2}
+        m_Mesh: {fileID: 8894656223906219200, guid: 280158fbb7eaeea49bdc0b6b2e043cbe,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.023481995, y: 0.41280445, z: 0.011281237}
+      m_Extent: {x: 0.20793141, y: 0.42482224, z: 0.2158338}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 1427619260280579132, guid: 0a6c834da36515e4190bc0c16401de2d,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 150
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 0
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: 1395981264
+    m_Name: Flower_02
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 37.5
+        m_Materials:
+        - {fileID: 2100000, guid: 58bebc49d7879b34e966c447b6e5325b, type: 2}
+        m_Mesh: {fileID: 5147954876496156592, guid: 5d358adfd1e720a449e7308d6f518eba,
+          type: 3}
+      - m_EndDistance: 43.75
+        m_Materials:
+        - {fileID: 2100000, guid: 58bebc49d7879b34e966c447b6e5325b, type: 2}
+        m_Mesh: {fileID: -1162082861189628949, guid: 5d358adfd1e720a449e7308d6f518eba,
+          type: 3}
+      - m_EndDistance: 150
+        m_Materials:
+        - {fileID: 2100000, guid: 58bebc49d7879b34e966c447b6e5325b, type: 2}
+        m_Mesh: {fileID: -4581772826327703146, guid: 5d358adfd1e720a449e7308d6f518eba,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.04784359, y: 0.42544386, z: 0.079708114}
+      m_Extent: {x: 0.27856517, y: 0.44826582, z: 0.2815308}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 4621767400850854618, guid: 59ef2cf84f7057347a4e54a50215b251,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 150
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: 1865545562
+    m_Name: FlowerGroup_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 29.914562
+        m_Materials:
+        - {fileID: 2100000, guid: 23a2a07cbb95ee449aa5a9a9bc64fa96, type: 2}
+        m_Mesh: {fileID: 5931151436058621981, guid: e3aee64d8e4651d488bebd8a9d276651,
+          type: 3}
+      - m_EndDistance: 42.421307
+        m_Materials:
+        - {fileID: 2100000, guid: 23a2a07cbb95ee449aa5a9a9bc64fa96, type: 2}
+        m_Mesh: {fileID: 7481023249584424035, guid: e3aee64d8e4651d488bebd8a9d276651,
+          type: 3}
+      - m_EndDistance: 150
+        m_Materials:
+        - {fileID: 2100000, guid: 23a2a07cbb95ee449aa5a9a9bc64fa96, type: 2}
+        m_Mesh: {fileID: -182379758157932248, guid: e3aee64d8e4651d488bebd8a9d276651,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: -0.023689777, y: 0.47943354, z: 0.087359816}
+      m_Extent: {x: 0.61378026, y: 0.49465704, z: 0.65550625}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 8153222020529146652, guid: c8affe4d2fcb6014fbcfe2d1e107e6c3,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 150
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: -1216260428
+    m_Name: FlowerTall_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 25
+        m_Materials:
+        - {fileID: 2100000, guid: 5aaf760ab91d2a34594eb148a76cf9cc, type: 2}
+        m_Mesh: {fileID: -9166392954692478612, guid: e3652fdef267b3d4994004cce6858ef1,
+          type: 3}
+      - m_EndDistance: 29.166666
+        m_Materials:
+        - {fileID: 2100000, guid: 5aaf760ab91d2a34594eb148a76cf9cc, type: 2}
+        m_Mesh: {fileID: -2665893485267429060, guid: e3652fdef267b3d4994004cce6858ef1,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: 5aaf760ab91d2a34594eb148a76cf9cc, type: 2}
+        m_Mesh: {fileID: 9148503065113208156, guid: e3652fdef267b3d4994004cce6858ef1,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.035684884, y: 0.56408983, z: 0.04314494}
+      m_Extent: {x: 0.49836987, y: 0.5863444, z: 0.4290439}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 5431406632295358785, guid: 9e1c0c143d1615a4c9a19d412b31e35e,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: 1436642817
+    m_Name: FlowerField_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 29.987188
+        m_Materials:
+        - {fileID: 2100000, guid: c1e72ace3a60f8a4182e368f809006f4, type: 2}
+        m_Mesh: {fileID: 2547546556932961207, guid: 850e1129ea6976543afd3745f66c1a6e,
+          type: 3}
+      - m_EndDistance: 42.554943
+        m_Materials:
+        - {fileID: 2100000, guid: c1e72ace3a60f8a4182e368f809006f4, type: 2}
+        m_Mesh: {fileID: 5967095389116410475, guid: 850e1129ea6976543afd3745f66c1a6e,
+          type: 3}
+      - m_EndDistance: 150
+        m_Materials:
+        - {fileID: 2100000, guid: c1e72ace3a60f8a4182e368f809006f4, type: 2}
+        m_Mesh: {fileID: -6408011781223023734, guid: 850e1129ea6976543afd3745f66c1a6e,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: -0.13097501, y: 0.31771624, z: 0.2246182}
+      m_Extent: {x: 2.3366764, y: 0.22469968, z: 2.9642665}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 8826643671502240121, guid: 928775bcb987ce34db400062f7e9f12d,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 150
+      m_LODTransition: 0
+      m_CastShadow: 1
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: 1707152256
+    m_Name: LeafField_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 25
+        m_Materials:
+        - {fileID: 2100000, guid: 4bd1a32b64c290342a4275b9d2a51e47, type: 2}
+        m_Mesh: {fileID: -3252968433666186719, guid: 92b7b4a432479e846b27ab265c4bd3a6,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: 4bd1a32b64c290342a4275b9d2a51e47, type: 2}
+        m_Mesh: {fileID: 2123351529449163311, guid: 92b7b4a432479e846b27ab265c4bd3a6,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: -0.1262725, y: 0.13345647, z: 0.04772705}
+      m_Extent: {x: 1.7478633, y: 0.17614338, z: 1.703507}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 5673027897413293452, guid: ab1bdaade75818f4fa6e2126eeb316e1,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_LODTransition: 0
+      m_CastShadow: 1
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: -1008449920
+    m_Name: RockSmall_01
+    m_RuntimeData:
+      m_LODDataTree:
+      - m_EndDistance: 20.036613
+        m_Materials:
+        - {fileID: 2100000, guid: 235b62284ca715c46b42fdcd9fe55ce0, type: 2}
+        m_Mesh: {fileID: 6767227873608289686, guid: 56eca6e2d0d4b1f46978a3624c11e41a,
+          type: 3}
+      - m_EndDistance: 26.609076
+        m_Materials:
+        - {fileID: 2100000, guid: 235b62284ca715c46b42fdcd9fe55ce0, type: 2}
+        m_Mesh: {fileID: -9082009325588680116, guid: 56eca6e2d0d4b1f46978a3624c11e41a,
+          type: 3}
+      - m_EndDistance: 100
+        m_Materials:
+        - {fileID: 2100000, guid: 235b62284ca715c46b42fdcd9fe55ce0, type: 2}
+        m_Mesh: {fileID: 4511712851125213914, guid: 56eca6e2d0d4b1f46978a3624c11e41a,
+          type: 3}
+      m_LODDataGrass:
+        m_Material: {fileID: 0}
+        m_Mesh: {fileID: 0}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: -0.06360948, y: 0.097133145, z: 0.10965115}
+      m_Extent: {x: 0.45205545, y: 0.21724497, z: 0.529373}
+    m_Type: 3
+    m_IsGrassType: 0
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 7402675975455149535, guid: e4f5653d034540240a2afc5c0aaf30e3,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 100
+      m_LODTransition: 0
+      m_CastShadow: 1
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 1
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: -564700051
+    m_Name: Pebbles_Dense
+    m_RuntimeData:
+      m_LODDataTree: []
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: 4c5d7eaa2a2ff21439e08778f817098d, type: 2}
+        m_Mesh: {fileID: 5168422423687434809, guid: 9b52bc064bf6e2442ac92e95d4288df0,
+          type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.04326123, y: 0.04901277, z: 0.22160217}
+      m_Extent: {x: 0.7461639, y: 0.043268677, z: 0.8070235}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 830472387871528945, guid: fbdf401896d87224f8c54656f08cfa11,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 30
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  - m_Hash: 165257571
+    m_Name: Pebbles_Scattered
+    m_RuntimeData:
+      m_LODDataTree: []
+      m_LODDataGrass:
+        m_Material: {fileID: 2100000, guid: 4c5d7eaa2a2ff21439e08778f817098d, type: 2}
+        m_Mesh: {fileID: 559723939701272363, guid: d0561101149b6694a985d1f0eb056ccd,
+          type: 3}
+      m_SpeedTreeData:
+        m_SpeedTreeWindObject: {fileID: 0}
+        m_SpeedTreeWindObjectMesh: {fileID: 0}
+        m_Size: {x: 0, y: 0, z: 0, w: 0}
+        m_VertBillboardU: []
+        m_VertBillboardV: []
+        m_BillboardRenderer: {fileID: 0}
+        m_BillboardMaterial: {fileID: 0}
+    m_Bounds:
+      m_Center: {x: 0.018646061, y: 0.022271205, z: 0.06694904}
+      m_Extent: {x: 1.1128824, y: 0.034645587, z: 1.0226151}
+    m_Type: 4
+    m_IsGrassType: 1
+    m_IsSpeedTreeType: 0
+    m_RenderType: 0
+    m_RenderIndirect: 0
+    m_Prefab: {fileID: 7466447327404680019, guid: 7431063d31d0f964887ed432b7db8b4a,
+      type: 3}
+    m_RenderInfo:
+      m_MaxDistance: 30
+      m_LODTransition: 0
+      m_CastShadow: 0
+      m_Hue: {r: 1, g: 1, b: 1, a: 1}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_EnableCollision: 0
+    m_EnableBend: 0
+    m_BendDistance: 1
+    m_BendPower: 2
+    m_PaintInfo:
+      m_SurfaceAlign: 1
+      m_SurfaceAlignInfluence: {x: 1, y: 1}
+      m_YOffset: {x: 0, y: 0}
+      m_PaintEnabled: 0
+  m_PaintParameters:
+    m_BrushSize: 1
+    m_FoliageDensity: 5
+    m_SlopeFilter: 1
+    m_SlopeAngles: {x: 0, y: 29.475891}
+    m_ScaleUniform: 1
+    m_ScaleUniformXYZ: {x: 0.79542744, y: 1.1608858}
+    m_ScaleX: {x: 1.1627145, y: 1.2688334}
+    m_ScaleY: {x: 0.86558366, y: 1.3537278}
+    m_ScaleZ: {x: 1.2829819, y: 1.4103239}
+    m_RotateYOnly: 1
+    m_RandomRotation: {x: 0, y: 360}
+    m_StaticOnly: 0
+  m_FoliageDataSaveName: FoliageData_DemoScene
+  m_DrawGridsMode: 0
+  m_DrawTreeShadows: 0
+  m_DrawTreeLastLOD: 0
+  m_DrawNeighboringCells: 4
+  m_DrawGrassCellsDistance: 250
+  m_BillboardsGenerateLODGroup: 1
+  m_BillboardLODGroupFade: 0.2
+  m_BillboardLODGroupWillCrossFade: 1
+  m_ShaderTreeMaster: {fileID: 4800000, guid: afeb08a05b4c36c4db1037ccfde8437f, type: 3}
+  m_ShaderGrass: {fileID: 4800000, guid: 5d9dc4938f3fc50498ebb3eeb2a88f94, type: 3}
+  m_ShaderNull: {fileID: 4800000, guid: abf183821512931479a885bfbc575486, type: 3}
+--- !u!114 &9166578570579152514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166578570579152512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd2ced9ab2c15349bb1bdf4d5916708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Settings:
+    m_DrawInstanced: 1
+    m_UseLightProbes: 1
+    m_AllowDrawInstancedIndirect: 1
+    m_GrassDensity: 1
+    m_WindTransform: {fileID: 0}
+    m_BendTransform: {fileID: 0}
+    m_UsedCameraCulling: {fileID: 0}
+    m_UsedCameraDrawing: {fileID: 0}
+    m_UsedLayer: Default
+    m_ApplyShadowPoppingCorrection: 1
+    m_ShadowPoppingCorrection: 40
+--- !u!114 &9166578570579152513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166578570579152512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf660c2e9876e174d80768e5abff7c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Settings:
+    m_WatchedTransform: {fileID: 0}
+    m_CollisionDistance: 7
+    m_CollisionRefreshDistance: 5
+    m_UsedLayer: Default

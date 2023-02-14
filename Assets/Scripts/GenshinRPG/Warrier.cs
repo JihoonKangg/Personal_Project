@@ -12,7 +12,7 @@ public class Warrier : CharacterMovement
     {
 
     }
-    void Update()
+    private void FixedUpdate()
     {
         HP = orgData.CharacterHP(LEVEL);
         curHP = Mathf.Clamp(curHP, 0.0f, HP);
@@ -23,6 +23,9 @@ public class Warrier : CharacterMovement
         PlayerMoving();
         PlayerAttack();
         AutoAim();
+    }
+    void Update()
+    {
         if (IsCombable)
         {
             if(Input.GetMouseButtonDown(0))
