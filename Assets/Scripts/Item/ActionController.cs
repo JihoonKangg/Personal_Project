@@ -7,11 +7,7 @@ using UnityEngine.UI;
 
 public class ActionController : MonoBehaviour
 {
-    [SerializeField]
-    private float range; //습득 가능한 최대 거리
     private bool pickupActivated = false; //습득 가능할 시 true
-
-    Collider col = null;
 
     [SerializeField]
     private LayerMask layerMask; //아이템 레이어만 발동
@@ -29,7 +25,7 @@ public class ActionController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log(myTarget.GetComponent<ItemPickUp>().item.itemName + " 획득했습니다");
-                theInventory.AcquireItem(myTarget.GetComponent<ItemPickUp>().item, 1);
+                theInventory.AcquireItem(myTarget.GetComponent<ItemPickUp>().item);
                 pickupActivated = false;
                 actionText.gameObject.SetActive(false);
                 Destroy(myTarget.gameObject);
