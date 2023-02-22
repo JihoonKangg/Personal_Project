@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NPCSystem : MonoBehaviour
@@ -8,17 +9,24 @@ public class NPCSystem : MonoBehaviour
     private LayerMask myPlayer;
     private Transform myTarget;
     private bool CanActivated = false; //합성대 사용 가능할 시 true
+    [SerializeField]
+    private Synthesis mySynthesis;
+
+    [SerializeField]
+    private TMP_Text actionText; //필요한 컴포넌트
 
 
-    private void CanPickUp()
+    private void CanUse()
     {
         if (CanActivated)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log(myTarget.GetComponent<ItemPickUp>().item.itemName + " 획득했습니다");
+                Debug.Log("NPC가 반응합니다");
+                actionText.gameObject.SetActive(false);
                 CanActivated = false;
-                Destroy(myTarget.gameObject);
+                //mySynthesis.SetActive(true);
+                mySynthesis.CanUpdate();
                 myTarget = null;
             }
         }
@@ -32,6 +40,8 @@ public class NPCSystem : MonoBehaviour
             myTarget = other.transform;
             CanActivated = true;
             Debug.Log("말걸 수 있음");
+            actionText.gameObject.SetActive(true);
+            actionText.text = "합성대" + "<color=yellow>" + "(F)" + "</color>";
         }
     }
 
@@ -39,7 +49,7 @@ public class NPCSystem : MonoBehaviour
     {
         if (myTarget == other.transform)
         {
-
+            CanUse();
         }
     }
 
@@ -51,6 +61,7 @@ public class NPCSystem : MonoBehaviour
             Debug.Log("못주움");
             CanActivated = false;
             myTarget = null;
+            actionText.gameObject.SetActive(false);
         }
     }
 }

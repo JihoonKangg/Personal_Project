@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e38176c41badd848931112e661ed571, type: 3}
+  m_Name: MagicStoneItem
+  m_EditorClassIdentifier: 
+  itemName: "\uB9C8\uBC95\uC758\uB3CC"
+  itemCode: 5
+  itemType: 2
+  itemImage: {fileID: 21300000, guid: 987ece4334d8eb54c98c23c70c7acef3, type: 3}
+  upgradeItemImage: {fileID: 21300000, guid: 9b545475dd7366a45b25eb4ef7d72d3e, type: 3}
+  itemPrefab: {fileID: 0}
+  Explain: "\uAC80 \uAC15\uD654 \uC544\uC774\uD15C. Warrier\uAC00 \uC0AC\uC6A9\uD558\uB294
+    \uAC80\uC758 \uB370\uBBF8\uC9C0\uB97C \uB192\uC5EC\uC8FC\uB294 \uAC15\uD654\uC7AC\uB8CC."
+  MakeItemCount: 4
+  UpgradeItemCode: 2

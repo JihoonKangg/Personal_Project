@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e38176c41badd848931112e661ed571, type: 3}
   m_Name: GolemItem
   m_EditorClassIdentifier: 
-  itemName: "\uACE8\uB818 \uCCA0\uC870\uAC01"
-  itemType: 2
+  itemName: "\uACE8\uB818 \uB3CC \uC870\uAC01"
+  itemCode: 2
+  itemType: 4
   itemImage: {fileID: 21300000, guid: 9b545475dd7366a45b25eb4ef7d72d3e, type: 3}
+  upgradeItemImage: {fileID: 0}
   itemPrefab: {fileID: 396035126694093161, guid: 41e02b4ed102a424992c576f3049b2fb,
     type: 3}
+  Explain: "\uD569\uC131\uC7AC\uB8CC. \uD569\uC131\uD558\uBA74 \uB9C8\uBC95\uC758\uB3CC\uC744
+    \uD68D\uB4DD\uD560 \uC218 \uC788\uB2E4."
+  MakeItemCount: 0
+  UpgradeItemCode: 2

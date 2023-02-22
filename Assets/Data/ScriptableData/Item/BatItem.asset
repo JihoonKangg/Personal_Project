@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: BatItem
   m_EditorClassIdentifier: 
   itemName: "\uBC15\uC950 \uBFD4 \uC870\uAC01"
-  itemType: 2
+  itemCode: 1
+  itemType: 4
   itemImage: {fileID: 21300000, guid: 293b833de3e2f1d4e9a7d5a9ed0551fb, type: 3}
+  upgradeItemImage: {fileID: 0}
   itemPrefab: {fileID: 396035126694093161, guid: 41e02b4ed102a424992c576f3049b2fb,
     type: 3}
+  Explain: "\uD569\uC131\uC7AC\uB8CC. \uD569\uC131 \uC2DC \uD68C\uBCF5\uD3EC\uC158\uC744
+    \uD68D\uB4DD\uD560 \uC218 \uC788\uB2E4."
+  MakeItemCount: 0
+  UpgradeItemCode: 1

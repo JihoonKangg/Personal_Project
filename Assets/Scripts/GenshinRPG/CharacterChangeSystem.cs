@@ -67,5 +67,15 @@ public class CharacterChangeSystem : MonoBehaviour
         {
             ChangeCharacter(ChooseCharacter.Wizard);
         }
+
+        switch(myCharacter) 
+        {
+            case ChooseCharacter.Warrior:
+                myPlayer[1].transform.position = myPlayer[0].transform.position;
+                break;
+            case ChooseCharacter.Wizard:
+                myPlayer[0].transform.position = myPlayer[1].transform.position;
+                break;
+        }
     }
 }

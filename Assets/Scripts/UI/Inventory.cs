@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : UIchecker
 {
     public static bool inventoryActivated = false;
-
 
     //ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®
     [SerializeField]
@@ -14,12 +13,12 @@ public class Inventory : MonoBehaviour
     private GameObject go_SlotsParent;
 
     //½½·Ôµé
-    private Slot[] slots;
+    public InventorySlot[] slots;
 
     // Start is called before the first frame update
     void Start()
     {
-        slots = go_SlotsParent.GetComponentsInChildren<Slot>();
+        slots = go_SlotsParent.GetComponentsInChildren<InventorySlot>();
     }
 
     // Update is called once per frame
@@ -27,16 +26,13 @@ public class Inventory : MonoBehaviour
     {
         TryOpenInventory();
     }
-
     private void TryOpenInventory()
     {
         if(Input.GetKeyDown(KeyCode.I))
         {
             inventoryActivated = !inventoryActivated;
-
             if (inventoryActivated) OpenInventory();
             else CloseInventory();
-
         }
     }
 

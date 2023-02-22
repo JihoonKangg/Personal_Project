@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e38176c41badd848931112e661ed571, type: 3}
+  m_Name: MagicWandItem
+  m_EditorClassIdentifier: 
+  itemName: "\uB9C8\uBC95\uC9C0\uD321\uC774"
+  itemCode: 6
+  itemType: 2
+  itemImage: {fileID: 21300000, guid: 4a2beb5d9eb7dc24cbc63f9f86d72787, type: 3}
+  upgradeItemImage: {fileID: 21300000, guid: 02c336a5fe1d3314ea27f28da94e3626, type: 3}
+  itemPrefab: {fileID: 0}
+  Explain: "\uC9C0\uD321\uC774 \uAC15\uD654 \uC544\uC774\uD15C. Wizard\uAC00 \uC0AC\uC6A9\uD558\uB294
+    \uC9C0\uD321\uC774\uC758 \uB9C8\uBC95\uB825\uC744 \uC62C\uB824\uC8FC\uB294 \uC5ED\uD560\uC744
+    \uD55C\uB2E4."
+  MakeItemCount: 4
+  UpgradeItemCode: 3
