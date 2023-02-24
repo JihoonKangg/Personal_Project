@@ -28,4 +28,11 @@ public class Synthesis : MonoBehaviour
         gameObject.SetActive(true);
         Time.timeScale = 0.0f;
     }
+
+    public void Exit()
+    {
+        gameObject.SetActive(false);
+        if (Time.timeScale == 1.0f) return;
+        Time.timeScale = 1.0f;
+    }
 }

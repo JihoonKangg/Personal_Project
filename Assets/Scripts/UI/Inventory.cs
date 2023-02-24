@@ -31,8 +31,16 @@ public class Inventory : UIchecker
         if(Input.GetKeyDown(KeyCode.I))
         {
             inventoryActivated = !inventoryActivated;
-            if (inventoryActivated) OpenInventory();
-            else CloseInventory();
+            if (inventoryActivated)
+            {
+                OpenInventory();
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                CloseInventory();
+                Time.timeScale = 1.0f;
+            }
         }
     }
 
@@ -72,5 +80,12 @@ public class Inventory : UIchecker
                 return;
             }
         }
+    }
+
+    public void Exit()
+    {
+        go_inventoryBase.SetActive(false);
+        if (Time.timeScale == 1.0f) return;
+        Time.timeScale = 1.0f;
     }
 }

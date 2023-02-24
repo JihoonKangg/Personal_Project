@@ -32,6 +32,15 @@ public class InventorySlot : Slot
 
         SetColor(1);
     }
+    public void Useitem(Item _item, int _count)
+    {
+        item = _item;
+        itemCount -= _count;
+        if (itemCount <= 0)
+        {
+            ClearSlot();
+        }
+    }
 
     //아이템 개수 조정.
     public void SetSlotCount(int _count)
