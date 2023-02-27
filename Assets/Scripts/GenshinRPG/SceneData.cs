@@ -5,7 +5,7 @@ using UnityEngine;
 public class SceneData : MonoBehaviour
 {
     public static SceneData Inst = null;
-    public Transform BatAttackPos;
+    public GameObject Player;
 
     public bool OnUI;
     private void Awake()

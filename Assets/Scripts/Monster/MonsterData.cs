@@ -32,4 +32,7 @@ public class MonsterData : ScriptableObject
 
     [SerializeField] float qSkillStiffTime;
     public float QSkillStiffTime { get { return qSkillStiffTime; } }
+
+    [SerializeField] float exp;
+    public float EXP { get { return exp; } }
 }

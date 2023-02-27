@@ -13,10 +13,50 @@ MonoBehaviour:
   m_Name: Warrier
   m_EditorClassIdentifier: 
   characterName: Warrier
-  hp: 300
-  ap: 30
-  eSkillap: 50
-  qSkillap: 0
+  hp:
+  - 300
+  - 500
+  - 800
+  - 1200
+  - 1700
+  - 2300
+  - 3000
+  - 3800
+  - 4700
+  - 5700
+  ap:
+  - 30
+  - 40
+  - 50
+  - 60
+  - 70
+  - 80
+  - 90
+  - 100
+  - 110
+  - 120
+  eSkillap:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  qSkillap:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   rotSpeed: 400
   attackRadius: 2.5
   eSkillCoolTime: 5

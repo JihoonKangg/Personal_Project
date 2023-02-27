@@ -33,9 +33,9 @@ public class CharacterChangeSystem : MonoBehaviour
                 UserUIControl[1].SetBool("WizardChoose", false);
                 break;
             case ChooseCharacter.Wizard:
+                myPlayer[1].SetActive(true);
                 myPlayer[0].SetActive(false);
                 myPlayerSkillUI[0].SetActive(false);
-                myPlayer[1].SetActive(true);
                 myPlayerSkillUI[1].SetActive(true);
                 UserUIControl[0].SetBool("WarrierChoose", false);
                 UserUIControl[1].SetBool("WizardChoose", true);

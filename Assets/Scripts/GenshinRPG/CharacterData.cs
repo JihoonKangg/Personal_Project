@@ -5,39 +5,26 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     [SerializeField] string characterName; //캐릭터의 이름
-    public string CharacterName { get { return characterName; } }
+    public string CharacterName { get => characterName; }
 
-    [SerializeField] float hp;
-    public float HP { get { return hp; } }
+    [SerializeField] float[] hp;
+    public float[] HP { get => hp; }
 
-    [SerializeField] float ap;
-    public float AP { get { return ap; } }
+    [SerializeField] float[] ap;
+    public float[] AP { get => ap; }
 
-    [SerializeField] float eSkillap;
-    public float ESkillAP { get { return eSkillap; } }
+    [SerializeField] float[] eSkillap;
+    public float[] ESkillAP { get => eSkillap; }
 
-    [SerializeField] float qSkillap;
-    public float QSkillAP { get { return qSkillap; } }
+    [SerializeField] float[] qSkillap;
+    public float[] QSkillAP { get => qSkillap; }
 
     [SerializeField] float rotSpeed;
-    public float RotSpeed { get { return rotSpeed; } }
+    public float RotSpeed { get => rotSpeed; }
 
     [SerializeField] float attackRadius;
-    public float AttackRadius { get { return attackRadius; } }
+    public float AttackRadius { get => attackRadius; }
 
     [SerializeField] float eSkillCoolTime;
-    public float ESkillCoolTime { get { return eSkillCoolTime; } }
-
-    public float CharacterHP(int Level) //레벨이 ?일때 체력이 반환되게 하기.
-    {
-        float ChaHp = HP;
-        if (Level == 1) return ChaHp;
-
-        for(int i = 1; i < Level; i++)
-        {
-            ChaHp = ChaHp * 1.2f;
-        }
-        
-        return ChaHp;
-    }
+    public float ESkillCoolTime { get => eSkillCoolTime; }
 }

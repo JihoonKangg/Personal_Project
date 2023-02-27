@@ -13,10 +13,50 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   characterName: Wizard
-  hp: 300
-  ap: 50
-  eSkillap: 120
-  qSkillap: 0
+  hp:
+  - 200
+  - 360
+  - 600
+  - 920
+  - 1320
+  - 1800
+  - 2360
+  - 3000
+  - 3720
+  - 4520
+  ap:
+  - 50
+  - 60
+  - 70
+  - 80
+  - 90
+  - 100
+  - 110
+  - 120
+  - 130
+  - 140
+  eSkillap:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  qSkillap:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   rotSpeed: 400
   attackRadius: 0
   eSkillCoolTime: 14

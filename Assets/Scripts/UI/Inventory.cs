@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Inventory : UIchecker
 {
-    public static bool inventoryActivated = false;
-
-    //ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®
-    [SerializeField]
-    private GameObject go_inventoryBase;
-    [SerializeField]
-    private GameObject go_SlotsParent;
-
     //½½·Ôµé
     public InventorySlot[] slots;
+    [SerializeField]
+    private GameObject go_SlotsParent;
+    public static bool inventoryActivated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,33 +21,21 @@ public class Inventory : UIchecker
     {
         TryOpenInventory();
     }
+
     private void TryOpenInventory()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            inventoryActivated = !inventoryActivated;
-            if (inventoryActivated)
+            UIActivated = !UIActivated;
+            if (UIActivated)
             {
-                OpenInventory();
-                Time.timeScale = 0.0f;
+                OpenUI();
             }
             else
             {
-                CloseInventory();
-                Time.timeScale = 1.0f;
+                CloseUI();
             }
         }
-    }
-
-
-    private void OpenInventory()
-    {
-        go_inventoryBase.SetActive(true);
-    }
-
-    private void CloseInventory()
-    {
-        go_inventoryBase.SetActive(false);
     }
 
     public void AcquireItem(Item _item, int _count = 1)
@@ -80,12 +63,5 @@ public class Inventory : UIchecker
                 return;
             }
         }
-    }
-
-    public void Exit()
-    {
-        go_inventoryBase.SetActive(false);
-        if (Time.timeScale == 1.0f) return;
-        Time.timeScale = 1.0f;
     }
 }

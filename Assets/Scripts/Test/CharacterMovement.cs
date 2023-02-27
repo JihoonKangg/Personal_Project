@@ -7,14 +7,14 @@ using UnityEngine.UI;
 
 public class CharacterMovement : CharacterDATAUSE //Çàµ¿¿¡ °ü·ÃµÈ ½ºÅ©¸³Æ®(¸ó½ºÅÍ/ÇÃ·¹ÀÌ¾î)
 {
-    [SerializeField] float CharacterRotSpeed = 10.0f;
+    protected float CharacterRotSpeed = 10.0f;
     Quaternion targetRot = Quaternion.identity;
     protected float AttackCount = 0.0f;
-    float targetSpeed = 0.0f;
+    protected float HpValue = 1.0f;
+    private float targetSpeed = 0.0f;
     //ÄÞº¸Ã¼Å© ´ã´ç
     protected bool IsCombable = false;
     protected int ClickCount = 0;
-    public float HpValue = 1.0f;
 
     protected void PlayerMoving()
     {        
@@ -122,7 +122,6 @@ public class CharacterMovement : CharacterDATAUSE //Çàµ¿¿¡ °ü·ÃµÈ ½ºÅ©¸³Æ®(¸ó½ºÅ
     }
 
 
-    //°ø¿ë »ç¿ë ÇÔ¼ö(¸ó½ºÅÍ/ÇÃ·¹ÀÌ¾î)
 
     public Transform[] myAttackPoint;
     [SerializeField] LayerMask myEnemyMask;
@@ -130,20 +129,23 @@ public class CharacterMovement : CharacterDATAUSE //Çàµ¿¿¡ °ü·ÃµÈ ½ºÅ©¸³Æ®(¸ó½ºÅ
     public virtual void AttackTarget(float radius, int a = 0, int b = 0) //µ¥¹ÌÁö °¡ÇÏ´Â ÇÔ¼ö
     {
         Collider[] list = Physics.OverlapSphere(myAttackPoint[a].position, radius, myEnemyMask);
-       
+
+        Critical();
+        float RandomAP = Random.Range(-5.0f, 5.0f);
+        ChaAP = (AP + RandomAP) * W_AP * CriticalAP; //·£´ýÇÑ °ø°Ý·Â ¡¾5 Ç¥½Ã
 
         foreach (Collider col in list)
         {
             if (col.GetComponent<IBattle>().IsLive())
             {
-                switch(b)
+                switch (b)
                 {
                     case 0: //ÀÏ¹Ýµ¥¹ÌÁö
-                        col.GetComponent<IBattle>()?.OnDamage(AP);
+                        col.GetComponent<IBattle>()?.OnDamage(ChaAP);
                         AttackCount += 0.05f;
                         break;
                     case 1: //°­ÇÑµ¥¹ÌÁö
-                        col.GetComponent<IBattle>()?.OnBigDamage(AP);
+                        //col.GetComponent<IBattle>()?.OnBigDamage(AP);
                         break;
                     case 2: //E½ºÅ³µ¥¹ÌÁö
                         col.GetComponent<IBattle>()?.OnESkillDamage(ESkillAP);
@@ -156,5 +158,11 @@ public class CharacterMovement : CharacterDATAUSE //Çàµ¿¿¡ °ü·ÃµÈ ½ºÅ©¸³Æ®(¸ó½ºÅ
                 }
             }
         }
+    }
+    private void Critical()
+    {
+        float cri = Random.Range(0, 100);
+        if (cri <= Critical_P) CriticalAP = orgWeaponData.CriticalAP[W_LEVEL]; //Å©¸®Æ¼ÄÃ °ø°Ý·Â, Å©¸®Æ¼ÄÃ È®·ü ±¸Çö
+        else CriticalAP = 1.0f;
     }
 }

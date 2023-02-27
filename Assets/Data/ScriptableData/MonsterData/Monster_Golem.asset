@@ -21,4 +21,5 @@ MonoBehaviour:
   attackRange: 6
   attackDelay: 5
   attackRadius: 5
-  qSkillStiffTime: 5
+  qSkillStiffTime: 6
+  exp: 20

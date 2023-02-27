@@ -10,17 +10,16 @@ public class Wizard : CharacterMovement
     [SerializeField] GameObject QSkillPrefabs;
     [SerializeField] Slider MyHPRightUI;
 
-    void Start()
+    private void FixedUpdate()
     {
-
-    }
-    void Update()
-    {
-        HP = orgData.CharacterHP(LEVEL);
+        HP = orgData.HP[LEVEL - 1];
         curHP = Mathf.Clamp(curHP, 0.0f, HP);
 
         HpValue = curHP / HP;
-        MyHPRightUI.value = curHP / HP;
+        MyHPRightUI.value = HpValue;
+    }
+    void Update()
+    {
         WizardMove();
         PlayerAttack();
         AutoAim();
@@ -71,21 +70,19 @@ public class Wizard : CharacterMovement
     {
         base.AttackTarget(radius, a, b);
     }
+
     public void BaseAttack()
     {
         AttackTarget(AttackRadius, 0, 0);
         GameObject obj = Instantiate(Resources.Load("Prefabs/Wizard/BaseAttackObj"), myAttackPos) as GameObject;
         obj.GetComponent<WizardProjectile>().AP = AP;
     }
-    /*public void BaseBigAttack()
-    {
-        AttackTarget(myStat.AttackRadius, 0, 0);
-        GameObject obj = Instantiate(Resources.Load("Prefabs/Wizard/BaseAttackObj"), myAttackPos) as GameObject;
-    }*/
+
     public void ESkillAttack()
     {
         AttackTarget(15.0f, 1, 2);
     }
+
     public void QSkillAttack()
     {
         //Instantiate(QSkillPrefabs[2], myTarget.transform);

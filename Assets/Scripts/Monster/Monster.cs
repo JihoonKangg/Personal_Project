@@ -69,6 +69,7 @@ public class Monster : BattleSystem
                 Destroy(myHpBar);
                 GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
                 obj.transform.position = QSkillExpPos.position;
+
                 break;
         }
     }
@@ -379,7 +380,6 @@ public class Monster : BattleSystem
         myAnim.SetFloat("AnimSpeed", 1.0f);
     }
 
-    //공용 사용 함수(몬스터/플레이어)
 
     public Transform[] myAttackPoint;
     [SerializeField] LayerMask myEnemyMask;

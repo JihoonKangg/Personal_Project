@@ -14,7 +14,7 @@ public class Warrier : CharacterMovement
     }
     private void FixedUpdate()
     {
-        HP = orgData.CharacterHP(LEVEL);
+        HP = orgData.HP[LEVEL - 1];
         curHP = Mathf.Clamp(curHP, 0.0f, HP);
 
         HpValue = curHP / HP;
