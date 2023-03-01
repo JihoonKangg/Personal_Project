@@ -12,7 +12,6 @@ public class Wizard : CharacterMovement
 
     private void FixedUpdate()
     {
-        HP = orgData.HP[LEVEL - 1];
         curHP = Mathf.Clamp(curHP, 0.0f, HP);
 
         HpValue = curHP / HP;
@@ -73,7 +72,7 @@ public class Wizard : CharacterMovement
 
     public void BaseAttack()
     {
-        AttackTarget(AttackRadius, 0, 0);
+        AttackTarget(orgData.AttackRadius, 0, 0);
         GameObject obj = Instantiate(Resources.Load("Prefabs/Wizard/BaseAttackObj"), myAttackPos) as GameObject;
         obj.GetComponent<WizardProjectile>().AP = AP;
     }

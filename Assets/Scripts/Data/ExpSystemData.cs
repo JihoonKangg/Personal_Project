@@ -6,6 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EXP Data", menuName = "Scriptable Object/EXP Data", order = 2)]
 public class ExpSystemData : ScriptableObject
 {
-    [SerializeField] float[] exp; //경험치
-    public float[] EXP { get => exp; }
+    [SerializeField] int[] exp; //경험치
+    public int[] EXP { get => exp; }
 }

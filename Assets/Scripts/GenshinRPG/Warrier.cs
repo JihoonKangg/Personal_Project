@@ -14,7 +14,6 @@ public class Warrier : CharacterMovement
     }
     private void FixedUpdate()
     {
-        HP = orgData.HP[LEVEL - 1];
         curHP = Mathf.Clamp(curHP, 0.0f, HP);
 
         HpValue = curHP / HP;
@@ -69,7 +68,7 @@ public class Warrier : CharacterMovement
     }
     public void Attacktarget()
     {
-        AttackTarget(AttackRadius, 0, 0);
+        AttackTarget(orgData.AttackRadius, 0, 0);
     }
     public void ESkillAttack()
     {

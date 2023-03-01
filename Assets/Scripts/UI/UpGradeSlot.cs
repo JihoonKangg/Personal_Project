@@ -5,24 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class UpGradeSlot : Slot, IPointerClickHandler
+public class UpGradeSlot : Slot
 {
     public MainSlot MainSlot;
-    public Image UpgradeItemImage; //업그레이드할 아이템 이미지
-    public Image UpImage; //아이템 이미지와 동일하게 될 이미지.
     
-
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnClick()
     {
-        if(MainSlot.item != null)
-        {
-            MainSlot.AddItem(item);
-        }
-    }
+        MainSlot.item = item;
+        MainSlot.itemImage.sprite = item.itemImage;
+        MainSlot.NeedItemImg.sprite = item.upgradeItemImage;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
+        MainSlot.Check();
     }
 }

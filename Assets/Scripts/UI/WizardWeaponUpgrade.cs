@@ -33,7 +33,7 @@ public class WizardWeaponUpgrade : WeaponUpgrade
 
     public void WeaponStat()
     {
-        Weapon_AP.text = (wizard.orgData.AP[wizard.LEVEL - 1] * wizard.orgWeaponData.WeaponAP[wizard.W_LEVEL - 1]).ToString();
+        Weapon_AP.text = (wizard.orgData.AP[SceneData.Inst.WorldLevel - 1] * wizard.orgWeaponData.WeaponAP[wizard.W_LEVEL - 1]).ToString();
         Weapon_Cri_P.text = wizard.orgWeaponData.CriticalPercent[wizard.W_LEVEL - 1].ToString() + " %";
         Weapon_Cri_AP.text = "¡¿ " + wizard.orgWeaponData.CriticalAP[wizard.W_LEVEL - 1].ToString();
         NowLevel.text = "Lv. " + wizard.W_LEVEL.ToString();

@@ -102,7 +102,7 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
         {
             Vector3 pos = myTarget.position - transform.position;
             pos.Normalize();
-            float delta = RotSpeed * Time.deltaTime;
+            float delta = orgData.RotSpeed * Time.deltaTime;
             float rotDir = 1.0f;
             if (Vector3.Dot(transform.right, pos) < 0)
             {

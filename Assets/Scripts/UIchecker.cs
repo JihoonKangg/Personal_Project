@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class UIchecker : MonoBehaviour
@@ -11,13 +12,13 @@ public class UIchecker : MonoBehaviour
     protected void OpenUI()
     {
         go_UiBase.SetActive(true);
-        Time.timeScale = 0.0f;
     }
 
     public void CloseUI()
     {
         go_UiBase.SetActive(false);
-        Time.timeScale = 1.0f;
+        SceneData.Inst.OnUI = false;
+        SceneData.Inst.UIOn();
         if (!UIActivated) return;
         UIActivated = !UIActivated;
     }

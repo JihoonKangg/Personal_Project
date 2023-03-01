@@ -48,6 +48,7 @@ public class CharacterChangeSystem : MonoBehaviour
     {
         ChangeCharacter(myCharacter);
         UserUIControl[0].SetBool("WarrierChoose", true);
+        UserUIControl[1].SetBool("WizardChoose", false);
     }
 
     // Update is called once per frame

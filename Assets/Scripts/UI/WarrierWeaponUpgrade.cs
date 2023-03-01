@@ -34,7 +34,7 @@ public class WarrierWeaponUpgrade : WeaponUpgrade
 
     public void WeaponStat()
     {
-        Weapon_AP.text = (warrier.orgData.AP[warrier.LEVEL - 1] * warrier.orgWeaponData.WeaponAP[warrier.W_LEVEL - 1]).ToString();
+        Weapon_AP.text = (warrier.orgData.AP[SceneData.Inst.WorldLevel - 1] * warrier.orgWeaponData.WeaponAP[warrier.W_LEVEL - 1]).ToString();
         Weapon_Cri_P.text = warrier.orgWeaponData.CriticalPercent[warrier.W_LEVEL - 1].ToString() + " %";
         Weapon_Cri_AP.text = "¡¿ " + warrier.orgWeaponData.CriticalAP[warrier.W_LEVEL - 1].ToString();
         NowLevel.text = "Lv. " + warrier.W_LEVEL.ToString();

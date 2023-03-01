@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Inventory : UIchecker
 {
@@ -8,6 +9,8 @@ public class Inventory : UIchecker
     public InventorySlot[] slots;
     [SerializeField]
     private GameObject go_SlotsParent;
+    [SerializeField] UpgradeWeaponMainSlot U_W_MainSlot;
+    [SerializeField] MainSlot M_MainSlot;
     public static bool inventoryActivated = false;
 
     // Start is called before the first frame update
@@ -35,6 +38,8 @@ public class Inventory : UIchecker
             {
                 CloseUI();
             }
+            SceneData.Inst.OnUI = UIActivated;
+            SceneData.Inst.UIOn();
         }
     }
 
@@ -63,5 +68,40 @@ public class Inventory : UIchecker
                 return;
             }
         }
+    }
+
+    public void UpgradeButtonClick()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null)
+            {
+                return;
+            }
+            if (U_W_MainSlot.Itemcode == slots[i].item.itemCode)
+            {
+                slots[i].Useitem(slots[i].item, U_W_MainSlot.NeedNum);
+            }
+        }
+        U_W_MainSlot.WarrierUIChoose();
+        U_W_MainSlot.WizardUIChoose();
+    }
+
+    public void Click_Mix()
+    {
+        int Count = (int)M_MainSlot.MixSlider.value;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null)
+            {
+                return;
+            }
+            if (M_MainSlot.item.UpgradeItemCode == slots[i].item.itemCode)
+            {
+                slots[i].Useitem(slots[i].item, M_MainSlot.NeedNum * Count);
+                AcquireItem(M_MainSlot.item, Count);
+            }
+        }
+        M_MainSlot.Check();
     }
 }

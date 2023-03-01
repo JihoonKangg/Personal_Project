@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponUpgrade : UIchecker
 {
@@ -9,8 +10,7 @@ public class WeaponUpgrade : UIchecker
     GameObject[] Player;
     [SerializeField]
     GameObject[] UpgradeButton;
-    [SerializeField]
-    protected Item item;
+    public Item item;
 
     [SerializeField]
     protected TMP_Text NowLevel;
@@ -22,6 +22,8 @@ public class WeaponUpgrade : UIchecker
     protected TMP_Text Weapon_Cri_P;
     [SerializeField]
     protected TMP_Text Weapon_Cri_AP;
+    [SerializeField] UpgradeWeaponMainSlot act;
+
 
     void Start()
     {
@@ -41,11 +43,14 @@ public class WeaponUpgrade : UIchecker
             if (UIActivated)
             {
                 OpenUI();
+                act.WarrierUIChoose();
             }
             else
             {
                 CloseUI();
             }
+            SceneData.Inst.OnUI = UIActivated;
+            SceneData.Inst.UIOn();
         }
     }
 

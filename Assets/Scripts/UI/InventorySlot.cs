@@ -10,6 +10,8 @@ public class InventorySlot : Slot
 
     [SerializeField]
     private TMP_Text text_Count;
+    [SerializeField]
+    private ItemIntroduce ItemIntroduce;
 
 
     //æ∆¿Ã≈€ »πµÊ.
@@ -36,6 +38,7 @@ public class InventorySlot : Slot
     {
         item = _item;
         itemCount -= _count;
+        text_Count.text = itemCount.ToString();
         if (itemCount <= 0)
         {
             ClearSlot();
@@ -72,5 +75,11 @@ public class InventorySlot : Slot
         Color color = itemImage.color;
         color.a = _alpha;
         itemImage.color = color;
+    }
+
+    public void ItemClick()
+    {
+        ItemIntroduce.Item = item;
+        ItemIntroduce.ItemCheck();
     }
 }

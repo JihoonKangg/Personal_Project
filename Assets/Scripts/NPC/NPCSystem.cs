@@ -10,8 +10,9 @@ public class NPCSystem : MonoBehaviour
     private Transform myTarget;
     private bool CanActivated = false; //합성대 사용 가능할 시 true
     [SerializeField]
-    private Synthesis mySynthesis;
-
+    private GameObject mySynthesis;
+    [SerializeField]
+    private MainSlot myMainSlot;
     [SerializeField]
     private TMP_Text actionText; //필요한 컴포넌트
 
@@ -23,11 +24,13 @@ public class NPCSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("NPC가 반응합니다");
-                actionText.gameObject.SetActive(false);
+                SceneData.Inst.Synthesis.SetActive(true);
                 CanActivated = false;
-                //mySynthesis.SetActive(true);
-                mySynthesis.CanUpdate();
                 myTarget = null;
+                actionText.gameObject.SetActive(CanActivated);
+                myMainSlot.Check();
+                SceneData.Inst.OnUI = !CanActivated;
+                SceneData.Inst.UIOn();
             }
         }
     }

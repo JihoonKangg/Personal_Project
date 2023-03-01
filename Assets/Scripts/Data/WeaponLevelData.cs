@@ -22,4 +22,9 @@ public class WeaponLevelData : ScriptableObject
         get => CriticalAp;
     }
 
+    [SerializeField] int[] LvUpNum;
+    public int[] LvupNum
+    {
+        get => LvUpNum;
+    }
 }

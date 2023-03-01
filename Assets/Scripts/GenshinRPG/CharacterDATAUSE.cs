@@ -2,23 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class CharacterDATAUSE : BattleSystem
 {
     public CharacterData orgData;
     public WeaponLevelData orgWeaponData;
-    protected ExpSystemData expData;
 
     public float HP;
     public float curHP;
-    public int LEVEL;
-    public int W_LEVEL;
+    public int W_LEVEL; //웨폰레벨
     protected float AP; //AP : 캐릭터 공격력
     protected float ESkillAP;
     protected float QSkillAP;
-    protected float RotSpeed;
-    protected float AttackRadius;
     protected float ESkillCoolTime;
     protected float W_AP; //무기 공격력
     protected float CriticalAP; //CriticalAP : 무기 공격력
@@ -28,7 +23,6 @@ public class CharacterDATAUSE : BattleSystem
 
     protected void Awake()
     {
-        LEVEL = 0;
         W_LEVEL = 0;
         WeaponLevelUP();
         CharacterLevelUP();
@@ -47,21 +41,8 @@ public class CharacterDATAUSE : BattleSystem
 
     public void CharacterLevelUP()
     {
-        if (LEVEL == 10) return;
-        LEVEL++;
-
-        HP = orgData.HP[LEVEL - 1]; //캐릭터 레벨 HP
-        AP = orgData.AP[LEVEL - 1]; //캐릭터 레벨 AP
+        HP = orgData.HP[SceneData.Inst.WorldLevel - 1]; //캐릭터 레벨 HP
+        AP = orgData.AP[SceneData.Inst.WorldLevel - 1]; //캐릭터 레벨 AP
         curHP = HP;
-    }
-
-    public void GetEXP(float exp)
-    {
-        CurEXP -= exp;
-
-        if(CurEXP <= 0)
-        {
-            CharacterLevelUP();
-        }
     }
 }
