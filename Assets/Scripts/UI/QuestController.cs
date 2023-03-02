@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class QuestController : UIchecker
 {
@@ -38,30 +39,15 @@ public class QuestController : UIchecker
         }
     }
 
-    /*public void AcquireItem(Item _item, int _count = 1)
+    public void AcquireQuest(Quest _quest)
     {
-        if (Item.ItemType.Equipment != _item.itemType)
-        {
-            for (int i = 0; i < slots.Length; i++)
-            {
-                if (slots[i].item != null)
-                {
-                    if (slots[i].item.itemName == _item.itemName)
-                    {
-                        slots[i].SetSlotCount(_count);
-                        return;
-                    }
-                }
-            }
-        }
-
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].item == null)
+            if (slots[i].quest == null)
             {
-                slots[i].Additem(_item, _count);
+                slots[i].Addquest(_quest);
                 return;
             }
         }
-    }*/
+    }
 }

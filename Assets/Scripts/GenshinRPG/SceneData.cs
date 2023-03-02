@@ -11,6 +11,7 @@ public class SceneData : MonoBehaviour
     public GameObject Player;
     public TMP_Text actionText;
     public Inventory myinven;
+    public QuestController myquest;
     public GameObject[] ActionUI;
     public GameObject Synthesis;
     public PlayerLevel PlayerLevel;
