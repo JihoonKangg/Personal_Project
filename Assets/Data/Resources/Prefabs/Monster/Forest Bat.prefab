@@ -15,7 +15,7 @@ GameObject:
   m_Layer: 7
   m_Name: Forest Bat
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 112034482169287078}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: 1.5, z: -40.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 550761322071692387}
@@ -71,8 +71,8 @@ MonoBehaviour:
   myMaterial:
   - {fileID: 2100000, guid: 0ca08d132d9393c4ea35befb2c00577e, type: 2}
   - {fileID: 2100000, guid: eb25613a08343ce408cfaccf6a701b12, type: 2}
-  QSkillExpPos: {fileID: 6866077385746202395}
   curHP: 0
+  QSkillExpPos: {fileID: 6866077385746202395}
   myState: 0
   myAttackPoint:
   - {fileID: 112034482750610864}

@@ -5,8 +5,6 @@ using UnityEngine;
 public class WizardProjectile : MonoBehaviour
 {
     [SerializeField] float speed = 20.0f;
-    public Wizard wizard;
-    public float AP;
     public LayerMask enemyMask;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +23,7 @@ public class WizardProjectile : MonoBehaviour
     {
         if ((enemyMask & 1 << other.gameObject.layer) != 0)
         {
-            other.GetComponent<IBattle>().OnDamage(AP);
+            other.GetComponent<IBattle>().OnDamage(SceneData.Inst.wizard.ChaEAP);
             Destroy(gameObject);
         }
     }

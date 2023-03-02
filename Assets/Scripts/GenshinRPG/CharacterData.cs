@@ -13,11 +13,9 @@ public class CharacterData : ScriptableObject
     [SerializeField] float[] ap;
     public float[] AP { get => ap; }
 
-    [SerializeField] float[] eSkillap;
-    public float[] ESkillAP { get => eSkillap; }
+    public float ESkillAP;
 
-    [SerializeField] float[] qSkillap;
-    public float[] QSkillAP { get => qSkillap; }
+    public float QSkillAP;
 
     [SerializeField] float rotSpeed;
     public float RotSpeed { get => rotSpeed; }

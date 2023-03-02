@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Monster : BattleSystem
 {
-    public PlayerLevel PlayerLevel;
     protected Coroutine attackCo = null;
     public MonsterData orgData;
     float IsDamage = 1.0f;
@@ -69,7 +68,7 @@ public class Monster : BattleSystem
                 StartCoroutine(Disapearing(4.0f, 3.0f));
                 Destroy(myHpBar);
                 GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
-                PlayerLevel.EXP += orgData.EXP;
+                SceneData.Inst.PlayerLevel.EXP += orgData.EXP;
                 SceneData.Inst.ExpSlider.GetComponent<Animator>().SetTrigger("Show");
                 obj.transform.position = QSkillExpPos.position;
                 break;
@@ -103,7 +102,6 @@ public class Monster : BattleSystem
 
     protected virtual void Start()
     {
-        PlayerLevel = SceneData.Inst.PlayerLevel;
         GameObject hpBars = GameObject.Find("MonsterHpBar");
         myHpBar = Instantiate(Resources.Load("Prefabs/UI/MonsterHPBar"), hpBars.transform) as GameObject;
         myUI = myHpBar.GetComponent<MonsterHP>();

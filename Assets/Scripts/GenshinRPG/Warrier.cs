@@ -72,7 +72,7 @@ public class Warrier : CharacterMovement
     }
     public void ESkillAttack()
     {
-        AttackTarget(5.0f, 1, 2);
+        AttackTarget(5.0f, 1, 1);
     }
     public void QSkillAttack()
     {

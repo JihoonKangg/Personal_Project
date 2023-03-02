@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Wizard : CharacterMovement
 {
     public Transform myAttackPos;
-    [SerializeField] GameObject QSkillPrefabs;
     [SerializeField] Slider MyHPRightUI;
 
     private void FixedUpdate()
@@ -74,19 +73,12 @@ public class Wizard : CharacterMovement
     {
         AttackTarget(orgData.AttackRadius, 0, 0);
         GameObject obj = Instantiate(Resources.Load("Prefabs/Wizard/BaseAttackObj"), myAttackPos) as GameObject;
-        obj.GetComponent<WizardProjectile>().AP = AP;
     }
 
     public void ESkillAttack()
     {
         AttackTarget(15.0f, 1, 2);
     }
-
-    public void QSkillAttack()
-    {
-        //Instantiate(QSkillPrefabs[2], myTarget.transform);
-    }
-
     
 
     //인터페이스

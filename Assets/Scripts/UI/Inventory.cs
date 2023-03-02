@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Inventory : UIchecker
 {
@@ -11,7 +10,6 @@ public class Inventory : UIchecker
     private GameObject go_SlotsParent;
     [SerializeField] UpgradeWeaponMainSlot U_W_MainSlot;
     [SerializeField] MainSlot M_MainSlot;
-    public static bool inventoryActivated = false;
 
     // Start is called before the first frame update
     void Start()

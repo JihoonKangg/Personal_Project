@@ -9,7 +9,7 @@ public class PlayerLevel : MonoBehaviour
     [SerializeField] ExpSystemData expData;
     [SerializeField] Warrier warrier;
     [SerializeField] Wizard wizard;
-    [SerializeField] TMP_Text Level_Text;
+    [SerializeField] TMP_Text[] Level_Text;
     [SerializeField] Slider ExpSlider;
     [SerializeField] TMP_Text[] Exp_Text;
     //0: EXP   1: MaxEXP
@@ -47,7 +47,8 @@ public class PlayerLevel : MonoBehaviour
 
     private void LevelSet()
     {
-        Level_Text.text = "Lv. " + SceneData.Inst.WorldLevel.ToString();
+        Level_Text[0].text = "Lv. " + SceneData.Inst.WorldLevel.ToString();
+        Level_Text[1].text = Level_Text[0].text;
         LevelUpEvent = false;
         EXP = 0;
         Exp_Text[1].text = expData.EXP[SceneData.Inst.WorldLevel - 1].ToString();

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class QWarProjectile : MonoBehaviour
 {
-    float AP = 50.0f;
     public LayerMask enemyMask;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +15,7 @@ public class QWarProjectile : MonoBehaviour
     {
         if ((enemyMask & 1 << other.gameObject.layer) != 0)
         {
-            other.GetComponent<IBattle>().OnDamage(AP);
+            other.GetComponent<IBattle>().OnDamage(SceneData.Inst.warreir.ChaEAP);
         }
     }
 }

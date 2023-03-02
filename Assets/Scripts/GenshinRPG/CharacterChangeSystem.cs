@@ -29,16 +29,16 @@ public class CharacterChangeSystem : MonoBehaviour
                 myPlayerSkillUI[0].SetActive(true);
                 myPlayer[1].SetActive(false);
                 myPlayerSkillUI[1].SetActive(false);
-                UserUIControl[0].SetBool("WarrierChoose", true);
-                UserUIControl[1].SetBool("WizardChoose", false);
+                //UserUIControl[0].SetBool("WarrierChoose", true);
+                //UserUIControl[1].SetBool("WizardChoose", false);
                 break;
             case ChooseCharacter.Wizard:
                 myPlayer[1].SetActive(true);
                 myPlayer[0].SetActive(false);
                 myPlayerSkillUI[0].SetActive(false);
                 myPlayerSkillUI[1].SetActive(true);
-                UserUIControl[0].SetBool("WarrierChoose", false);
-                UserUIControl[1].SetBool("WizardChoose", true);
+                //UserUIControl[0].SetBool("WarrierChoose", false);
+                //UserUIControl[1].SetBool("WizardChoose", true);
                 break;
         }
     }
@@ -73,9 +73,13 @@ public class CharacterChangeSystem : MonoBehaviour
         {
             case ChooseCharacter.Warrior:
                 myPlayer[1].transform.position = myPlayer[0].transform.position;
+                UserUIControl[0].SetBool("WarrierChoose", true);
+                UserUIControl[1].SetBool("WizardChoose", false);
                 break;
             case ChooseCharacter.Wizard:
                 myPlayer[0].transform.position = myPlayer[1].transform.position;
+                UserUIControl[0].SetBool("WarrierChoose", false);
+                UserUIControl[1].SetBool("WizardChoose", true);
                 break;
         }
     }

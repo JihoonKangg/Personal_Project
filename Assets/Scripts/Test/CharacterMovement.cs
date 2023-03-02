@@ -133,6 +133,7 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
         Critical();
         float RandomAP = Random.Range(-5.0f, 5.0f);
         ChaAP = (AP + RandomAP) * W_AP * CriticalAP; //랜덤한 공격력 ±5 표시
+        ChaEAP = ChaAP * 1.6f;
 
         foreach (Collider col in list)
         {
@@ -145,13 +146,10 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
                         AttackCount += 0.05f;
                         break;
                     case 1: //강한데미지
-                        //col.GetComponent<IBattle>()?.OnBigDamage(AP);
-                        break;
-                    case 2: //E스킬데미지
-                        col.GetComponent<IBattle>()?.OnESkillDamage(ESkillAP);
+                        col.GetComponent<IBattle>()?.OnESkillDamage(ChaEAP);
                         AttackCount += 0.1f;
                         break;
-                    case 3: //Q스킬데미지
+                    case 2: //Q스킬데미지
                         col.GetComponent<IBattle>()?.OnQSkillDamage(QSkillAP);
                         AttackCount += 0.02f;
                         break;
