@@ -209,8 +209,8 @@ public class Monster : BattleSystem
     {
         if (myAnim.GetBool("IsDamage")) IsDamage = 0.0f;
         else IsDamage = 1.0f;
-
-        Vector3 dir = (pos - transform.position).normalized;
+        pos.y = transform.position.y;
+        Vector3 dir = (pos - transform.position).normalized; //몬스터 떨림을 고치는 수정 코드
         float Angle = Vector3.Angle(transform.forward, dir);
         float rotDir = 1.0f;
         if (Vector3.Dot(transform.right, dir) < 0.0f)
@@ -318,6 +318,8 @@ public class Monster : BattleSystem
             }
             //회전
             delta = orgData.RotSpeed * Time.deltaTime;
+            dir.y = 0.0f;  //몬스터 떨림을 고치는 수정 코드
+            dir.Normalize(); //몬스터 떨림을 고치는 수정 코드
             float Angle = Vector3.Angle(dir, transform.forward);
             float rotDir = 1.0f;
             if (Vector3.Dot(transform.right, dir) < 0.0f)

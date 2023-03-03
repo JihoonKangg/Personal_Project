@@ -45,5 +45,6 @@ public class CharacterDATAUSE : BattleSystem
         HP = orgData.HP[SceneData.Inst.WorldLevel - 1]; //캐릭터 레벨 HP
         AP = orgData.AP[SceneData.Inst.WorldLevel - 1]; //캐릭터 레벨 AP
         curHP = HP;
+        SceneData.Inst.ExpSlider.GetComponent<Animator>().SetTrigger("show");
     }
 }

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8649341101104685815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4851,7 +4851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4086407e95d6244bfa965b6c0e8d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 6
   Forestbat: {fileID: 112034482169287082, guid: 59f9bdea04424ae478235b3de73ff991,
     type: 3}
   enemyMask:

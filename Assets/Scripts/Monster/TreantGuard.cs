@@ -17,7 +17,7 @@ public class TreantGuard : Monster
     public override void OnDamage(float dmg) //데미지 입을 때
     {
         curHP -= dmg;
-        if (HpValue == 0) //죽었을 때
+        if (curHP <= 0) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }
@@ -29,7 +29,7 @@ public class TreantGuard : Monster
     public override void OnESkillDamage(float ESkilldmg)
     {
         curHP -= ESkilldmg;
-        if (HpValue == 0) //죽었을 때
+        if (curHP <= 0) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }
@@ -41,7 +41,7 @@ public class TreantGuard : Monster
     public override void OnQSkillDamage(float QSkilldmg)
     {
         curHP -= QSkilldmg;
-        if (HpValue == 0) //죽었을 때
+        if (curHP <= 0) //죽었을 때
         {
             ChangeState(STATE.Dead);
         }

@@ -19524,7 +19524,7 @@ Transform:
   m_GameObject: {fileID: 1992603179541412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4613178584940624}
@@ -24537,7 +24537,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  wizard: {fileID: 2354049939303759438, guid: c260902d18b42794392c6483cd15c269, type: 3}
   enemyMask:
     serializedVersion: 2
     m_Bits: 128

@@ -51,7 +51,7 @@ public class Wizard : CharacterMovement
         {
             myAnim.SetFloat("Speed", 0.0f);
         }
-        transform.parent.Translate(transform.forward * myAnim.GetFloat("Speed") * 20.0f * Time.deltaTime);
+        transform.parent.Translate(transform.forward * myAnim.GetFloat("Speed") * 10.0f * Time.deltaTime);
     }
 
     //AI Perception
@@ -77,7 +77,7 @@ public class Wizard : CharacterMovement
 
     public void ESkillAttack()
     {
-        AttackTarget(15.0f, 1, 2);
+        AttackTarget(15.0f, 1, 1);
     }
     
 
