@@ -15,6 +15,9 @@ public class Quest : ScriptableObject
     [SerializeField] int questCode; //퀘스트 코드
     public int QuestCode { get { return questCode; } }
 
+    [SerializeField] int[] needMonsterCode; //퀘스트 설명
+    public int[] NeedMonsterCode { get { return needMonsterCode; } }
+
     [SerializeField] string explain; //퀘스트 설명
     public string Explain { get { return explain; } }
 

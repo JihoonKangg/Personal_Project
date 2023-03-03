@@ -35,4 +35,7 @@ public class MonsterData : ScriptableObject
 
     [SerializeField] int exp;
     public int EXP { get { return exp; } }
+
+    [SerializeField] int monsterCode;
+    public int MonsterCode { get { return monsterCode; } }
 }

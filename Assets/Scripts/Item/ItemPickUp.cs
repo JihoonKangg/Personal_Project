@@ -21,6 +21,7 @@ public class ItemPickUp : MonoBehaviour
 
     private void Start()
     {
+        transform.parent = null;
         obj = Instantiate(Resources.Load("Prefabs/Item/ItemEffect") as GameObject);
         theInventory = SceneData.Inst.myinven;
         actionText = SceneData.Inst.actionText;

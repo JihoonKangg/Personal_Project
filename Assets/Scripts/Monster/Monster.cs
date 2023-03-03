@@ -23,6 +23,7 @@ public class Monster : BattleSystem
     protected GameObject myHpBar = null;
     protected Vector3 startPos = Vector3.zero;
     [SerializeField] Transform QSkillExpPos;
+    [SerializeField] protected Transform itemSpawn;
     bool SkillExp = true;
 
 
@@ -70,6 +71,7 @@ public class Monster : BattleSystem
                 GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
                 SceneData.Inst.PlayerLevel.EXP += orgData.EXP;
                 SceneData.Inst.ExpSlider.GetComponent<Animator>().SetTrigger("Show");
+                HuntMonster();
                 obj.transform.position = QSkillExpPos.position;
                 break;
         }
@@ -155,6 +157,32 @@ public class Monster : BattleSystem
                 SkillExp = false;
             }
         } 
+    }
+
+    public void HuntMonster()
+    {
+        QuestController qc = SceneData.Inst.myquest;
+        for (int i = 0; i < qc.slots.Length; i++)  //반복문을 돌려 슬롯 길이 체크
+        {
+            if (qc.slots[i].quest != null)  //슬롯에 있는 퀘스트가 널이 아닐 때
+            {
+                for(int j = 0; j < qc.slots[i].quest.NeedMonsterCode.Length; j++)
+                {
+                    if (qc.slots[i].quest.NeedMonsterCode[j] == orgData.MonsterCode)
+                    //몬스터의 코드와 슬롯에 있는 몬스터코드가 맞을 때 전송 
+                    {
+                        if(qc.slots[i].neednum == qc.slots[i].quest.NeedCount)
+                        {
+                            Debug.Log(qc.slots[i].neednum);
+
+                            return;
+                        }
+                        qc.slots[i].neednum++; //몬스터 확킬했다고 표시.
+                        qc.slots[i].QuestClick();
+                    }
+                }
+            }
+        }
     }
 
     public void FindTarget(Transform target)

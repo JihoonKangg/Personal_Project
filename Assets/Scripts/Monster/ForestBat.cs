@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ForestBat : Monster
 {
-    /*public override void AttackTarget(float radius, int a = 0, int b = 0)
-    {
-        base.AttackTarget(radius, a, b);
-    }*/
-
     public void Attacktarget()
     {
         GameObject obj = Instantiate(Resources.Load("Prefabs/ForestBatAttackObject"), myAttackPoint[0]) as GameObject;
     }
 
+    private void Deaditem()
+    {
+        int count = Random.Range(0, 3);
+        for(int i = 0; i < count; i++)
+        {
+            GameObject item = Instantiate(Resources.Load("Prefabs/Item/BatItem"), transform) as GameObject;
+        }
+    }
 
 
     //인터페이스
@@ -23,7 +26,8 @@ public class ForestBat : Monster
         curHP -= dmg;
         if (curHP <= 0) //죽었을 때
         {
-            ChangeState(STATE.Dead);
+            Deaditem();
+            ChangeState(STATE.Dead); 
         }
         else
         {
@@ -35,6 +39,7 @@ public class ForestBat : Monster
         curHP -= ESkilldmg;
         if (curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else
@@ -47,6 +52,7 @@ public class ForestBat : Monster
         curHP -= QSkilldmg;
         if (curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else

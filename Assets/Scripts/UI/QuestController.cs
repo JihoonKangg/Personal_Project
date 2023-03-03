@@ -8,8 +8,7 @@ public class QuestController : UIchecker
     public QuestSlot[] slots;
     [SerializeField]
     private GameObject go_SlotsParent;
-    //[SerializeField] MainSlot M_MainSlot;
-    // Start is called before the first frame update
+
     void Start()
     {
         slots = go_SlotsParent.GetComponentsInChildren<QuestSlot>();

@@ -13,12 +13,22 @@ public class TreantGuard : Monster
         AttackTarget(orgData.AttackRadius);
     }
 
+    private void Deaditem()
+    {
+        int count = Random.Range(0, 3);
+        for (int i = 0; i < count; i++)
+        {
+            GameObject item = Instantiate(Resources.Load("Prefabs/Item/GuardItem"),itemSpawn) as GameObject;
+        }
+    }
+
     //인터페이스
     public override void OnDamage(float dmg) //데미지 입을 때
     {
         curHP -= dmg;
         if (curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else
@@ -31,6 +41,7 @@ public class TreantGuard : Monster
         curHP -= ESkilldmg;
         if (curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else
@@ -43,6 +54,7 @@ public class TreantGuard : Monster
         curHP -= QSkilldmg;
         if (curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else

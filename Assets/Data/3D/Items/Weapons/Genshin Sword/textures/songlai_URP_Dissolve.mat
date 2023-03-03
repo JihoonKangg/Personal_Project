@@ -146,7 +146,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
     - _SpecularHighlights: 1
-    - _SplitValue: 1
+    - _SplitValue: 0
     - _Split_Value: 1.86
     - _SrcBlend: 1
     - _Surface: 0

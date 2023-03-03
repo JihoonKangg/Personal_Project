@@ -10,7 +10,7 @@ public class QuestIntroduce : MonoBehaviour
     [SerializeField] TMP_Text QuestSubName;
     [SerializeField] TMP_Text QuestExplain;
     [SerializeField] TMP_Text NeedCount;
-    [SerializeField] int needNum;
+    public int needNum;
     
 
     public void QuestCheck()
@@ -21,5 +21,20 @@ public class QuestIntroduce : MonoBehaviour
         QuestSubName.text = quest.QuestSubName;
         QuestExplain.text = quest.Explain;
         NeedCount.text = "(" + needNum.ToString() + "/" + quest.NeedCount + ")";
+    }
+
+    void Update()
+    {
+        if (quest == null) return;
+
+        NeedCount.text = "(" + needNum.ToString() + "/" + quest.NeedCount + ")";
+    }
+    public void QuestSuccess()
+    {
+        quest = null;
+        QuestName.text = "";
+        QuestSubName.text = "";
+        QuestExplain.text = "";
+        NeedCount.text = "";
     }
 }

@@ -25,12 +25,12 @@ public class Spawner : MonoBehaviour
             pos.z = Random.Range(-10.0f, 10.0f);
             Vector3 rot = Vector3.zero;
             rot.y = Random.Range(0.0f, 360.0f);
-            GameObject objGol = Instantiate(orgGolem, transform.position + pos, Quaternion.Euler(rot));
+            //GameObject objGol = Instantiate(orgGolem, transform.position + pos, Quaternion.Euler(rot));
             GameObject objTre = Instantiate(orgTreant, transform.position + pos, Quaternion.Euler(rot));
-            GameObject orgBa = Instantiate(orgBat, transform.position + pos, Quaternion.Euler(rot));
+            //GameObject orgBa = Instantiate(orgBat, transform.position + pos, Quaternion.Euler(rot));
             list.Add(objTre);
-            list.Add(objGol);
-            list.Add(orgBa);
+            //list.Add(objGol);
+            //list.Add(orgBa);
         }
 
         for(int i  = 0; i < list.Count;)

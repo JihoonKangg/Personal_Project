@@ -12,12 +12,15 @@ public class QuestSlot : MonoBehaviour
     public TMP_Text QuestName;
     [SerializeField] QuestIntroduce QuestIntroduce;
     [SerializeField] Image questimg;
+    public bool success = false;
+    public int neednum = 0;
 
 
     //ΩΩ∑‘ √ ±‚»≠.
     private void ClearSlot()
     {
         quest = null;
+        success = false;
         QuestName.text = "";
         SetColor(0);
     }
@@ -26,6 +29,13 @@ public class QuestSlot : MonoBehaviour
     {
         QuestIntroduce.quest = quest;
         QuestIntroduce.QuestCheck();
+        QuestIntroduce.needNum = neednum;
+
+        if (neednum == quest.NeedCount)
+        {
+            success = true;
+            return; //ƒ˘Ω∫∆Æ øœ∑·.
+        }
     }
 
     //æ∆¿Ã≈€ »πµÊ.
@@ -47,5 +57,6 @@ public class QuestSlot : MonoBehaviour
     public void QuestSuccess()
     {
         ClearSlot();
+        QuestIntroduce.QuestSuccess();
     }
 }

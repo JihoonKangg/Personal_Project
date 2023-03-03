@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 using static UnityEngine.GraphicsBuffer;
 
 public class Golem : Monster
@@ -15,6 +16,15 @@ public class Golem : Monster
         AttackTarget(orgData.AttackRadius, 0, 1);
     }
 
+    private void Deaditem()
+    {
+        int count = Random.Range(0, 3);
+        for (int i = 0; i < count; i++)
+        {
+            GameObject item = Instantiate(Resources.Load("Prefabs/Item/GolemItem"), transform) as GameObject;
+        }
+    }
+
 
     //인터페이스
 
@@ -23,6 +33,7 @@ public class Golem : Monster
         curHP -= dmg;
         if(curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else
@@ -35,6 +46,7 @@ public class Golem : Monster
         curHP -= ESkilldmg;
         if (curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else
@@ -47,6 +59,7 @@ public class Golem : Monster
         curHP -= QSkilldmg;
         if (curHP <= 0) //죽었을 때
         {
+            Deaditem();
             ChangeState(STATE.Dead);
         }
         else
