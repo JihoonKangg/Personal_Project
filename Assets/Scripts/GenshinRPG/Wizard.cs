@@ -18,9 +18,14 @@ public class Wizard : CharacterMovement
     }
     void Update()
     {
-        WizardMove();
-        PlayerAttack();
-        AutoAim();
+        if (!SceneData.Inst.NPC_Talking)
+        {
+            PlayerMoving();
+            PlayerAttack();
+            AutoAim();
+        }
+        else myAnim.SetFloat("Speed", 0.0f);
+
         if (IsCombable)
         {
             if (Input.GetMouseButtonDown(0))

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Synthesis : MonoBehaviour
 {
-    void Start()
-    {
-        SceneData.Inst.Synthesis.SetActive(false);
-    }
-
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class NPCSystem : MonoBehaviour
     private MainSlot myMainSlot;
     [SerializeField]
     private TMP_Text actionText; //필요한 컴포넌트
-
+    private Dialogue info = null;
 
     private void CanUse()
     {
@@ -23,16 +24,22 @@ public class NPCSystem : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("NPC가 반응합니다");
-                SceneData.Inst.Synthesis.SetActive(true);
-                CanActivated = false;
-                myTarget = null;
-                actionText.gameObject.SetActive(CanActivated);
-                myMainSlot.Check();
-                SceneData.Inst.OnUI = !CanActivated;
-                SceneData.Inst.UIOn();
+                info = transform.GetComponent<DialogueTrigger>().info;
+                transform.GetComponent<DialogueTrigger>().Trigger(info, ()=>UiActivate());
             }
         }
+    }
+
+    public void UiActivate()
+    {
+        Debug.Log("함수실행");
+        SceneData.Inst.Synthesis.SetActive(true);
+        CanActivated = false;
+        myTarget = null;
+        actionText.gameObject.SetActive(CanActivated);
+        myMainSlot.Check();
+        SceneData.Inst.OnUI = !CanActivated;
+        SceneData.Inst.UIOn();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,7 +65,6 @@ public class NPCSystem : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //if (myTarget != null) return;
         if (myTarget == other.transform)//타겟이 빠져나감
         {
             Debug.Log("못주움");

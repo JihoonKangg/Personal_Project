@@ -46,5 +46,8 @@ public class CharacterDATAUSE : BattleSystem
         AP = orgData.AP[SceneData.Inst.WorldLevel - 1]; //캐릭터 레벨 AP
         curHP = HP;
         SceneData.Inst.ExpSlider.GetComponent<Animator>().SetTrigger("show");
+        GameObject obj = Instantiate(Resources.Load("Prefabs/LevelUp")) as GameObject;
+
+        Destroy(obj, 3.0f);
     }
 }

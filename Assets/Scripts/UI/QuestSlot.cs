@@ -21,12 +21,14 @@ public class QuestSlot : MonoBehaviour
     {
         quest = null;
         success = false;
-        QuestName.text = "";
+        QuestName.text = string.Empty;
         SetColor(0);
     }
 
     public void QuestClick()
     {
+        if (quest == null) return;
+
         QuestIntroduce.quest = quest;
         QuestIntroduce.QuestCheck();
         QuestIntroduce.needNum = neednum;

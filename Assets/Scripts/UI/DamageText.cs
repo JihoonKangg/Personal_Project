@@ -9,16 +9,15 @@ public class DamageText : MonoBehaviour
     [SerializeField] float moveSpeed = 2.0f;
     [SerializeField] float alphaSpeed = 2.0f;
     [SerializeField] float destroyTime = 2.0f;
-    TextMeshPro text;
+    [SerializeField] TMP_Text text;
     Color alpha;
-    public int damage;
 
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<TextMeshPro>();
         alpha = text.color;
-        text.text = damage.ToString();
+        //text.text = damage.ToString();
         Destroy(this, destroyTime);
     }
 

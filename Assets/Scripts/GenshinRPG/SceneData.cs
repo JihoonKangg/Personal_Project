@@ -20,6 +20,7 @@ public class SceneData : MonoBehaviour
     public GameObject ExpSlider;
     public Transform[] warpPoint;
 
+    public bool NPC_Talking = false;
     public bool OnUI;
 
     private void Awake()

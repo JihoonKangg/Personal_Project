@@ -19,9 +19,13 @@ public class Warrier : CharacterMovement
         HpValue = curHP / HP;
         MyHPRightUI.value = HpValue;
 
-        PlayerMoving();
-        PlayerAttack();
-        AutoAim();
+        if(!SceneData.Inst.NPC_Talking)
+        {
+            PlayerMoving();
+            PlayerAttack();
+            AutoAim();
+        }
+        else myAnim.SetFloat("Speed", 0.0f);
     }
     void Update()
     {

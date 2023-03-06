@@ -32,9 +32,9 @@ public class QuestIntroduce : MonoBehaviour
     public void QuestSuccess()
     {
         quest = null;
-        QuestName.text = "";
-        QuestSubName.text = "";
-        QuestExplain.text = "";
-        NeedCount.text = "";
+        QuestName.text = string.Empty;
+        QuestSubName.text = string.Empty;
+        QuestExplain.text = string.Empty;
+        NeedCount.text = string.Empty;
     }
 }

@@ -30,26 +30,29 @@ public class SpringArm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        curRot.x -= Input.GetAxisRaw("Mouse Y") * Sensitivity * Time.deltaTime; //right축 회전 x값 변화
-        curRot.x = Mathf.Clamp(curRot.x, LookupRange.x, LookupRange.y);
-
-        curRot.y += Input.GetAxisRaw("Mouse X") * Sensitivity * Time.deltaTime;
-
-        transform.localRotation = Quaternion.Euler(curRot.x, 0, 0);
-        transform.parent.rotation = Quaternion.Euler(0, curRot.y, 0);
-
-        desireDistance += Input.GetAxisRaw("Mouse ScrollWheel") * ZoomSpeed;
-        desireDistance = Mathf.Clamp(desireDistance, ZoomRange.x, ZoomRange.y);
-
-
-        if (Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, -camPos.z + Offset + 0.01f, crashMask))
+        if (!SceneData.Inst.NPC_Talking)
         {
-            camPos.z = -hit.distance + Offset;
+            curRot.x -= Input.GetAxisRaw("Mouse Y") * Sensitivity * Time.deltaTime; //right축 회전 x값 변화
+            curRot.x = Mathf.Clamp(curRot.x, LookupRange.x, LookupRange.y);
+
+            curRot.y += Input.GetAxisRaw("Mouse X") * Sensitivity * Time.deltaTime;
+
+            transform.localRotation = Quaternion.Euler(curRot.x, 0, 0);
+            transform.parent.rotation = Quaternion.Euler(0, curRot.y, 0);
+
+            desireDistance += Input.GetAxisRaw("Mouse ScrollWheel") * ZoomSpeed;
+            desireDistance = Mathf.Clamp(desireDistance, ZoomRange.x, ZoomRange.y);
+
+
+            if (Physics.Raycast(transform.position, -transform.forward, out RaycastHit hit, -camPos.z + Offset + 0.01f, crashMask))
+            {
+                camPos.z = -hit.distance + Offset;
+            }
+            else
+            {
+                camPos.z = Mathf.Lerp(camPos.z, desireDistance, Time.deltaTime * 1.0f);
+            }
+            myCam.localPosition = camPos;
         }
-        else
-        {
-            camPos.z = Mathf.Lerp(camPos.z, desireDistance, Time.deltaTime * 1.0f);
-        }
-        myCam.localPosition = camPos;
     }
 }
