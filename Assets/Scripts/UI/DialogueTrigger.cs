@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue info;
     public Dialogue Successinfo;
     public Dialogue Alreadyinfo;
+    public Dialogue AlreadySuccessinfo;
 
     public void Trigger(Dialogue d, UnityAction done = null)
     {

@@ -13,6 +13,6 @@ public class CharacterWarpSystem : MonoBehaviour
         SceneData.Inst.UIOn();
         SceneLoaded.inst.WarpPoint(num);
         SceneLoaded.inst.isWarp = true;
-        LoadingSceneController.LoadScene("PlayScene");
+        LoadingSceneController.LoadScene();
     }
 }

@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.Rendering;
 
 public class LoadingSceneController : MonoBehaviour
 {
     static string nextScene;
     [SerializeField] Slider LoadSlider;
 
-    public static void LoadScene(string sceneName)
+    public static void LoadScene()
     {
-        nextScene = sceneName;
         SceneManager.LoadScene("LoadingScene");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadSceneProcess());
+        StartCoroutine(NewSceneProcess());
     }
 
-    IEnumerator LoadSceneProcess()
+    IEnumerator NewSceneProcess()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        AsyncOperation op = SceneManager.LoadSceneAsync("PlayScene");
         op.allowSceneActivation = false; //페이크로딩
 
         float timer = 0.0f;
@@ -45,6 +43,8 @@ public class LoadingSceneController : MonoBehaviour
                     op.allowSceneActivation = true;
                     yield break;
                 }
+                Destroy(TitleScene.inst.gameObject);
+                Debug.Log("오브젝트 사라짐");
             }
         }
     }

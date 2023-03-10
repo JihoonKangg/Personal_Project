@@ -1,0 +1,1 @@
+{"playerPos":{"x":224.62437438964845,"y":43.3038330078125,"z":585.7086791992188},"worldLevel":3,"WarriorLevel":1,"WizardLevel":3,"EXP":180,"Warrior_hp":710.0,"Wizard_hp":510.0,"invenArrayNum":[0],"invenItemName":["마법의 나무 조각"],"invenItemNumber":[27],"questArrayNum":[],"questcode":[]}

@@ -8,10 +8,6 @@ public class PlayerController : CharacterProperty
     [SerializeField]
     public float moveSpeed = 5.0f;
 
-    void Start()
-    {
-
-    }
 
     void Update()
     {

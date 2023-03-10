@@ -11,6 +11,16 @@ public class Inventory : UIchecker
     [SerializeField] UpgradeWeaponMainSlot U_W_MainSlot;
     [SerializeField] MainSlot M_MainSlot;
 
+    public InventorySlot[] GetInvenSlots() { return slots; } //세이브 데이터에 넣기위한 반환값
+
+    [SerializeField] private Item[] items;
+    public void LoadToInven(int _arrayNum, string _itemName, int _itemNum)
+    {
+        for (int i = 0; i < items.Length; i++) //아이템의 갯수만큼 포문을 돌림
+            if (items[i].itemName == _itemName) //아이템 이름과 일치할 경우
+                slots[_arrayNum].Additem(items[i], _itemNum); //아이템s의 i번째에 아이템 갯수를 넣는 과정
+    }
+
     // Start is called before the first frame update
     void Start()
     {

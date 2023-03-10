@@ -20,6 +20,13 @@ public class QuestUpdate : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                if(quest.Success)
+                {
+                    dia = transform.GetComponent<DialogueTrigger>().AlreadySuccessinfo;
+                    transform.GetComponent<DialogueTrigger>().Trigger(dia);
+                    return;
+                }
+
                 pickupActivated = false;
                 for (int i = 0; i < SceneData.Inst.myquest.slots.Length; i++)
                 {
@@ -43,6 +50,7 @@ public class QuestUpdate : MonoBehaviour
                             transform.GetComponent<DialogueTrigger>().Trigger(dia);
                             Debug.Log("퀘스트 성공");
                             SceneData.Inst.myquest.slots[i].QuestSuccess(); //퀘스트 성공하여 슬롯 초기화
+                            quest.Success = true;
                             return;
                         }
                         else //퀘스트 진행중

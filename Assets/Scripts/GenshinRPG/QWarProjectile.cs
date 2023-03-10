@@ -15,7 +15,7 @@ public class QWarProjectile : MonoBehaviour
     {
         if ((enemyMask & 1 << other.gameObject.layer) != 0)
         {
-            other.GetComponent<IBattle>().OnDamage(SceneData.Inst.warreir.ChaEAP);
+            other.GetComponent<IBattle>().OnDamage(SceneData.Inst.warrior.ChaEAP);
         }
     }
 }

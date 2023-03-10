@@ -32,6 +32,10 @@ public class CharacterDATAUSE : BattleSystem
     public void WeaponLevelUP() //무기레벨업
     {
         W_LEVEL++;
+        WeaponLevelSet();
+    }
+    public void WeaponLevelSet()
+    {
         W_AP = orgWeaponData.WeaponAP[W_LEVEL - 1];
         Critical_P = orgWeaponData.CriticalPercent[W_LEVEL - 1];
         CriticalAP = orgWeaponData.CriticalAP[W_LEVEL - 1];

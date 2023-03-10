@@ -20,7 +20,7 @@ MonoBehaviour:
   rotSpeed: 360
   attackRange: 4
   attackDelay: 3
-  attackRadius: 0.6
+  attackRadius: 1
   qSkillStiffTime: 7
   exp: 15
   monsterCode: 101

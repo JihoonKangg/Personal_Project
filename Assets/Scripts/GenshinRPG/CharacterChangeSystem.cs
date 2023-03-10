@@ -7,7 +7,6 @@ public class CharacterChangeSystem : MonoBehaviour
     public GameObject[] myPlayer;
     public GameObject[] myPlayerSkillUI;
     public Animator[] UserUIControl;
-
     //0 : Warrior
     //1 : Wizard
 
@@ -29,16 +28,12 @@ public class CharacterChangeSystem : MonoBehaviour
                 myPlayerSkillUI[0].SetActive(true);
                 myPlayer[1].SetActive(false);
                 myPlayerSkillUI[1].SetActive(false);
-                //UserUIControl[0].SetBool("WarrierChoose", true);
-                //UserUIControl[1].SetBool("WizardChoose", false);
                 break;
             case ChooseCharacter.Wizard:
                 myPlayer[1].SetActive(true);
                 myPlayer[0].SetActive(false);
                 myPlayerSkillUI[0].SetActive(false);
                 myPlayerSkillUI[1].SetActive(true);
-                //UserUIControl[0].SetBool("WarrierChoose", false);
-                //UserUIControl[1].SetBool("WizardChoose", true);
                 break;
         }
     }
@@ -47,6 +42,10 @@ public class CharacterChangeSystem : MonoBehaviour
     void Start()
     {
         ChangeCharacter(myCharacter);
+
+        myPlayer[0].SetActive(true);
+        myPlayer[1].SetActive(false);
+
         UserUIControl[0].SetBool("WarrierChoose", true);
         UserUIControl[1].SetBool("WizardChoose", false);
     }
@@ -55,19 +54,31 @@ public class CharacterChangeSystem : MonoBehaviour
     void Update()
     {
         Animator myAnim = GetComponentInChildren<Animator>();
-        ;
+        
         if (Input.GetKeyDown(KeyCode.Alpha1) && !myAnim.GetBool("IsAttaking") && !myAnim.GetBool("IsComboAttacking")
             && !myAnim.GetBool("IsDamage") && !myAnim.GetBool("IsComboAttacking1") &&
             !myAnim.GetBool("IsESkillAttacking") && !myAnim.GetBool("IsQSkillAttacking"))
         {
+            if (SceneData.Inst.warrior.IsDead)
+            {
+                SceneData.Inst.CantChangeMessage.SetTrigger("CantChange");
+                return;
+            }
             ChangeCharacter(ChooseCharacter.Warrior);
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2) && !myAnim.GetBool("IsAttaking") && !myAnim.GetBool("IsComboAttacking")
             && !myAnim.GetBool("IsDamage") && !myAnim.GetBool("IsComboAttacking1") &&
             !myAnim.GetBool("IsESkillAttacking") && !myAnim.GetBool("IsQSkillAttacking"))
         {
+            if (SceneData.Inst.wizard.IsDead)
+            {
+                SceneData.Inst.CantChangeMessage.SetTrigger("CantChange");
+                return;
+            }
             ChangeCharacter(ChooseCharacter.Wizard);
         }
+        
+
 
         switch(myCharacter) 
         {
@@ -77,6 +88,7 @@ public class CharacterChangeSystem : MonoBehaviour
                 UserUIControl[1].SetBool("WizardChoose", false);
                 break;
             case ChooseCharacter.Wizard:
+                
                 myPlayer[0].transform.position = myPlayer[1].transform.position;
                 UserUIControl[0].SetBool("WarrierChoose", false);
                 UserUIControl[1].SetBool("WizardChoose", true);

@@ -11,6 +11,7 @@ public class SceneLoaded : MonoBehaviour
 
     public int warpNum = 0;
     public bool isWarp = false;
+    public bool IsSave = false;
 
     private void Awake()
     {
@@ -20,7 +21,6 @@ public class SceneLoaded : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(this.gameObject);
-
     }
     private void OnEnable()
     {
@@ -36,6 +36,11 @@ public class SceneLoaded : MonoBehaviour
         {
             playerPosition = SceneData.Inst.Player.transform.position;
             isWarp = !isWarp;
+        }
+
+        if(IsSave)
+        {
+
         }
         
         if(SceneData.Inst.Player != null)

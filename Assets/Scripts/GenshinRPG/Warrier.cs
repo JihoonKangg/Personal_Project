@@ -6,29 +6,18 @@ using UnityEngine.UI;
 public class Warrier : CharacterMovement
 {
     [SerializeField] GameObject[] QSkillPrefabs;
-    [SerializeField] Slider MyHPRightUI;
 
-    void Start()
+
+    void Update()
     {
-
-    }
-    private void FixedUpdate()
-    {
-        curHP = Mathf.Clamp(curHP, 0.0f, HP);
-
-        HpValue = curHP / HP;
-        MyHPRightUI.value = HpValue;
-
-        if(!SceneData.Inst.NPC_Talking)
+        if (!SceneData.Inst.NPC_Talking && !IsDead)
         {
             PlayerMoving();
             PlayerAttack();
             AutoAim();
         }
         else myAnim.SetFloat("Speed", 0.0f);
-    }
-    void Update()
-    {
+
         if (IsCombable)
         {
             if(Input.GetMouseButtonDown(0))
@@ -88,10 +77,12 @@ public class Warrier : CharacterMovement
     public override void OnBigDamage(float Bigdmg) //강한데미지 받을 때
     {
         curHP -= Bigdmg;
+        Hpupdate();
 
         if (HpValue == 0.0f) //죽었을 때
         {
             //Death 트리거 발동
+            IsDead = true;
             myAnim.SetTrigger("Die");
         }
         else
@@ -105,10 +96,12 @@ public class Warrier : CharacterMovement
     public override void OnDamage(float dmg) //일반 데미지 받을 때
     {
         curHP -= dmg;
+        Hpupdate();
 
         if (HpValue == 0.0f) //죽었을 때
         {
             //Death 트리거 발동
+            IsDead = true;
             myAnim.SetTrigger("Die");
         }
         else

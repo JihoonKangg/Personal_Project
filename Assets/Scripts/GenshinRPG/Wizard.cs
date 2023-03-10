@@ -7,21 +7,23 @@ using UnityEngine.UI;
 public class Wizard : CharacterMovement
 {
     public Transform myAttackPos;
-    [SerializeField] Slider MyHPRightUI;
+    
 
-    private void FixedUpdate()
+
+    /*private void FixedUpdate()
     {
         curHP = Mathf.Clamp(curHP, 0.0f, HP);
 
         HpValue = curHP / HP;
         MyHPRightUI.value = HpValue;
-    }
+    }*/
     void Update()
     {
-        if (!SceneData.Inst.NPC_Talking)
+        if (!SceneData.Inst.NPC_Talking && !IsDead)
         {
             PlayerMoving();
             PlayerAttack();
+            WizardMove();
             AutoAim();
         }
         else myAnim.SetFloat("Speed", 0.0f);
@@ -90,10 +92,12 @@ public class Wizard : CharacterMovement
     public override void OnBigDamage(float Bigdmg) //강한데미지 받을 때
     {
         curHP -= Bigdmg;
+        Hpupdate();
 
         if (HpValue == 0.0f) //죽었을 때
         {
             //Death 트리거 발동
+            IsDead = true;
             myAnim.SetTrigger("Die");
 
         }
@@ -108,10 +112,12 @@ public class Wizard : CharacterMovement
     public override void OnDamage(float dmg) //일반 데미지 받을 때
     {
         curHP -= dmg;
+        Hpupdate();
 
         if (HpValue == 0.0f) //죽었을 때
         {
             //Death 트리거 발동
+            IsDead = true;
             myAnim.SetTrigger("Die");
         }
         else

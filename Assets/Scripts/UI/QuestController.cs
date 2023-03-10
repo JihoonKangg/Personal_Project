@@ -9,6 +9,16 @@ public class QuestController : UIchecker
     [SerializeField]
     private GameObject go_SlotsParent;
 
+    public QuestSlot[] GetQuestSlots() { return slots; }
+
+    [SerializeField] private Quest[] quests;
+    public void LoadToQuest(int _arrayNum, int _questcode)
+    {
+        for (int i = 0; i < quests.Length; i++) //퀘스트 슬롯의 갯수만큼 포문을 돌림
+            if (quests[i].QuestCode == _questcode) //퀘스트코드가 일치할 경우
+                slots[_arrayNum].Addquest(quests[i]); //퀘스트의 i번째에 퀘스트를 넣음
+    }
+
     void Start()
     {
         slots = go_SlotsParent.GetComponentsInChildren<QuestSlot>();

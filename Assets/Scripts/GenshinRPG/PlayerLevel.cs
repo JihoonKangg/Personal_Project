@@ -45,7 +45,7 @@ public class PlayerLevel : MonoBehaviour
         wizard.CharacterLevelUP();
     }
 
-    private void LevelSet()
+    public void LevelSet()
     {
         Level_Text[0].text = "Lv. " + SceneData.Inst.WorldLevel.ToString();
         Level_Text[1].text = Level_Text[0].text;
@@ -54,15 +54,9 @@ public class PlayerLevel : MonoBehaviour
         Exp_Text[1].text = expData.EXP[SceneData.Inst.WorldLevel - 1].ToString();
     }
 
-    private void ExpUpdate()
+    public void ExpUpdate()
     {
         Exp_Text[0].text = EXP.ToString() + "  /";
         ExpSlider.value = (float)EXP / (float)expData.EXP[SceneData.Inst.WorldLevel - 1];
-    }
-
-    public void LevelUPtest()
-    {
-        SceneData.Inst.ExpSlider.GetComponent<Animator>().SetTrigger("Show");
-        EXP += 30;
     }
 }

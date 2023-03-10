@@ -7,14 +7,18 @@ using UnityEngine.UI;
 
 public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스터/플레이어)
 {
+    [SerializeField] protected Slider MyHPRightUI;
     protected float CharacterRotSpeed = 10.0f;
     Quaternion targetRot = Quaternion.identity;
     protected float AttackCount = 0.0f;
     protected float HpValue = 1.0f;
     private float targetSpeed = 0.0f;
+
     //콤보체크 담당
     protected bool IsCombable = false;
     protected int ClickCount = 0;
+
+    public bool IsDead = false;
 
     protected void PlayerMoving()
     {        
@@ -94,6 +98,14 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
         }
     }
 
+    public void Hpupdate()
+    {
+        curHP = Mathf.Clamp(curHP, 0.0f, HP);
+
+        HpValue = curHP / HP;
+        MyHPRightUI.value = HpValue;
+    }
+
     public void AutoAim()
     {
         if (myTarget == null) return;
@@ -120,7 +132,6 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
             }
         }
     }
-
 
 
     public Transform[] myAttackPoint;
