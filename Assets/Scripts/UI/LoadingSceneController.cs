@@ -23,29 +23,30 @@ public class LoadingSceneController : MonoBehaviour
     IEnumerator NewSceneProcess()
     {
         AsyncOperation op = SceneManager.LoadSceneAsync("PlayScene");
-        op.allowSceneActivation = false; //페이크로딩
+        op.allowSceneActivation = false; 
+        //씬의 로딩이 끝나면 자동으로 불러온 씬으로 이동할것인지 설정하는것.
 
         float timer = 0.0f;
         while(!op.isDone)
         {
             yield return null;
 
-            if(op.progress < 0.9f)
+            if (op.progress < 0.9f)
             {
                 LoadSlider.value = op.progress;
             }
+
             else
             {
                 timer += Time.unscaledDeltaTime;
                 LoadSlider.value = Mathf.Lerp(0.9f, 1f, timer);
-                if(LoadSlider.value >= 1.0f)
+                if (LoadSlider.value >= 1.0f)
                 {
                     op.allowSceneActivation = true;
-                    yield break;
                 }
-                Destroy(TitleScene.inst.gameObject);
-                Debug.Log("오브젝트 사라짐");
             }
         }
+        /*Destroy(TitleScene.inst.gameObject);
+        Debug.Log("오브젝트 사라짐");*/
     }
 }

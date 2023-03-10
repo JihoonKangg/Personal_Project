@@ -121,7 +121,7 @@ public class SaveLoad : MonoBehaviour
             inven = FindObjectOfType<Inventory>();
             quest = FindObjectOfType<QuestController>();
             thePlayer = FindObjectOfType<CharacterChangeSystem>();
-            wiz = SceneData.Inst.wizard;
+            wiz = SceneData.Inst.wizard;   
             war = SceneData.Inst.warrior;
             exp = FindObjectOfType<PlayerLevel>();
 

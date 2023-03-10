@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e587d136c676b741a2c1c2289a39018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theSaveLoad: {fileID: 0}
+  theSaveLoad: {fileID: 409021517}
 --- !u!114 &409021517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +638,6 @@ GameObject:
   - component: {fileID: 523065389}
   - component: {fileID: 523065388}
   - component: {fileID: 523065387}
-  - component: {fileID: 523065386}
   m_Layer: 5
   m_Name: Load_Button
   m_TagString: Untagged
@@ -667,18 +666,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -75}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &523065386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523065384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cd848c2ea8e8e4bb76f2f694dc0b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &523065387
 MonoBehaviour:
   m_ObjectHideFlags: 0

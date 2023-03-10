@@ -23,18 +23,18 @@ public class SaveLoadingSceneController : MonoBehaviour
     IEnumerator LoadSceneProcess()
     {
         AsyncOperation op = SceneManager.LoadSceneAsync("PlayScene");
-        //op.allowSceneActivation = false; //페이크로딩
+        op.allowSceneActivation = false; //페이크로딩
 
         float timer = 0.0f;
         while (!op.isDone)
         {
             yield return null;
 
-            /*if (op.progress < 0.9f)
+            if (op.progress < 0.9f)
             {
                 LoadSlider.value = op.progress;
-            }*/
-            /*else
+            }
+            else
             {
                 timer += Time.unscaledDeltaTime;
                 LoadSlider.value = Mathf.Lerp(0.9f, 1f, timer);
@@ -43,12 +43,7 @@ public class SaveLoadingSceneController : MonoBehaviour
                     op.allowSceneActivation = true;
                     yield break;
                 }
-            }*/
+            }
         }
-
-        TitleScene.inst.theSaveLoad = FindObjectOfType<SaveLoad>();
-        TitleScene.inst.theSaveLoad.LoadData();
-        SceneData.Inst.LoadSet();
-        Destroy(TitleScene.inst.gameObject);
     }
 }

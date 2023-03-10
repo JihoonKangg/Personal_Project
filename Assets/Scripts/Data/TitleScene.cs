@@ -26,6 +26,7 @@ public class TitleScene : MonoBehaviour
     public void ClickLoad()
     {
         Debug.Log("·Îµù");
+        //StartCoroutine(LoadSceneProcess());
         SaveLoadingSceneController.LoadScene();
     }
 
