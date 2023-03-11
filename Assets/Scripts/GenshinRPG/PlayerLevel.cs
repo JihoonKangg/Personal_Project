@@ -17,7 +17,8 @@ public class PlayerLevel : MonoBehaviour
     public int EXP;
     bool LevelUpEvent;
 
-    void Start()
+
+    private void Awake() //Start에 있는경우 저장된 데이터를 덮어씌우는 현상 발생.
     {
         LevelSet();
         ExpUpdate();

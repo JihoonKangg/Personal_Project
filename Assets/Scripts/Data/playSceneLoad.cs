@@ -14,11 +14,17 @@ public class playSceneLoad : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) //Start보다 먼저 시작함
     {
-        TitleScene.inst.theSaveLoad = FindObjectOfType<SaveLoad>();
-        TitleScene.inst.theSaveLoad.LoadData();
-        SceneData.Inst.LoadSet();
+        if (TitleScene.inst == null) return;
+
+        if(TitleScene.inst.saveLoading)
+        {
+            TitleScene.inst.theSaveLoad = FindObjectOfType<SaveLoad>();
+            TitleScene.inst.theSaveLoad.LoadData();
+            SceneData.Inst.LoadSet();
+            TitleScene.inst.saveLoading = false;
+        }
         Destroy(TitleScene.inst.gameObject);
     }
 }

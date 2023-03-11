@@ -7,6 +7,7 @@ public class TitleScene : MonoBehaviour
 {
     public static TitleScene inst;
     public SaveLoad theSaveLoad;
+    public bool saveLoading = false;
 
     private void Awake()
     {
@@ -20,17 +21,18 @@ public class TitleScene : MonoBehaviour
 
     public void ClickStart()
     {
-        LoadingSceneController.LoadScene();
+        LoadingSceneController.LoadScene("PlayScene");
     }
 
     public void ClickLoad()
     {
         Debug.Log("·Îµù");
-        //StartCoroutine(LoadSceneProcess());
-        SaveLoadingSceneController.LoadScene();
+        LoadingSceneController.LoadScene("PlayScene");
+        saveLoading = true;
+        //SaveLoadingSceneController.LoadScene();
     }
 
-    IEnumerator LoadSceneProcess()
+    /*IEnumerator LoadSceneProcess()
     {
         AsyncOperation op = SceneManager.LoadSceneAsync("PlayScene");
 
@@ -43,7 +45,7 @@ public class TitleScene : MonoBehaviour
         theSaveLoad.LoadData();
         SceneData.Inst.LoadSet();
         Destroy(gameObject);
-    }
+    }*/
 
     public void ClickContinue()
     {

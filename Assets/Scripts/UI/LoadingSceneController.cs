@@ -9,8 +9,9 @@ public class LoadingSceneController : MonoBehaviour
     static string nextScene;
     [SerializeField] Slider LoadSlider;
 
-    public static void LoadScene()
+    public static void LoadScene(string scenename)
     {
+        nextScene = scenename;
         SceneManager.LoadScene("LoadingScene");
     }
 
@@ -22,7 +23,7 @@ public class LoadingSceneController : MonoBehaviour
 
     IEnumerator NewSceneProcess()
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync("PlayScene");
+        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false; 
         //씬의 로딩이 끝나면 자동으로 불러온 씬으로 이동할것인지 설정하는것.
 
@@ -46,7 +47,5 @@ public class LoadingSceneController : MonoBehaviour
                 }
             }
         }
-        /*Destroy(TitleScene.inst.gameObject);
-        Debug.Log("오브젝트 사라짐");*/
     }
 }
