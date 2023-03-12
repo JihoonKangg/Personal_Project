@@ -106,7 +106,6 @@ public class SaveLoad : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneLoaded.inst.IsSave = true;
         SaveLoadingSceneController.LoadScene();
     }
 

@@ -9,17 +9,9 @@ public class Wizard : CharacterMovement
     public Transform myAttackPos;
     
 
-
-    /*private void FixedUpdate()
-    {
-        curHP = Mathf.Clamp(curHP, 0.0f, HP);
-
-        HpValue = curHP / HP;
-        MyHPRightUI.value = HpValue;
-    }*/
     void Update()
     {
-        if (!SceneData.Inst.NPC_Talking && !IsDead)
+        if (!SceneData.Inst.NPC_Talking && !IsDead && !SceneData.Inst.OnUI)
         {
             PlayerMoving();
             PlayerAttack();
@@ -47,6 +39,11 @@ public class Wizard : CharacterMovement
         if (GetComponentInChildren<AIPerception>().myTarget != null)
         {
             myTarget = GetComponentInChildren<AIPerception>().myTarget;
+        }
+
+        if (curHP >= HP)
+        {
+            curHP = HP;
         }
     }
 

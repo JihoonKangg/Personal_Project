@@ -10,7 +10,7 @@ public class Warrier : CharacterMovement
 
     void Update()
     {
-        if (!SceneData.Inst.NPC_Talking && !IsDead)
+        if (!SceneData.Inst.NPC_Talking && !IsDead && !SceneData.Inst.OnUI)
         {
             PlayerMoving();
             PlayerAttack();
@@ -42,6 +42,11 @@ public class Warrier : CharacterMovement
         if(myTarget == null)
         {
             myTarget = this.transform;
+        }
+
+        if(curHP >= HP)
+        {
+            curHP = HP;
         }
     }
 

@@ -66,7 +66,7 @@ public class Monster : BattleSystem
                 {
                     ib.DeadMessage(transform);
                 }
-                StartCoroutine(Disapearing(4.0f, 3.0f));
+                StartCoroutine(Disapearing(6.0f, 20.0f));
                 Destroy(myHpBar);
                 GameObject obj = Instantiate(Resources.Load("Prefabs/SkillEffect/QSkillballEffect")) as GameObject;
                 SceneData.Inst.PlayerLevel.EXP += orgData.EXP;
@@ -367,7 +367,7 @@ public class Monster : BattleSystem
         myAnim.SetBool("Run Forward", false);
     }
 
-    public IEnumerator Disapearing(float d, float t) //죽어서 사라지는 함수
+    IEnumerator Disapearing(float d, float t) //죽어서 사라지는 함수
     {
         Destroy(gameObject.GetComponent<Rigidbody>());
         Destroy(gameObject.GetComponent<CapsuleCollider>());
@@ -396,7 +396,7 @@ public class Monster : BattleSystem
         curHP -= (orgData.HP * 0.2f);
     }
 
-    public IEnumerator MonsterStiff() //궁극시 사용 시 몬스터 Stiff
+    IEnumerator MonsterStiff() //궁극시 사용 시 몬스터 Stiff
     {
         while (time <= orgData.QSkillStiffTime)
         {
@@ -418,7 +418,6 @@ public class Monster : BattleSystem
     public virtual void AttackTarget(float radius, int a = 0, int b = 0) //데미지 가하는 함수
     {
         Collider[] list = Physics.OverlapSphere(myAttackPoint[a].position, radius, myEnemyMask);
-
 
         foreach (Collider col in list)
         {

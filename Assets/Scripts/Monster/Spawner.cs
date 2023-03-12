@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
             pos.z = Random.Range(-10.0f, 10.0f);
             Vector3 rot = Vector3.zero;
             rot.y = Random.Range(0.0f, 360.0f);
-            monster = Instantiate(orgTreant, transform.position + pos, Quaternion.Euler(rot));
+            monster = Instantiate(monster, transform.position + pos, Quaternion.Euler(rot));
             list.Add(monster);
         }
 

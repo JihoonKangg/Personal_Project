@@ -17,7 +17,7 @@ public class Item : ScriptableObject
 
     public enum ItemType
     {
-        Equipment, Used, Ingredient, ETC, Upgrade //장비 소모품 재료 기타아이템 합성아이템
+        Equipment, Used, Ingredient, ETC, Upgrade, Recovery //장비 소모품 재료 기타아이템 합성아이템 회복 아이템
     }
 
 }

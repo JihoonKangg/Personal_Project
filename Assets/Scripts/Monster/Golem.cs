@@ -6,14 +6,19 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Golem : Monster
 {
+    int rnd;
     public override void AttackTarget(float radius, int a = 0, int b = 0)
     {
-        base.AttackTarget(radius, 0, 0);
+        int num = 0;
+        rnd = Random.Range(0, 100);
+        if (rnd < 60) num = 0;
+        else num = 1;
+        base.AttackTarget(radius, 0, num);
     }
 
     public void Attacktarget()
     {
-        AttackTarget(orgData.AttackRadius, 0, 1);
+        AttackTarget(orgData.AttackRadius);
     }
 
     private void Deaditem()

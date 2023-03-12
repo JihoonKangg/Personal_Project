@@ -20,6 +20,7 @@ public class SceneData : MonoBehaviour
     public GameObject ExpSlider;
     public Transform[] warpPoint;
     public Animator CantChangeMessage;
+    public Map MapUI;
 
     public float SavewarcurHP;
     public float SavewizcurHP;

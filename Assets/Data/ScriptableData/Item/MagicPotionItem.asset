@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\uD68C\uBCF5\uD3EC\uC158"
   itemCode: 4
-  itemType: 1
+  itemType: 5
   itemImage: {fileID: 21300000, guid: 90a047e8bcbca5141ad0333f4f223946, type: 3}
   upgradeItemImage: {fileID: 21300000, guid: 293b833de3e2f1d4e9a7d5a9ed0551fb, type: 3}
   itemPrefab: {fileID: 0}
