@@ -21,6 +21,9 @@ public class SceneData : MonoBehaviour
     public Transform[] warpPoint;
     public Animator CantChangeMessage;
     public Map MapUI;
+    public GameObject QuestUI;
+    public Quest2 quest2;
+    public GameObject GameOverUI;
 
     public float SavewarcurHP;
     public float SavewizcurHP;

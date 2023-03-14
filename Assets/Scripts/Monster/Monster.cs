@@ -168,7 +168,8 @@ public class Monster : BattleSystem
             {
                 for(int j = 0; j < qc.slots[i].quest.NeedMonsterCode.Length; j++)
                 {
-                    if (qc.slots[i].quest.NeedMonsterCode[j] == orgData.MonsterCode)
+                    if (qc.slots[i].quest.NeedMonsterCode[j] == orgData.MonsterCode && qc.slots[i].quest.questType == Quest.QuestType.Hunt)
+                    //퀘스트 타입이 '사냥'인 경우
                     //몬스터의 코드와 슬롯에 있는 몬스터코드가 맞을 때 전송 
                     {
                         if(qc.slots[i].neednum == qc.slots[i].quest.NeedCount)

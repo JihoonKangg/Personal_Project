@@ -32,7 +32,6 @@ public class Spawner : MonoBehaviour
                 continue;
             }
             ++i;
-            Debug.Log("몇번 체크함 ?");
         }
     }
 

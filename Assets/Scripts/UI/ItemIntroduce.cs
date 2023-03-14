@@ -62,6 +62,7 @@ public class ItemIntroduce : MonoBehaviour
                     SceneData.Inst.wizard.curHP += SceneData.Inst.wizard.HP / 5.0f;
                     SceneData.Inst.myinven.slots[i].Useitem(Item, 1);
                 }
+                break;
             }
         }
         SceneData.Inst.warrior.Hpupdate();

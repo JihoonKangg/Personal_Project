@@ -42,11 +42,13 @@ public class ItemPickUp : MonoBehaviour
                 theInventory.AcquireItem(item);
                 pickupActivated = false;
                 actionText.gameObject.SetActive(false);
+                SceneData.Inst.quest2.Check(); //이때 퀘스트 슬롯의 아이템 갯수를 늘려야함
                 Destroy(gameObject);
                 Destroy(obj);
             }
         }
     }
+
 
 
     private void OnTriggerEnter(Collider other)

@@ -28,4 +28,11 @@ public class Quest : ScriptableObject
     public int NeedCount { get { return needCount; } }
 
     public bool Success = false;
+
+    public QuestType questType; //퀘스트 유형
+
+    public enum QuestType
+    {
+        Hunt, Item//사냥, 아이템
+    }
 }
