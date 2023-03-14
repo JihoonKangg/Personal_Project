@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Quest1 : QuestStart
 {
-    private void CanPickUp()
+    private void CanPickUp(Collider other)
     {
         if (pickupActivated)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if(quest.Success)
+                StartCoroutine(RotateTarget(other));
+                if(Success)
                 {
                     dia = transform.GetComponent<DialogueTrigger>().AlreadySuccessinfo;
                     transform.GetComponent<DialogueTrigger>().Trigger(dia);
@@ -33,6 +34,7 @@ public class Quest1 : QuestStart
                             return;
                         }
                     }
+
                     else //퀘스트가 맞을 때
                     {
                         if(SceneData.Inst.myquest.slots[i].success) // 퀘스트 성공
@@ -41,7 +43,9 @@ public class Quest1 : QuestStart
                             transform.GetComponent<DialogueTrigger>().Trigger(dia);
                             Debug.Log("퀘스트 성공");
                             SceneData.Inst.myquest.slots[i].QuestSuccess(); //퀘스트 성공하여 슬롯 초기화
-                            quest.Success = true;
+                            SceneData.Inst.PlayerLevel.EXP += 50;
+                            SceneData.Inst.ExpSlider.GetComponent<Animator>().SetTrigger("Show");
+                            Success = true;
                             return;
                         }
                         else //퀘스트 진행중
@@ -61,7 +65,9 @@ public class Quest1 : QuestStart
     {
         if (myTarget == other.transform) //아직 있는 상태
         {
-            CanPickUp();
+            CanPickUp(other);
         }
     }
+
+    
 }

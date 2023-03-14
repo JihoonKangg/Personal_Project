@@ -13,14 +13,16 @@ public class Quest2 : QuestStart
         else Check();
     }
 
-    private void CanPickUp()
+    private void CanPickUp(Collider other)
     {
         if (pickupActivated)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                StartCoroutine(RotateTarget(other));
+
                 Check();
-                if (quest.Success)
+                if (Success)
                 {
                     dia = transform.GetComponent<DialogueTrigger>().AlreadySuccessinfo;
                     transform.GetComponent<DialogueTrigger>().Trigger(dia);
@@ -52,7 +54,7 @@ public class Quest2 : QuestStart
                                 transform.GetComponent<DialogueTrigger>().Trigger(dia);
                                 Debug.Log("퀘스트 성공");
                                 SceneData.Inst.myquest.slots[i].QuestSuccess(); //퀘스트 성공하여 슬롯 초기화
-                                quest.Success = true;
+                                Success = true;
                                 UseItem();
                                 SceneData.Inst.myinven.AcquireItem(Successitem, 5);
                                 return;
@@ -75,7 +77,7 @@ public class Quest2 : QuestStart
     {
         if (myTarget == other.transform) //아직 있는 상태
         {
-            CanPickUp();
+            CanPickUp(other);
         }
     }
 

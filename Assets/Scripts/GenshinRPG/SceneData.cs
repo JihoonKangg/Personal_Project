@@ -22,8 +22,9 @@ public class SceneData : MonoBehaviour
     public Animator CantChangeMessage;
     public Map MapUI;
     public GameObject QuestUI;
-    public Quest2 quest2;
     public GameObject GameOverUI;
+    public Quest1 quest1;
+    public Quest2 quest2;
 
     public float SavewarcurHP;
     public float SavewizcurHP;
@@ -47,12 +48,10 @@ public class SceneData : MonoBehaviour
         ActionUI[4].SetActive(!OnUI);
         if (OnUI)
         {
-            //Cursor.visible = !OnUI;
             Time.timeScale = 0.0f;
         }
         else 
         {
-            //Cursor.visible = OnUI;
             Time.timeScale = 1.0f;
         }
     }

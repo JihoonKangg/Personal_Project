@@ -14,6 +14,8 @@ public class SaveData //데이터를 저장시킬 클래스
     public int EXP;         //월드레벨 경험치
     public float Warrior_hp; //전사 hp
     public float Wizard_hp; //마법사 hp
+    public bool quest1; //퀘스트
+    public bool quest2; //퀘스트
 
     //인벤토리 정보
     public List<int> invenArrayNum = new List<int>();
@@ -55,6 +57,10 @@ public class SaveLoad : MonoBehaviour
         exp = FindObjectOfType<PlayerLevel>();
         wiz = SceneData.Inst.wizard;
         war = SceneData.Inst.warrior;
+
+        //퀘스트 성공여부 저장
+        SceneData.Inst.quest1.Success = saveData.quest1;
+        SceneData.Inst.quest2.Success = saveData.quest2;
 
         //월드레벨 저장
         saveData.worldLevel = SceneData.Inst.WorldLevel;
@@ -123,6 +129,10 @@ public class SaveLoad : MonoBehaviour
             wiz = SceneData.Inst.wizard;   
             war = SceneData.Inst.warrior;
             exp = FindObjectOfType<PlayerLevel>();
+
+            //퀘스트 성공여부
+            saveData.quest1 = SceneData.Inst.quest1.Success;
+            saveData.quest2 = SceneData.Inst.quest2.Success;
 
             //월드레벨
             SceneData.Inst.WorldLevel = saveData.worldLevel;

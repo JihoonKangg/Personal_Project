@@ -27,8 +27,6 @@ public class Quest : ScriptableObject
     [SerializeField] int needCount; //필요 갯수(몬스터 잡을 때/아이템 줄 때)
     public int NeedCount { get { return needCount; } }
 
-    public bool Success = false;
-
     public QuestType questType; //퀘스트 유형
 
     public enum QuestType
