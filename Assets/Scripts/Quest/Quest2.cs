@@ -97,7 +97,6 @@ public class Quest2 : QuestStart
                         SceneData.Inst.myquest.slots[i].neednum = quest.NeedCount;
                         SceneData.Inst.myquest.slots[i].success = true;
                     }
-                        
                 }
             }
         }

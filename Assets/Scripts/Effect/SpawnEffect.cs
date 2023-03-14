@@ -28,7 +28,7 @@ public class SpawnEffect : CharacterProperty
             StartCoroutine(WeaponDisapear());
         }
 
-        else if(myAnim.GetBool("IsComboAttacking") == true)
+        else if(myAnim.GetBool("IsComboAttacking") || myAnim.GetBool("IsESkillAttacking") || myAnim.GetBool("IsQSkillAttacking"))
         {
             StopCoroutine(WeaponDisapear());
             StartCoroutine(WeponSet());

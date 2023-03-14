@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 77a75ae98eb591649b09cfff70cab20d
   - enabled: 1
-    path: Assets/Scenes/SaveLoadingScene.unity
-    guid: d2acc488683896a40b39509ea9b18621
-  - enabled: 1
     path: Assets/Scenes/PlayScene.unity
     guid: 259169cd9d7b67c4988ff26b0f1eb7bf
   m_configObjects: {}

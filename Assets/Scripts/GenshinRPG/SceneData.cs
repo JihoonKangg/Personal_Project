@@ -45,8 +45,16 @@ public class SceneData : MonoBehaviour
         ActionUI[2].SetActive(!OnUI);
         ActionUI[3].SetActive(!OnUI); 
         ActionUI[4].SetActive(!OnUI);
-        if (OnUI) Time.timeScale = 0.0f;
-        else Time.timeScale = 1.0f;
+        if (OnUI)
+        {
+            //Cursor.visible = !OnUI;
+            Time.timeScale = 0.0f;
+        }
+        else 
+        {
+            //Cursor.visible = OnUI;
+            Time.timeScale = 1.0f;
+        }
     }
 
     public void LoadSet()

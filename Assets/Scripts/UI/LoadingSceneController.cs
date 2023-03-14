@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoadingSceneController : MonoBehaviour
 {
     static string nextScene;
     [SerializeField] Slider LoadSlider;
+    [SerializeField] string[] TipText;
+    [SerializeField] TMP_Text Tip_text;
 
     public static void LoadScene(string scenename)
     {
@@ -19,6 +22,8 @@ public class LoadingSceneController : MonoBehaviour
     void Start()
     {
         StartCoroutine(NewSceneProcess());
+        int i = Random.Range(0, 10);
+        Tip_text.text = TipText[i];
     }
 
     IEnumerator NewSceneProcess()
