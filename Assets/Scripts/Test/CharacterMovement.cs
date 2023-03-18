@@ -21,7 +21,7 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
     public bool IsDead = false;
 
     protected void PlayerMoving()
-    {        
+    {
         Vector3 dir = Vector2.zero;
         dir.x = Input.GetAxis("Horizontal");
         dir.z = Input.GetAxis("Vertical");
@@ -53,7 +53,7 @@ public class CharacterMovement : CharacterDATAUSE //행동에 관련된 스크립트(몬스�
             && !myAnim.GetBool("IsQSkillAttacking") && dir != Vector3.zero && !myAnim.GetBool("IsStun")) //방향, speed값 조절
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * CharacterRotSpeed);
-        }    
+        }
     }
 
     protected void PlayerAttack()

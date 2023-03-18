@@ -29,23 +29,8 @@ public class TitleScene : MonoBehaviour
         Debug.Log("·Îµù");
         LoadingSceneController.LoadScene("PlayScene");
         saveLoading = true;
-        //SaveLoadingSceneController.LoadScene();
+        
     }
-
-    /*IEnumerator LoadSceneProcess()
-    {
-        AsyncOperation op = SceneManager.LoadSceneAsync("PlayScene");
-
-        while(!op.isDone)
-        {
-            yield return null;
-        }
-
-        theSaveLoad = FindObjectOfType<SaveLoad>();
-        theSaveLoad.LoadData();
-        SceneData.Inst.LoadSet();
-        Destroy(gameObject);
-    }*/
 
     public void ClickContinue()
     {
