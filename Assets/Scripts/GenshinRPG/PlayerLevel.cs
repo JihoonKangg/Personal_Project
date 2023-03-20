@@ -44,6 +44,8 @@ public class PlayerLevel : MonoBehaviour
         LevelSet();
         warrier.CharacterLevelUP();
         wizard.CharacterLevelUP();
+        warrier.Hpupdate();
+        wizard.Hpupdate();
     }
 
     public void LevelSet()

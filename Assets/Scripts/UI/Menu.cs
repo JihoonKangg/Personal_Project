@@ -40,7 +40,7 @@ public class Menu : UIchecker
     public void ClickContinue()
     {
         Debug.Log("계속하기");
-        SaveLoad.LoadData();
+        CloseUI();
     }
 
     public void ClickExit()

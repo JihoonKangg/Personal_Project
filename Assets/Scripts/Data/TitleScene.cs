@@ -32,11 +32,6 @@ public class TitleScene : MonoBehaviour
         
     }
 
-    public void ClickContinue()
-    {
-        Debug.Log("계속하기");
-    }
-
     public void ClickExit()
     {
         Debug.Log("게임종료");
